@@ -1,8 +1,8 @@
 # Aoife's Website
 
 Single-page, scroll-driven profile site for Aoife: who she is, the services
-she offers, and how to contact her. Currently placeholder content — real
-copy and visual design come later once Aoife shares example sites she likes.
+she offers, and how to contact her. The design system is set (below); all
+copy is still placeholder.
 
 ## Stack
 
@@ -14,7 +14,8 @@ bundler, or dependency to solve a problem that doesn't exist yet.
 - `index.html` — all page sections in one file.
 - `css/styles.css` — all styles.
 - `js/main.js` — scroll-reveal (`IntersectionObserver`) + small utilities.
-- `assets/` — images, etc.
+- `assets/` — images, etc. `assets/fonts/` holds the self-hosted woff2 fonts
+  and their OFL licenses.
 
 ## Scroll animations
 
@@ -26,11 +27,46 @@ fallback (content stays visible if JS fails) — removed by `main.js` on
 load. Extend this pattern rather than introducing an animation library
 unless a design genuinely needs more than CSS transitions can do.
 
-## Design direction
+Stagger with `data-reveal-delay="<ms>"` (main.js turns it into a
+`--reveal-delay` custom property — html-validate forbids inline `style`).
+Under `prefers-reduced-motion` everything is shown immediately.
 
-Don't invent visual style unprompted — Aoife will share example sites/
-references to work from. Ask before making significant layout or visual
-decisions that aren't grounded in something she's provided.
+## Content policy
+
+Aoife is a paediatric dietitian, but **nothing real about her goes on the
+public site yet** — no specialism, credentials, real contact details,
+photos, or copy that hints at them. Keep all text as obvious placeholders
+until the user supplies real content. Placeholder contact uses
+`hello@example.com` (reserved domain) and a dummy phone number.
+
+## Design system
+
+Chosen with the user on 2026-09-26 from two references (nourishmentninja.co.uk,
+akindietitian.com). Tokens live in `:root` in `css/styles.css` — use them,
+don't add raw hex values.
+
+- **Palette** (sage with burnt-orange accent): `--cream` page bg,
+  `--cream-deep`/`--paper` cards, `--sage-light` bands and blobs, `--sage`
+  image placeholders, `--green-deep` headings, `--text-body` body text,
+  `--orange` decoration, `--orange-deep` buttons/links.
+- **Contrast rules** (WCAG AA — checked, don't regress):
+  - Filled buttons: cream on `--orange-deep`. Cream on `--orange` fails.
+  - Text on sage bands: `--green-deep`. `--text-body` on sage fails.
+  - `--orange` text only at ≥24px and only on cream. On sage, use
+    `--orange-deep`.
+- **Type**: Fraunces (headings), DM Sans (body), Caveat (handwritten
+  accent — max one or two uses on the whole page; currently hero + contact).
+- **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts.
+  Their CDN sends visitor IPs to Google, which EU courts ruled a GDPR issue;
+  a test enforces this.
+- **Decoration**: soft organic blobs (SVG behind image slots, or
+  `--radius-blob` shapes), curved wave dividers into/out of sage bands
+  (`.wave` / `.wave--flip`), simple line illustrations (inline SVG,
+  `.illo`, orange `.illo-accent` stroke). Keep it restrained.
+- **Images**: `.img-slot` placeholder blocks until real photos exist.
+- **Grids**: 3- and 4-item grids use explicit breakpoints (not `auto-fit`)
+  so a card is never orphaned on its own row.
+- For new visual directions beyond this system, ask first.
 
 ## Branch strategy
 
@@ -81,9 +117,10 @@ time, so don't skip it even for small changes.
 
 - `npm run lint` — HTML validation (`html-validate`, config in
   `.htmlvalidate.json`).
-- `npm test` — Playwright smoke tests (`tests/site.spec.js`): page loads
-  with no console errors, expected content/title present, and the
-  scroll-reveal behavior actually fires. Config in `playwright.config.js`
+- `npm test` — Playwright smoke tests (`tests/site.spec.js`): no console
+  errors, every section present, in-page links resolve, scroll-reveal
+  fires, reduced motion shows content, no horizontal overflow at 375px,
+  fonts self-hosted. Config in `playwright.config.js`
   spins up a plain `python3 -m http.server` to serve the static files —
   don't swap this for a bundler-based dev server.
 - `.github/workflows/ci.yml` runs both on every push/PR to `main`/`dev`.
