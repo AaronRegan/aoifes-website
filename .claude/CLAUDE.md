@@ -47,3 +47,32 @@ decisions that aren't grounded in something she's provided.
 Static site — deploys identically to Vercel and Cloudflare Pages with zero
 config (no build command, output directory is the repo root). No custom
 domain yet; using each host's default subdomain until one is bought.
+
+Vercel and Cloudflare Pages only handle *deployment* (auto-build/publish on
+push to `main`) — neither runs lint or tests as a gate. That's what the
+GitHub Actions workflow below is for.
+
+## Changelog policy
+
+**Every production deployment (every merge to `main`) must get an entry in
+[CHANGELOG.md](../CHANGELOG.md).** Add it as part of the PR that merges into
+`main`, not as an afterthought — date-headed, newest on top, following the
+existing format. This is how design/content iterations get tracked over
+time, so don't skip it even for small changes.
+
+## Testing & CI
+
+- `npm run lint` — HTML validation (`html-validate`, config in
+  `.htmlvalidate.json`).
+- `npm test` — Playwright smoke tests (`tests/site.spec.js`): page loads
+  with no console errors, expected content/title present, and the
+  scroll-reveal behavior actually fires. Config in `playwright.config.js`
+  spins up a plain `python3 -m http.server` to serve the static files —
+  don't swap this for a bundler-based dev server.
+- `.github/workflows/ci.yml` runs both on every push/PR to `main`/`dev`.
+- `package.json` exists **only** for this dev/CI tooling (Playwright,
+  html-validate). It must never grow a build step for the site itself —
+  the deployed site stays plain static files with zero build command on
+  both hosts.
+- When adding new sections/markup, extend `tests/site.spec.js` with
+  assertions for the new content rather than leaving it uncovered.

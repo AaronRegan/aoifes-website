@@ -19,6 +19,25 @@ Just open `index.html` in a browser, or serve it:
 npx serve .
 ```
 
+## Testing
+
+Requires Node.js. Install dependencies once, then:
+
+```bash
+npm install
+npm run lint   # HTML validation
+npm test       # Playwright smoke tests
+```
+
+CI (`.github/workflows/ci.yml`) runs both on every push/PR to `main` and
+`dev`. Vercel and Cloudflare Pages only handle deployment — they don't run
+these checks.
+
+## Changelog
+
+Every production deploy (merge to `main`) gets an entry in
+[CHANGELOG.md](CHANGELOG.md).
+
 ## Branches
 
 - `main` — production. Deploys to the live site on Vercel and Cloudflare

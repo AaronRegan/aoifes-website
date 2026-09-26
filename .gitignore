@@ -12,3 +12,7 @@
 # In case a build step gets added later
 node_modules/
 dist/
+
+# Test tooling
+playwright-report/
+test-results/
