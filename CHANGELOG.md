@@ -8,6 +8,12 @@ top. Every merge to `main` (production) gets an entry.
 
 ### Added
 
+- Vercel Speed Insights tracking script.
+
+## 2026-09-26 — Analytics & Cloudflare removal
+
+### Added
+
 - Vercel Web Analytics tracking script.
 
 ### Removed
