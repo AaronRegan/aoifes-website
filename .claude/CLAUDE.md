@@ -34,8 +34,8 @@ decisions that aren't grounded in something she's provided.
 
 ## Branch strategy
 
-- `main` — production. Deploys to the live site (Vercel + Cloudflare
-  Pages, production branch = `main`).
+- `main` — production. Deploys to the live site (Vercel, production
+  branch = `main`).
 - `dev` — staging/testing. Gets preview deployments only, never the
   production domain.
 - Feature branches branch off `dev`; merge/pull requests go back into
@@ -48,13 +48,16 @@ decisions that aren't grounded in something she's provided.
 
 ## Deployment
 
-Static site — deploys identically to Vercel and Cloudflare Pages with zero
-config (no build command, output directory is the repo root). No custom
-domain yet; using each host's default subdomain until one is bought.
+Static site — deploys to Vercel with zero config (no build command, output
+directory is the repo root). No custom domain yet; using Vercel's default
+subdomain until one is bought.
 
-Vercel and Cloudflare Pages only handle *deployment* (auto-build/publish on
-push to `main`) — neither runs lint or tests as a gate. That's what the
-GitHub Actions workflow below is for.
+Cloudflare Pages was dropped (2026-09-26) — Vercel is the sole host now.
+Don't reintroduce it or its config without being asked.
+
+Vercel only handles *deployment* (auto-build/publish on push to `main`) —
+it doesn't run lint or tests as a gate. That's what the GitHub Actions
+workflow below is for.
 
 ## Changelog policy
 
@@ -77,6 +80,6 @@ time, so don't skip it even for small changes.
 - `package.json` exists **only** for this dev/CI tooling (Playwright,
   html-validate). It must never grow a build step for the site itself —
   the deployed site stays plain static files with zero build command on
-  both hosts.
+  Vercel.
 - When adding new sections/markup, extend `tests/site.spec.js` with
   assertions for the new content rather than leaving it uncovered.
