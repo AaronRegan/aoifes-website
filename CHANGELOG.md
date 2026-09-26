@@ -6,6 +6,8 @@ top. Every merge to `main` (production) gets an entry.
 
 ## [Unreleased]
 
+## 2026-09-26 — Design foundation
+
 ### Added
 
 - Design foundation: sage and burnt-orange palette, Fraunces + DM Sans
