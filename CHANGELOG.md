@@ -1,15 +1,19 @@
 # Changelog
 
-All notable changes to this site are logged here. Format loosely follows
+All notable changes to this site are logged here. Format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — newest entry on
-top. Every merge to `main` (production) gets an entry.
+top. Features merged into `dev` are listed under `[Unreleased]`; a release
+turns that into a version heading, and merging the release to `main` tags
+it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
-## 2026-09-26 — Design foundation
+## [0.1.0] — 2026-09-26
 
 ### Added
 
+- Release workflow: versioned changelog headings, automatic git tags and
+  GitHub Releases on merge to `main`.
 - Design foundation: sage and burnt-orange palette, Fraunces + DM Sans
   typography with a Caveat handwritten accent, and a decorative system of
   soft blobs, wave dividers, and line illustrations.
@@ -21,6 +25,8 @@ top. Every merge to `main` (production) gets an entry.
   support.
 - Tests for section structure, in-page links, mobile overflow, reduced
   motion, and self-hosted fonts.
+
+<!-- Entries below were production deploys made before version tags existed. -->
 
 ## 2026-09-26 — Speed Insights
 
