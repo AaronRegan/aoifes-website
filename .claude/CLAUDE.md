@@ -68,19 +68,45 @@ don't add raw hex values.
   so a card is never orphaned on its own row.
 - For new visual directions beyond this system, ask first.
 
-## Branch strategy
+## Branch strategy and release cycle
 
 - `main` — production. Deploys to the live site (Vercel, production
-  branch = `main`).
-- `dev` — staging/testing. Gets preview deployments only, never the
-  production domain.
-- Feature branches branch off `dev`; merge/pull requests go back into
-  `dev`. `dev` merges into `main` for releases.
+  branch = `main`). Every merge to `main` is a release.
+- `dev` — QA. Features accumulate here and are reviewed on the stable
+  preview URL `aoifes-website-git-dev-aaronregan.vercel.app` (behind
+  Vercel login). Never the production domain.
 - Branch protection is enabled on `main` (PR required, no direct pushes,
   including for repo admins — no bypass).
-- **Merge policy**: for PRs into `dev`, Claude may merge directly once CI is
-  green. For PRs into `main`, Claude opens the PR but never merges it —
-  the user reviews and clicks merge themselves.
+
+**Feature flow**: branch off `dev` (`feature/*`, `chore/*`) → PR into `dev`
+→ Claude merges once CI is green. Each feature adds a line under
+`## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR after
+each feature** — features batch up on `dev` until the user asks for a
+release.
+
+**Release flow** (only when the user asks to cut/ship a release):
+1. On a `release/vX.Y.Z` branch off `dev`, turn `## [Unreleased]` into
+   `## [X.Y.Z] — YYYY-MM-DD` (leave a fresh empty `## [Unreleased]` above
+   it) → PR into `dev` → merge.
+2. Open a PR `dev` → `main` titled `Release vX.Y.Z`, with the changelog
+   section as the body.
+3. The user reviews and merges it. **Claude never merges into `main`.**
+4. `.github/workflows/release.yml` runs on the push to `main`: it reads the
+   newest `## [X.Y.Z]` heading, creates tag `vX.Y.Z` and a GitHub Release
+   with that section as notes. It skips (with a warning) if that version
+   is already released — so a merge to `main` without a version bump is a
+   mistake.
+
+**Versioning** (SemVer, `0.x` until real launch): minor = new sections or
+features, patch = fixes and copy tweaks. `v1.0.0` = public launch with real
+content and a custom domain.
+
+**Hotfix**: `hotfix/*` off `main` → bump the patch version in CHANGELOG.md
+in the same branch → PR into `main` (user merges; tagged automatically) →
+then merge `main` back into `dev` so they don't drift.
+
+**Rollback**: Vercel's instant rollback to the previous production
+deployment; tags identify which commit each release was.
 
 ## Deployment
 
@@ -107,11 +133,12 @@ infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
 ## Changelog policy
 
-**Every production deployment (every merge to `main`) must get an entry in
-[CHANGELOG.md](../CHANGELOG.md).** Add it as part of the PR that merges into
-`main`, not as an afterthought — date-headed, newest on top, following the
-existing format. This is how design/content iterations get tracked over
-time, so don't skip it even for small changes.
+**Every change merged into `dev` gets a line under `## [Unreleased]` in
+[CHANGELOG.md](../CHANGELOG.md)**, in the same PR — even small ones. This
+is how design/content iterations get tracked. A release converts
+`[Unreleased]` into a version heading (see release flow above); the
+release workflow depends on that heading to tag the release, so every
+merge to `main` must ship a new version.
 
 ## Testing & CI
 
