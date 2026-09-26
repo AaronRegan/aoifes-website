@@ -30,8 +30,7 @@ npm test       # Playwright smoke tests
 ```
 
 CI (`.github/workflows/ci.yml`) runs both on every push/PR to `main` and
-`dev`. Vercel and Cloudflare Pages only handle deployment — they don't run
-these checks.
+`dev`. Vercel only handles deployment — it doesn't run these checks.
 
 ## Changelog
 
@@ -40,8 +39,7 @@ Every production deploy (merge to `main`) gets an entry in
 
 ## Branches
 
-- `main` — production. Deploys to the live site on Vercel and Cloudflare
-  Pages.
+- `main` — production. Deploys to the live site on Vercel.
 - `dev` — staging/testing. Gets preview deployments only, never the
   production domain.
 - Feature branches — branch off `dev`, open a merge/pull request back into
@@ -50,7 +48,6 @@ Every production deploy (merge to `main`) gets an entry in
 ## Deployments
 
 - **Vercel**: https://vercel.com (production branch: `main`)
-- **Cloudflare Pages**: https://pages.cloudflare.com (production branch: `main`)
 
-No custom domain yet — both hosts' default subdomains are used until one is
+No custom domain yet — Vercel's default subdomain is used until one is
 bought.

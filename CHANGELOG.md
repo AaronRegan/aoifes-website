@@ -10,6 +10,10 @@ top. Every merge to `main` (production) gets an entry.
 
 - Vercel Web Analytics tracking script.
 
+### Removed
+
+- Cloudflare Pages as a deployment target — Vercel is now the sole host.
+
 ## 2026-09-26 — Initial skeleton
 
 ### Added
