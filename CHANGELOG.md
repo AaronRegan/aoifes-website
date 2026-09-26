@@ -6,6 +6,10 @@ top. Every merge to `main` (production) gets an entry.
 
 ## [Unreleased]
 
+### Added
+
+- Vercel Web Analytics tracking script.
+
 ## 2026-09-26 — Initial skeleton
 
 ### Added

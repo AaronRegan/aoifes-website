@@ -40,7 +40,11 @@ decisions that aren't grounded in something she's provided.
   production domain.
 - Feature branches branch off `dev`; merge/pull requests go back into
   `dev`. `dev` merges into `main` for releases.
-- Branch protection is enabled on `main` (PR required, no direct pushes).
+- Branch protection is enabled on `main` (PR required, no direct pushes,
+  including for repo admins — no bypass).
+- **Merge policy**: for PRs into `dev`, Claude may merge directly once CI is
+  green. For PRs into `main`, Claude opens the PR but never merges it —
+  the user reviews and clicks merge themselves.
 
 ## Deployment
 
