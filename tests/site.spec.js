@@ -1,5 +1,14 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  // /_vercel/insights/script.js only resolves when served by Vercel itself.
+  // Stub it here so tests don't depend on (or fail on the 404 from) real
+  // Vercel infra — local dev, CI, and Cloudflare Pages never see it live.
+  await page.route('**/_vercel/insights/script.js', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/javascript', body: '' })
+  );
+});
+
 test('loads without console errors and shows placeholder content', async ({ page }) => {
   const errors = [];
   page.on('pageerror', (err) => errors.push(String(err)));
