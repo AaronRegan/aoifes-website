@@ -59,6 +59,16 @@ Vercel only handles *deployment* (auto-build/publish on push to `main`) —
 it doesn't run lint or tests as a gate. That's what the GitHub Actions
 workflow below is for.
 
+## Analytics & performance monitoring
+
+`index.html` has inline snippets for Vercel Web Analytics
+(`/_vercel/insights/script.js`) and Vercel Speed Insights
+(`/_vercel/speed-insights/script.js`). No npm packages — these are the
+plain-HTML/no-framework integration (a fixed same-origin route Vercel
+serves once the feature is enabled in the project dashboard), keeping the
+zero-build-step setup intact. Both routes only resolve on Vercel's own
+infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
+
 ## Changelog policy
 
 **Every production deployment (every merge to `main`) must get an entry in

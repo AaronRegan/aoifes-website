@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  // /_vercel/insights/script.js only resolves when served by Vercel itself.
-  // Stub it here so tests don't depend on (or fail on the 404 from) real
-  // Vercel infra — local dev, CI, and Cloudflare Pages never see it live.
+  // /_vercel/insights/script.js and /_vercel/speed-insights/script.js only
+  // resolve when served by Vercel itself. Stub them here so tests don't
+  // depend on (or fail on the 404 from) real Vercel infra.
   await page.route('**/_vercel/insights/script.js', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/javascript', body: '' })
+  );
+  await page.route('**/_vercel/speed-insights/script.js', (route) =>
     route.fulfill({ status: 200, contentType: 'application/javascript', body: '' })
   );
 });
