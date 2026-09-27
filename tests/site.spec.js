@@ -87,6 +87,22 @@ test('no horizontal overflow on a small phone', async ({ page }) => {
   expect(overflow).toBeLessThanOrEqual(0);
 });
 
+// Pre-launch only: delete or invert this test as part of the v1.0.0 launch.
+test('pre-launch: page is noindex and AI crawlers are blocked', async ({ page, request }) => {
+  await page.goto('/');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+
+  const robots = await (await request.get('/robots.txt')).text();
+  const groups = robots.split(/\n\s*\n/);
+  const aiGroup = groups.find((g) => /User-agent: GPTBot/.test(g));
+  const catchAll = groups.find((g) => /User-agent: \*/.test(g));
+
+  expect(aiGroup).toMatch(/User-agent: ClaudeBot/);
+  expect(aiGroup).toMatch(/^Disallow: \/$/m);
+  // Search engines must still be able to fetch the page to see the noindex.
+  expect(catchAll).not.toMatch(/^Disallow: \/$/m);
+});
+
 test('fonts are self-hosted, never fetched from Google', async ({ page }) => {
   const fontRequests = [];
   page.on('request', (req) => {
