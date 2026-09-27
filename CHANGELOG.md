@@ -8,6 +8,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Changed
+
+- Documented the plan for a French version (no change to the site itself).
+
 ## [0.1.1] — 2026-09-27
 
 ### Added
