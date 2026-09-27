@@ -8,6 +8,12 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Added
+
+- Pre-launch block on search engines and AI crawlers (`noindex` meta tag
+  and a `robots.txt` blocking AI bots) so placeholder content isn't
+  indexed or learned before launch.
+
 ## [0.1.0] — 2026-09-26
 
 ### Added
