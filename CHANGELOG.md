@@ -8,6 +8,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-09-27
+
 ### Added
 
 - Pre-launch block on search engines and AI crawlers (`noindex` meta tag
