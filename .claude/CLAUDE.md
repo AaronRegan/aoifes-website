@@ -131,6 +131,41 @@ serves once the feature is enabled in the project dashboard), keeping the
 zero-build-step setup intact. Both routes only resolve on Vercel's own
 infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
+## Languages (French planned)
+
+A French version is planned alongside English. **Don't build it yet** — it
+gets built once the English copy is close to final, and both languages go
+live together at the `v1.0.0` launch. Building it earlier means every
+design/content change is made twice.
+
+**Decided approach** (agreed 2026-09-27):
+- A separate static page, `fr/index.html`, sharing `css/`, `js/`, and
+  `assets/` with the English `index.html` at `/`. `lang="fr"` on its
+  `<html>`.
+- A plain-link "EN / FR" switcher in the header (no JS).
+- `hreflang` alternate links on both pages (`en`, `fr`, `x-default` → `/`).
+- No automatic redirect by browser language.
+- Rejected: a JS translation toggle (the French text wouldn't be in the HTML,
+  and most crawlers — nearly all AI crawlers — don't run JS); a static site
+  generator (breaks the no-build-step setup; revisit only if the site grows
+  to several pages); auto-translate widgets (quality risk for health
+  content, and they send visitor data to third parties).
+
+**Until then, keep the English page French-ready:**
+- All user-facing text lives in the HTML — never inside images, SVGs, or
+  JS strings.
+- Leave room in the header for the switcher.
+- No fixed-width buttons or tight text containers — French typically runs
+  15–20% longer.
+
+**When it's built:** a parity test so both pages keep the same section IDs,
+links, and structure; run the 375px overflow test on both pages; the
+`pre-launch:` noindex applies to `/fr/` too until launch; real French copy
+translated or reviewed by a fluent speaker (health content for parents —
+no raw machine translation). Still to decide with the user: which French
+audience (France vs French-speaking families elsewhere), which sets the
+`hreflang` code and some word choices.
+
 ## Search and AI discoverability
 
 **Current state: pre-launch block.** While content is placeholder, the site
@@ -146,8 +181,9 @@ they learn about "Aoife" isn't a Coming Soon page:
 - A `pre-launch:` test enforces both. Lift the block only as part of the
   `v1.0.0` launch, never earlier.
 
-**Launch checklist** (do together with real content and the custom domain):
-1. Remove the `noindex` meta; in `robots.txt` remove the AI block and add a
+**Launch checklist** (do together with real content, the French page, and
+the custom domain):
+1. Remove the `noindex` meta (both languages); in `robots.txt` remove the AI block and add a
    `Sitemap:` line; delete or invert the `pre-launch:` test.
 2. Add `sitemap.xml`, a canonical URL, a real meta description, and Open
    Graph tags for link previews.
