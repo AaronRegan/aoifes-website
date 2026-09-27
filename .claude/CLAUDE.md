@@ -131,6 +131,47 @@ serves once the feature is enabled in the project dashboard), keeping the
 zero-build-step setup intact. Both routes only resolve on Vercel's own
 infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
+## Search and AI discoverability
+
+**Current state: pre-launch block.** While content is placeholder, the site
+is kept out of search engines and AI models on purpose, so the first thing
+they learn about "Aoife" isn't a Coming Soon page:
+- `<meta name="robots" content="noindex, nofollow">` in `index.html` —
+  Google/Bing (and the AI search products that use their indexes) won't
+  list the page.
+- `robots.txt` blocks AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
+  Google-Extended, CCBot, etc.), which don't reliably honour `noindex`.
+  `User-agent: *` stays allowed — search engines must be able to fetch the
+  page to see the `noindex`. Never `Disallow: /` for everyone.
+- A `pre-launch:` test enforces both. Lift the block only as part of the
+  `v1.0.0` launch, never earlier.
+
+**Launch checklist** (do together with real content and the custom domain):
+1. Remove the `noindex` meta; in `robots.txt` remove the AI block and add a
+   `Sitemap:` line; delete or invert the `pre-launch:` test.
+2. Add `sitemap.xml`, a canonical URL, a real meta description, and Open
+   Graph tags for link previews.
+3. JSON-LD structured data: a `Person` plus a professional service (job
+   title, specialism, service area, credentials/registration, `sameAs`
+   links to her profiles).
+4. Copy that states plainly who she is, what she does, where (in person /
+   online), and her qualifications and registration. Add a plain-language
+   FAQ section with real parent questions — LLMs pick up Q&A well.
+5. Optional `llms.txt` (short Markdown summary). Little evidence the major
+   models use it yet, but it's cheap.
+6. Submit to Google Search Console and Bing Webmaster Tools (Bing feeds
+   ChatGPT search and Copilot).
+7. If DNS goes through Cloudflare, check its "block AI bots" setting is off.
+8. Off-site (user's job, but remind them): Google Business Profile,
+   professional register/"find a dietitian" directory, LinkedIn — with the
+   same name and contact details everywhere. LLMs lean heavily on these
+   when recommending professionals.
+
+Longer term: a single page is one entry point. Separate pages or short
+articles on specific topics would help her appear for topic questions,
+not just searches for her name — a change to the one-page design, so ask
+first.
+
 ## Changelog policy
 
 **Every change merged into `dev` gets a line under `## [Unreleased]` in
