@@ -4,6 +4,13 @@ document.documentElement.classList.remove('no-js');
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Slide the slim sticky bar in once the pill nav has scrolled up out of view.
+const stickyBar = document.querySelector('[data-sticky-bar]');
+new IntersectionObserver(([entry]) => {
+  const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+  stickyBar.classList.toggle('is-shown', scrolledPast);
+}).observe(document.querySelector('.site-nav'));
+
 const revealTargets = document.querySelectorAll('[data-reveal]');
 
 // Stagger via data attribute — html-validate forbids inline style attributes.
