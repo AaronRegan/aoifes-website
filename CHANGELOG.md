@@ -10,7 +10,19 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Redesign to Aoife's "Sun" direction: cream, marigold and burnt-sienna
+  palette; Montserrat with Cormorant Garamond italic (both self-hosted);
+  flat boxes — outline pills, a circle hero photo, square photo blocks,
+  hairline dividers, and a marigold testimonial band. Same sections and
+  scroll-reveal flow.
+- New header: tall marigold header with the pill nav beneath, and a slim
+  sticky bar with "Get in touch" that slides in after scrolling.
 - Documented the plan for a French version (no change to the site itself).
+
+### Removed
+
+- Sage palette, Fraunces / DM Sans / Caveat fonts, and the blob, wave and
+  line-illustration decorations.
 
 ## [0.1.1] — 2026-09-27
 

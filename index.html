@@ -5,52 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aoife — Coming Soon</title>
   <meta name="description" content="Aoife's professional profile, services, and contact — coming soon.">
-  <meta name="theme-color" content="#FBF7F0">
+  <meta name="theme-color" content="#EAA221">
   <!-- Pre-launch: keep placeholder content out of search indexes. Remove at the v1.0.0 launch (see CLAUDE.md). -->
   <meta name="robots" content="noindex, nofollow">
-  <link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="wordmark" href="#hero">Aoife</a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn-primary btn-small" href="#contact">Get in touch</a>
+    <div class="container">
+      <a class="brand" href="#hero">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 18c-4 0-6 4-6 9 0 4-8 8-8 18 0 8 6 13 14 13s14-5 14-13c0-10-8-14-8-18 0-5-2-9-6-9z"/>
+          <path d="M32 18c0-4 1-7 3-9"/>
+          <path d="M35 12c4-4 9-4 11-2-2 4-7 5-11 2z"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">[Practice Name]</span>
+          <span class="brand-tagline">[Tagline]</span>
+        </span>
+      </a>
     </div>
   </header>
+
+  <nav class="site-nav" aria-label="Main">
+    <ul class="container">
+      <li><a class="pill" href="#hero">Home</a></li>
+      <li><a class="pill" href="#about">About</a></li>
+      <li><a class="pill" href="#services">Services</a></li>
+      <li><a class="pill" href="#how-it-works">How it works</a></li>
+      <li><a class="pill" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="sticky-bar" data-sticky-bar>
+    <div class="container sticky-inner">
+      <a class="brand brand--small" href="#hero">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 18c-4 0-6 4-6 9 0 4-8 8-8 18 0 8 6 13 14 13s14-5 14-13c0-10-8-14-8-18 0-5-2-9-6-9z"/>
+          <path d="M32 18c0-4 1-7 3-9"/>
+          <path d="M35 12c4-4 9-4 11-2-2 4-7 5-11 2z"/>
+        </svg>
+        <span class="brand-name">[Practice Name]</span>
+      </a>
+      <a class="btn btn-sienna btn-small" href="#contact">Get in touch</a>
+    </div>
+  </div>
 
   <main id="main">
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Eyebrow placeholder</p>
+        <div class="img-slot img-slot--circle" role="img" aria-label="Photo placeholder" data-reveal><span>Photo</span></div>
+        <div class="hero-copy" data-reveal data-reveal-delay="150">
           <h1 id="hero-title">A warm, one-line headline goes here</h1>
-          <p class="accent-script">a friendly handwritten line</p>
+          <p class="accent">a gentle, personal line</p>
           <p class="lead">Placeholder: one or two sentences introducing who Aoife helps and how she works.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get in touch</a>
-            <a class="btn btn-ghost" href="#services">See services</a>
-          </div>
-        </div>
-        <div class="hero-media" data-reveal data-reveal-delay="150">
-          <div class="blob-frame">
-            <svg class="blob" viewBox="0 0 400 400" aria-hidden="true">
-              <path d="M205 24c58 2 118 36 146 92 30 58 20 132-26 178-46 46-120 66-184 42C77 312 30 258 26 196 22 134 50 74 104 44c30-16 66-21 101-20Z"/>
-            </svg>
-            <svg class="blob-accent" viewBox="0 0 80 80" aria-hidden="true">
-              <path d="M44 6c20 4 34 22 30 40-4 18-24 30-42 26S2 50 8 30C12 14 26 2 44 6Z"/>
-            </svg>
-            <div class="img-slot img-slot--round" role="img" aria-label="Photo placeholder"><span>Photo</span></div>
+            <a class="btn btn-outline" href="#services">See services</a>
           </div>
         </div>
       </div>
@@ -59,7 +74,7 @@
     <section id="is-this-you" class="section" aria-labelledby="is-this-you-title">
       <div class="container split">
         <div class="section-head" data-reveal>
-          <h2 id="is-this-you-title" class="heading-blob">You're in the right place if…</h2>
+          <h2 id="is-this-you-title">You're in the right place if…</h2>
           <p class="section-intro">Placeholder: a short line inviting visitors to see if this sounds familiar.</p>
         </div>
         <ul class="checklist">
@@ -72,58 +87,30 @@
       </div>
     </section>
 
-    <div class="wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 56C160 12 320 4 480 30S800 98 960 88 1280 28 1440 30V100H0Z"/></svg>
-    </div>
-
-    <section id="help" class="section band-sage" aria-labelledby="help-title">
+    <section id="help" class="section" aria-labelledby="help-title">
       <div class="container">
         <div class="section-head center" data-reveal>
           <h2 id="help-title">How I can help</h2>
           <p class="section-intro">Placeholder: a sentence summarising the kinds of support on offer.</p>
         </div>
         <ul class="help-grid">
-          <li class="help-card" data-reveal>
-            <div class="illo-wrap">
-              <svg class="illo" viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M32 22c-5-5-19-5-21 10-2 16 9 26 21 24 12 2 23-8 21-24-2-15-16-15-21-10Z"/>
-                <path d="M32 22c0-5 1-9 5-12"/>
-                <path class="illo-accent" d="M36 14c4-4 10-4 13-1-4 4-10 4-13 1Z"/>
-              </svg>
-            </div>
+          <li class="help-item" data-reveal>
+            <div class="img-slot img-slot--portrait" role="img" aria-label="Photo placeholder"><span>Photo</span></div>
             <h3>Support area one</h3>
             <p>Placeholder: a sentence or two describing this area of support.</p>
           </li>
-          <li class="help-card" data-reveal data-reveal-delay="100">
-            <div class="illo-wrap">
-              <svg class="illo" viewBox="0 0 64 64" aria-hidden="true">
-                <path class="illo-accent" d="M17 49c-3-3-1-6 1-8l16-19c3-3 8-3 11 0s3 8 0 11L26 49c-2 2-5 4-9 0Z"/>
-                <path d="M42 20c1-6 5-10 11-11M45 23c5-2 10-1 13 2M40 18c-1-5-4-9-8-10"/>
-                <path d="M24 40l4 3M30 33l3 3"/>
-              </svg>
-            </div>
+          <li class="help-item" data-reveal data-reveal-delay="100">
+            <div class="img-slot img-slot--portrait" role="img" aria-label="Photo placeholder"><span>Photo</span></div>
             <h3>Support area two</h3>
             <p>Placeholder: a sentence or two describing this area of support.</p>
           </li>
-          <li class="help-card" data-reveal data-reveal-delay="200">
-            <div class="illo-wrap">
-              <svg class="illo" viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M12 50C10 28 26 12 50 12c0 24-16 40-38 38Z"/>
-                <path d="M12 50L40 22"/>
-                <path class="illo-accent" d="M24 38h9M30 32h8"/>
-              </svg>
-            </div>
+          <li class="help-item" data-reveal data-reveal-delay="200">
+            <div class="img-slot img-slot--portrait" role="img" aria-label="Photo placeholder"><span>Photo</span></div>
             <h3>Support area three</h3>
             <p>Placeholder: a sentence or two describing this area of support.</p>
           </li>
-          <li class="help-card" data-reveal data-reveal-delay="300">
-            <div class="illo-wrap">
-              <svg class="illo" viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M8 34h48c0 12-10 20-24 20S8 46 8 34Z"/>
-                <path d="M24 54h16"/>
-                <path class="illo-accent" d="M24 26c-2-3 2-5 0-8M32 26c-2-3 2-5 0-8M40 26c-2-3 2-5 0-8"/>
-              </svg>
-            </div>
+          <li class="help-item" data-reveal data-reveal-delay="300">
+            <div class="img-slot img-slot--portrait" role="img" aria-label="Photo placeholder"><span>Photo</span></div>
             <h3>Support area four</h3>
             <p>Placeholder: a sentence or two describing this area of support.</p>
           </li>
@@ -131,20 +118,9 @@
       </div>
     </section>
 
-    <div class="wave wave--flip" aria-hidden="true">
-      <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 56C160 12 320 4 480 30S800 98 960 88 1280 28 1440 30V100H0Z"/></svg>
-    </div>
-
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="container about-grid">
-        <div class="about-media" data-reveal>
-          <div class="blob-frame blob-frame--tall">
-            <svg class="blob" viewBox="0 0 400 400" aria-hidden="true">
-              <path d="M190 30c70-6 150 34 172 106 22 70-14 150-80 186-66 36-156 30-206-22S20 176 44 118C66 64 124 36 190 30Z"/>
-            </svg>
-            <div class="img-slot img-slot--arch" role="img" aria-label="Portrait photo placeholder"><span>Portrait</span></div>
-          </div>
-        </div>
+        <div class="img-slot img-slot--portrait" role="img" aria-label="Portrait photo placeholder" data-reveal><span>Portrait</span></div>
         <div class="about-copy" data-reveal data-reveal-delay="150">
           <p class="eyebrow">About</p>
           <h2 id="about-title">Hi, I'm Aoife</h2>
@@ -168,19 +144,19 @@
           <p class="section-intro">Placeholder: a line introducing the services below.</p>
         </div>
         <div class="service-grid">
-          <article class="service-card" data-reveal>
+          <article class="service-item" data-reveal>
             <h3>Service name placeholder</h3>
             <p class="service-meta">Duration · price placeholder</p>
             <p>Placeholder: what this service includes and who it suits.</p>
             <a class="text-link" href="#contact">Enquire</a>
           </article>
-          <article class="service-card" data-reveal data-reveal-delay="100">
+          <article class="service-item" data-reveal data-reveal-delay="100">
             <h3>Service name placeholder</h3>
             <p class="service-meta">Duration · price placeholder</p>
             <p>Placeholder: what this service includes and who it suits.</p>
             <a class="text-link" href="#contact">Enquire</a>
           </article>
-          <article class="service-card" data-reveal data-reveal-delay="200">
+          <article class="service-item" data-reveal data-reveal-delay="200">
             <h3>Service name placeholder</h3>
             <p class="service-meta">Duration · price placeholder</p>
             <p>Placeholder: what this service includes and who it suits.</p>
@@ -211,25 +187,21 @@
       </div>
     </section>
 
-    <div class="wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 56C160 12 320 4 480 30S800 98 960 88 1280 28 1440 30V100H0Z"/></svg>
-    </div>
-
-    <section id="testimonials" class="section band-sage" aria-labelledby="testimonials-title">
+    <section id="testimonials" class="section band-mustard" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="section-head center" data-reveal>
           <h2 id="testimonials-title">Kind words</h2>
         </div>
         <div class="quote-grid">
-          <figure class="quote-card" data-reveal>
+          <figure class="quote" data-reveal>
             <blockquote><p>Placeholder testimonial — a short quote from a happy client goes here.</p></blockquote>
             <figcaption>Name placeholder</figcaption>
           </figure>
-          <figure class="quote-card" data-reveal data-reveal-delay="100">
+          <figure class="quote" data-reveal data-reveal-delay="100">
             <blockquote><p>Placeholder testimonial — a second quote, perhaps a little longer, describing what changed.</p></blockquote>
             <figcaption>Name placeholder</figcaption>
           </figure>
-          <figure class="quote-card" data-reveal data-reveal-delay="200">
+          <figure class="quote" data-reveal data-reveal-delay="200">
             <blockquote><p>Placeholder testimonial — a third short quote.</p></blockquote>
             <figcaption>Name placeholder</figcaption>
           </figure>
@@ -237,38 +209,32 @@
       </div>
     </section>
 
-    <div class="wave wave--flip" aria-hidden="true">
-      <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 56C160 12 320 4 480 30S800 98 960 88 1280 28 1440 30V100H0Z"/></svg>
-    </div>
-
     <section id="contact" class="section" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="contact-panel" data-reveal>
-          <h2 id="contact-title">Get in touch</h2>
-          <p class="accent-script">say hello anytime</p>
-          <p class="contact-intro">Placeholder: a line about how and when to get in touch.</p>
-          <ul class="contact-list">
-            <li>
-              <a class="contact-link" href="mailto:hello@example.com">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                hello@example.com
-              </a>
-            </li>
-            <li>
-              <a class="contact-link" href="tel:0000000000">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
-                000&nbsp;000&nbsp;0000
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div class="container contact" data-reveal>
+        <h2 id="contact-title">Get in touch</h2>
+        <p class="accent">say hello anytime</p>
+        <p class="contact-intro">Placeholder: a line about how and when to get in touch.</p>
+        <ul class="contact-list">
+          <li>
+            <a class="pill pill--icon" href="mailto:hello@example.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              hello@example.com
+            </a>
+          </li>
+          <li>
+            <a class="pill pill--icon" href="tel:0000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              000&nbsp;000&nbsp;0000
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-wordmark">Aoife</p>
+      <p class="footer-name">[Practice Name]</p>
       <p>&copy; <span id="year"></span> Aoife. All rights reserved.</p>
     </div>
   </footer>
