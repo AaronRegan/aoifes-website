@@ -74,7 +74,7 @@ test('reduced motion shows all content without scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
 
-  await expect(page.locator('#contact .contact-panel')).toHaveCSS('opacity', '1');
+  await expect(page.locator('#contact .contact')).toHaveCSS('opacity', '1');
 });
 
 test('no horizontal overflow on a small phone', async ({ page }) => {
@@ -116,5 +116,21 @@ test('fonts are self-hosted, never fetched from Google', async ({ page }) => {
 
   expect(fontRequests.some((url) => /fonts\.(googleapis|gstatic)\.com/.test(url))).toBe(false);
   expect(fontRequests.some((url) => url.includes('/assets/fonts/'))).toBe(true);
-  expect(await page.evaluate(() => document.fonts.check('500 1em Fraunces'))).toBe(true);
+  expect(await page.evaluate(() => document.fonts.check('300 1em Montserrat'))).toBe(true);
+  expect(await page.evaluate(() => document.fonts.check('italic 400 1em "Cormorant Garamond"'))).toBe(true);
+});
+
+test('slim sticky bar appears only after scrolling past the nav', async ({ page }) => {
+  await page.goto('/');
+
+  const bar = page.locator('[data-sticky-bar]');
+  await expect(bar).not.toHaveClass(/is-shown/);
+  await expect(bar).toBeHidden();
+
+  await page.locator('#about').scrollIntoViewIfNeeded();
+  await expect(bar).toHaveClass(/is-shown/);
+  await expect(bar.getByRole('link', { name: 'Get in touch' })).toBeVisible();
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(bar).not.toHaveClass(/is-shown/);
 });

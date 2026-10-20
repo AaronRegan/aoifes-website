@@ -37,35 +37,48 @@ Aoife is a paediatric dietitian, but **nothing real about her goes on the
 public site yet** — no specialism, credentials, real contact details,
 photos, or copy that hints at them. Keep all text as obvious placeholders
 until the user supplies real content. Placeholder contact uses
-`hello@example.com` (reserved domain) and a dummy phone number.
+`hello@example.com` (reserved domain) and a dummy phone number. The brand
+is `[Practice Name]` / `[Tagline]` until the real ones are supplied.
 
 ## Design system
 
-Chosen with the user on 2026-09-26 from two references (nourishmentninja.co.uk,
-akindietitian.com). Tokens live in `:root` in `css/styles.css` — use them,
-don't add raw hex values.
+**Source of truth: Aoife's design canvas**, "Paediatric Dietitian Homepage"
+(https://claude.ai/artifact/RpXhG9qdSQyHPAVg9EoLmR), variant **E · Sun**
+(`project/Sun.dc.html`: cream + marigold + burnt sienna), adopted
+2026-10-20. It replaced the earlier sage/burnt-orange system. Colours,
+fonts and box styles come from her design; the section order and
+scroll-reveal flow are ours (her canvas copy — "Paediatric Dietitian",
+topic names — is not used, per the content policy). Tokens live in `:root`
+in `css/styles.css` — use them, don't add raw hex values.
 
-- **Palette** (sage with burnt-orange accent): `--cream` page bg,
-  `--cream-deep`/`--paper` cards, `--sage-light` bands and blobs, `--sage`
-  image placeholders, `--green-deep` headings, `--text-body` body text,
-  `--orange` decoration, `--orange-deep` buttons/links.
+- **Palette**: `--cream` page bg, `--mustard` header/footer/testimonial
+  band and primary buttons, `--mustard-light` image placeholders and button
+  hover, `--sienna` headings, links, outlines, `--brown-deep` text on
+  mustard, `--text` body text, `--line` hairline dividers.
 - **Contrast rules** (WCAG AA — checked, don't regress):
-  - Filled buttons: cream on `--orange-deep`. Cream on `--orange` fails.
-  - Text on sage bands: `--green-deep`. `--text-body` on sage fails.
-  - `--orange` text only at ≥24px and only on cream. On sage, use
-    `--orange-deep`.
-- **Type**: Fraunces (headings), DM Sans (body), Caveat (handwritten
-  accent — max one or two uses on the whole page; currently hero + contact).
-- **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts.
-  Their CDN sends visitor IPs to Google, which EU courts ruled a GDPR issue;
-  a test enforces this.
-- **Decoration**: soft organic blobs (SVG behind image slots, or
-  `--radius-blob` shapes), curved wave dividers into/out of sage bands
-  (`.wave` / `.wave--flip`), simple line illustrations (inline SVG,
-  `.illo`, orange `.illo-accent` stroke). Keep it restrained.
+  - On mustard, text is always `--brown-deep` (5.6:1). Cream on mustard
+    (2:1) and sienna on mustard (4.2:1) both fail.
+  - Sienna on cream and cream on sienna are fine (8.4:1).
+- **Type**: Montserrat (everything; light 300 for headings and the brand
+  name, uppercase with 0.18em tracking for the brand) and Cormorant
+  Garamond italic as the accent (tagline, one line under the hero headline,
+  the contact line, testimonial names).
+- **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts,
+  even though her canvas does. Their CDN sends visitor IPs to Google, which
+  EU courts ruled a GDPR issue; a test enforces this.
+- **Boxes — flat**: no cards, shadows, blobs, waves or illustrations.
+  Outline pills (`.pill`, 1px sienna) for nav and contact links; filled pill
+  buttons (`.btn-primary` mustard, `.btn-sienna` on mustard backgrounds);
+  a circle photo in the hero; square-cornered 4:5 photo blocks; hairline
+  `--line` dividers between consecutive cream sections; services marked by
+  a 1px sienna top rule.
+- **Header**: tall mustard header (pear mark, brand name, tagline) with the
+  pill nav row beneath. A slim fixed `.sticky-bar` (name + "Get in touch")
+  slides in once the pill nav scrolls out of view (`main.js`), and is
+  `visibility: hidden` until then so it's out of the tab order.
 - **Images**: `.img-slot` placeholder blocks until real photos exist.
 - **Grids**: 3- and 4-item grids use explicit breakpoints (not `auto-fit`)
-  so a card is never orphaned on its own row.
+  so an item is never orphaned on its own row.
 - For new visual directions beyond this system, ask first.
 
 ## Branch strategy and release cycle
