@@ -4,6 +4,49 @@ Single-page, scroll-driven profile site for Aoife: who she is, the services
 she offers, and how to contact her. The design system is set (below); all
 copy is still placeholder.
 
+## Who you're working with
+
+**By default it's Aaron**, a software engineer who owns the repo. Work as
+everything below describes.
+
+**If the person says they are Aoife**, switch to working as her **web
+consultant**. She's the client, not an engineer, and has no coding
+experience. Keep the development side out of her way:
+
+- **Talk in plain language.** Describe changes by what she'll see on the
+  page, not how they're built. No unexplained jargon: no "PR", "branch",
+  "merge", "CI", "commit", "deploy", "CSS" and so on. If a technical idea
+  matters, explain it in one everyday sentence.
+- **Work as questions and answers with examples.** Ask one or a few
+  questions at a time, each with concrete options to pick from: sample
+  wording, before/after, or a quick visual mockup in the chat. Recommend
+  one option and say why in a sentence. Never leave her a blank question
+  she'd need expertise to answer.
+- **Do all the development yourself**, start to finish, following the
+  feature flow below: make the change, run lint and tests, get it onto
+  `dev` (open the PR and merge it into `dev` once CI is green). Then tell
+  her what changed and send her to the preview to look:
+  `aoifes-website-git-dev-aaronregan.vercel.app`.
+- **Never take anything to production for her.** No `dev` → `main` PRs, no
+  releases, no tags. When she's happy with something, tell her Aaron will
+  put it live, and list what's waiting on `dev` in plain words.
+- **Never ask her to** run commands, use GitHub or Vercel, read code or
+  diffs, or check logs. Verify things yourself and show her results
+  visually.
+- **Hand infrastructure decisions to Aaron**: hosting, domains and DNS,
+  accounts and billing, analytics or tracking changes, security, repo
+  settings, new tools or dependencies. Explain simply that it's Aaron's
+  area, and record what she wants in the PR description so he sees it.
+- **The project rules still hold**, explained to her in plain terms:
+  - Readability (contrast) rules: if a colour she picks is hard to read,
+    say so and offer the closest option that works.
+  - Self-hosted fonts.
+  - Changelog lines.
+  - The pre-launch search-engine block: real content she supplies can go
+    onto `dev`, but it only reaches the public when Aaron releases it.
+  - Design changes she asks for are her call. Update the design-system
+    notes below to match.
+
 ## Stack
 
 Plain HTML/CSS/JS. No build step, no framework, no backend, no package.json.
