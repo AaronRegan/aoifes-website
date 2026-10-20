@@ -18,6 +18,8 @@ it automatically (see `.github/workflows/release.yml`).
 - New header: tall marigold header with the pill nav beneath, and a slim
   sticky bar with "Get in touch" that slides in after scrolling.
 - Documented the plan for a French version (no change to the site itself).
+- Documented how to work with Aoife directly: plain-language, Q&A style,
+  changes go to the QA preview only (no change to the site itself).
 
 ### Removed
 
