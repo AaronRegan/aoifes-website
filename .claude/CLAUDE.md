@@ -90,7 +90,7 @@ only when Aaron releases, and the pre-launch block still applies):
 - Hero headline (2026-10-21): "Helping families feel informed and
   confident about nutrition, from first foods to family meals."
 - Hero italic line under the headline (2026-10-21): "Personalised and
-  evidence-based advice".
+  evidence-based support".
 
 **Positioning** (chosen by Aoife, 2026-10-21): **children first,
 family-wide.** She specialises in paediatrics and also supports adults,
