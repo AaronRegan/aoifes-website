@@ -10,6 +10,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Hero headline from Aoife: "Helping families feel informed and confident
+  about nutrition, from first foods to family meals."
 - Real name and title from Aoife: "Aoife O’Neill", "Paediatric and Family
   Dietitian" replace the `[Practice Name]` / `[Tagline]` placeholders in
   the header, slim bar, footer and page title.

@@ -87,6 +87,17 @@ only when Aaron releases, and the pre-launch block still applies):
 - Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
   Dietitian" — header brand name + italic tagline, slim bar, footer, page
   `<title>`.
+- Hero headline (2026-10-21): "Helping families feel informed and
+  confident about nutrition, from first foods to family meals."
+
+**Positioning** (chosen by Aoife, 2026-10-21): **children first,
+family-wide.** She specialises in paediatrics and also supports adults,
+but presented as part of supporting the family — not as an equal second
+audience. In practice: headline and most "How I can help" areas are about
+children; one area covers parents/adults as part of the family. Avoid
+long lists of unrelated adult services (weight loss, sports, menopause…),
+which would make her look like a generalist. Don't add specific adult
+services until she confirms which ones she offers.
 
 ## Design system
 
