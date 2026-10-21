@@ -91,12 +91,27 @@ only when Aaron releases, and the pre-launch block still applies):
   confident about nutrition, from first foods to family meals."
 - Hero italic line under the headline (2026-10-21): "Personalised and
   evidence-based support".
+- "How I can help" support areas (2026-10-21), in this order, shown as
+  small square image tiles (images to come from Aoife), title + optional
+  italic subheading:
+  1. Weaning support — Preterm and term infants
+  2. Growth concerns
+  3. Nutritional deficiencies
+  4. Allergies — e.g. suspected cow’s milk protein allergy (CMPA)
+  5. Gastrointestinal symptoms — e.g. reflux and constipation
+  6. Selective eating and ARFID — Avoidant/restrictive food intake disorder
+  7. Plant-based and gluten-free diets — Including vegetarian and vegan diets
+  8. Tube feeding and blended diets
+
+  Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
+  one orphaned on the last row — suggest merging or a 3 × 3 layout.
 
 **Positioning** (chosen by Aoife, 2026-10-21): **children first,
 family-wide.** She specialises in paediatrics and also supports adults,
 but presented as part of supporting the family — not as an equal second
-audience. In practice: headline and most "How I can help" areas are about
-children; one area covers parents/adults as part of the family. Avoid
+audience. In practice: headline and the "How I can help" areas are about
+children (she kept all eight areas children-focused rather than adding a
+family/adult one; the family side comes through in other copy). Avoid
 long lists of unrelated adult services (weight loss, sports, menopause…),
 which would make her look like a generalist. Don't add specific adult
 services until she confirms which ones she offers.
