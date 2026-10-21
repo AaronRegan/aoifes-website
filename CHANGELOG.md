@@ -10,6 +10,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Real name and title from Aoife: "Aoife O’Neill", "Paediatric and Family
+  Dietitian" replace the `[Practice Name]` / `[Tagline]` placeholders in
+  the header, slim bar, footer and page title.
 - Redesign to Aoife's "Sun" direction: cream, marigold and burnt-sienna
   palette; Montserrat with Cormorant Garamond italic (both self-hosted);
   flat boxes — outline pills, a circle hero photo, square photo blocks,

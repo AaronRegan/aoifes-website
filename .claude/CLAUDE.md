@@ -80,8 +80,13 @@ Aoife is a paediatric dietitian, but **nothing real about her goes on the
 public site yet** — no specialism, credentials, real contact details,
 photos, or copy that hints at them. Keep all text as obvious placeholders
 until the user supplies real content. Placeholder contact uses
-`hello@example.com` (reserved domain) and a dummy phone number. The brand
-is `[Practice Name]` / `[Tagline]` until the real ones are supplied.
+`hello@example.com` (reserved domain) and a dummy phone number.
+
+**Real content supplied by Aoife so far** (use as-is; it reaches the public
+only when Aaron releases, and the pre-launch block still applies):
+- Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
+  Dietitian" — header brand name + italic tagline, slim bar, footer, page
+  `<title>`.
 
 ## Design system
 
