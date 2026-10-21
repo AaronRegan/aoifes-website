@@ -32,7 +32,7 @@
   --step-0: 1rem;
   --step-1: 1.25rem;
   --step-2: clamp(1.7rem, 1.4rem + 1.2vw, 2.15rem);
-  --step-3: clamp(1.9rem, 1.5rem + 1.6vw, 2.4rem);
+  --step-3: clamp(1.6rem, 1.25rem + 1.6vw, 2.4rem);
   --step-accent: clamp(1.4rem, 1.25rem + 0.6vw, 1.65rem);
 
   --space-l: 2.5rem;
