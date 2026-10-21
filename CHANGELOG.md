@@ -10,6 +10,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- "How I can help" now lists Aoife's eight support areas as smaller square
+  image tiles (4 across, 2 per row on phones), each with a title and an
+  optional italic subheading. Images to follow.
 - Hero italic line from Aoife: "Personalised and evidence-based support".
 - Hero headline from Aoife: "Helping families feel informed and confident
   about nutrition, from first foods to family meals."
