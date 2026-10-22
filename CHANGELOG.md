@@ -8,8 +8,21 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Removed
+
+- The "You're in the right place if…" placeholder section (Aoife's
+  request); the page now goes straight from the hero to "How I can help".
+
 ### Changed
 
+- About me copy from Aoife, with "pronounced “Eefa”" under the heading,
+  replacing the two placeholder paragraphs.
+- Real credentials from Aoife in the About section: BSc (Glasgow
+  Caledonian University), BDA-certified paediatric postgraduate module,
+  HCPC registration, BDA membership.
+- Documented the batch-and-preview way of working with Aoife, and scoping
+  each branch by its goal so merges bundle logically (no change to the
+  site itself).
 - Support areas get simple line icons in brown and mustard (spoon,
   measuring tape, iron "Fe", milk bottle, waving stomach, plate, wheat,
   feeding tube) and a subheading each; "Selective eating and ARFID" is now
