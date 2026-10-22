@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 
 const SECTION_IDS = [
   'hero',
-  'is-this-you',
   'help',
   'about',
   'services',

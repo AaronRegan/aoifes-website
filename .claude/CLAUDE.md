@@ -23,10 +23,23 @@ experience. Keep the development side out of her way:
   one option and say why in a sentence. Never leave her a blank question
   she'd need expertise to answer.
 - **Do all the development yourself**, start to finish, following the
-  feature flow below: make the change, run lint and tests, get it onto
-  `dev` (open the PR and merge it into `dev` once CI is green). Then tell
-  her what changed and send her to the preview to look:
-  `aoifes-website-git-dev-aaronregan.vercel.app`.
+  feature flow below.
+- **Batch her changes, and show each one live** (her request, 2026-10-22):
+  - One branch per goal, not per session (see "Scope each branch by its
+    goal first" below), e.g. `content/about-section`. When she moves on
+    to a different part of the site, ask in plain words whether to send
+    what's done first ("Shall I send the About changes before we start
+    on Services?"), then start a new branch for the new goal.
+  - Keep the `static-site` preview running in the browser panel beside
+    the chat (`preview_start`, don't stop it at the end of a turn). After
+    each change, reload it and scroll to the changed spot so she sees it
+    straight away. Commit as you go, with a changelog line per change.
+  - Only when she says "send it" (or before the session ends — ask her
+    first): run lint and tests, open one PR into `dev`, merge once CI is
+    green. Then tell her it's on the preview:
+    `aoifes-website-git-dev-aaronregan.vercel.app`.
+  - The panel copy is local to this computer; the preview link only
+    changes when a batch is sent.
 - **Never take anything to production for her.** No `dev` → `main` PRs, no
   releases, no tags. When she's happy with something, tell her Aaron will
   put it live, and list what's waiting on `dev` in plain words.
@@ -119,6 +132,21 @@ only when Aaron releases, and the pre-launch block still applies):
   Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
   one orphaned on the last row — suggest merging or a 3 × 3 layout.
 
+- About me (2026-10-22): heading "Hi, I'm Aoife", italic line
+  "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
+  years in the NHS with children and adults across specialities;
+  practical, personalised, evidence-based feeding and nutrition advice
+  for parents; parents feeling listened to and heard.
+- Credentials (2026-10-22), About section list:
+  - HCPC registered (first, and abbreviated — her choice)
+  - Member of the British Dietetic Association (BDA)
+  - BSc Nutrition and Dietetics, Glasgow Caledonian University
+  - BDA-certified postgraduate module in Paediatric Nutrition and
+    Dietetics
+
+  She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
+  structured data and "find a dietitian" directory listings.
+
 **Positioning** (chosen by Aoife, 2026-10-21): **children first,
 family-wide.** She specialises in paediatrics and also supports adults,
 but presented as part of supporting the family — not as an equal second
@@ -187,11 +215,20 @@ in `css/styles.css` — use them, don't add raw hex values.
 - Branch protection is enabled on `main` (PR required, no direct pushes,
   including for repo admins — no bypass).
 
-**Feature flow**: branch off `dev` (`feature/*`, `chore/*`) → PR into `dev`
-→ Claude merges once CI is green. Each feature adds a line under
-`## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR after
-each feature** — features batch up on `dev` until the user asks for a
-release.
+**Scope each branch by its goal first** (Aaron, 2026-10-22). Before
+creating a branch, work out what the set of changes is trying to achieve
+and name the branch after that goal, not a date or "batch" (e.g.
+`content/about-section`, `feature/contact-form`, `chore/release-workflow`).
+Bundle changes that serve the same goal; when a request doesn't fit the
+current branch's goal, finish/send that branch first or start a separate
+one (ask if unsure). Each merge into `dev` should be one coherent unit
+with a PR description that states the goal.
+
+**Feature flow**: branch off `dev` (`feature/*`, `content/*`, `chore/*`) →
+PR into `dev` → Claude merges once CI is green. Each feature adds a line
+under `## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR
+after each feature** — features batch up on `dev` until the user asks for
+a release.
 
 **Release flow** (only when the user asks to cut/ship a release):
 1. On a `release/vX.Y.Z` branch off `dev`, turn `## [Unreleased]` into
