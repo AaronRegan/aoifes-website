@@ -8,6 +8,11 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Removed
+
+- The "You're in the right place if…" placeholder section (Aoife's
+  request); the page now goes straight from the hero to "How I can help".
+
 ### Changed
 
 - Documented the batch-and-preview way of working with Aoife (no change
