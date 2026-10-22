@@ -130,10 +130,10 @@ only when Aaron releases, and the pre-launch block still applies):
 
 - Credentials (2026-10-22), About section list:
   - HCPC registered (first, and abbreviated — her choice)
+  - Member of the British Dietetic Association (BDA)
   - BSc Human Nutrition and Dietetics, Glasgow Caledonian University
   - BDA-certified postgraduate modules in Paediatric Nutrition and
     Dietetics
-  - Member of the British Dietetic Association (BDA)
 
   She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
   structured data and "find a dietitian" directory listings.
