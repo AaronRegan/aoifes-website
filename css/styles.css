@@ -317,7 +317,6 @@ a:hover { color: var(--brown-deep); }
 }
 
 .img-slot--portrait { aspect-ratio: 4 / 5; }
-.img-slot--square { aspect-ratio: 1; }
 
 /* Hero */
 .hero { padding-block: var(--space-xl); }
@@ -392,7 +391,36 @@ a:hover { color: var(--brown-deep); }
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* How I can help */
+/* How I can help — line icons drawn for Aoife (2026-10-22): brown lines, mustard touches. */
+.help-icon {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: var(--mustard-light);
+}
+
+.help-icon svg {
+  width: 62%;
+  height: 62%;
+  fill: none;
+  stroke: var(--brown-deep);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.help-icon .acc { fill: var(--mustard); }
+.help-icon .hole { fill: var(--mustard-light); }
+.help-icon .ink { fill: var(--brown-deep); stroke: none; }
+.help-icon .thin { stroke-width: 1.4; }
+
+.help-icon .txt {
+  fill: var(--brown-deep);
+  stroke: none;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
 .help-item h3 {
   margin: 1rem 0 0.25rem;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
