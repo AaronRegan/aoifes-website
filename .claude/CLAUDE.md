@@ -128,6 +128,16 @@ only when Aaron releases, and the pre-launch block still applies):
   Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
   one orphaned on the last row — suggest merging or a 3 × 3 layout.
 
+- Credentials (2026-10-22), About section list:
+  - BSc Human Nutrition and Dietetics, Glasgow Caledonian University
+  - BDA-certified postgraduate modules in Paediatric Nutrition and
+    Dietetics
+  - Registered with the Health and Care Professions Council (HCPC)
+  - Member of the British Dietetic Association (BDA)
+
+  She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
+  structured data and "find a dietitian" directory listings.
+
 **Positioning** (chosen by Aoife, 2026-10-21): **children first,
 family-wide.** She specialises in paediatrics and also supports adults,
 but presented as part of supporting the family — not as an equal second
