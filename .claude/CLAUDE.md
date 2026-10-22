@@ -128,6 +128,11 @@ only when Aaron releases, and the pre-launch block still applies):
   Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
   one orphaned on the last row — suggest merging or a 3 × 3 layout.
 
+- About me (2026-10-22): heading "Hi, I'm Aoife", italic line
+  "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
+  years in the NHS with children and adults across specialities;
+  practical, personalised, evidence-based feeding and nutrition advice
+  for parents; parents feeling listened to and heard.
 - Credentials (2026-10-22), About section list:
   - HCPC registered (first, and abbreviated — her choice)
   - Member of the British Dietetic Association (BDA)
