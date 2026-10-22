@@ -91,17 +91,30 @@ only when Aaron releases, and the pre-launch block still applies):
   confident about nutrition, from first foods to family meals."
 - Hero italic line under the headline (2026-10-21): "Personalised and
   evidence-based support".
-- "How I can help" support areas (2026-10-21), in this order, shown as
-  small square image tiles (images to come from Aoife), title + optional
-  italic subheading:
-  1. Weaning support — Preterm and term infants
-  2. Growth concerns
-  3. Nutritional deficiencies
-  4. Allergies — e.g. suspected cow’s milk protein allergy (CMPA)
-  5. Gastrointestinal symptoms — e.g. reflux and constipation
-  6. Selective eating and ARFID — Avoidant/restrictive food intake disorder
-  7. Plant-based and gluten-free diets — Including vegetarian and vegan diets
-  8. Tube feeding and blended diets
+- "How I can help" support areas (2026-10-21, subheadings and icons
+  2026-10-22), in this order, each a square icon tile + title + italic
+  subheading:
+  1. Weaning support — For preterm and term infants *(side-view baby spoon
+     with food)*
+  2. Growth concerns — e.g. faltering growth *(rolled sewing measuring
+     tape)*
+  3. Nutritional deficiencies — e.g. iron deficiency, diagnosed or
+     suspected *("Fe" periodic-table tile)*
+  4. Allergies — e.g. suspected cow’s milk protein allergy *(milk bottle
+     labelled "MILK")*
+  5. Gastrointestinal symptoms — e.g. reflux, constipation and diarrhoea
+     *(cute waving stomach with a face, arms and legs — the one playful
+     icon, her choice)*
+  6. Restrictive eating — Including food aversions and ARFID *(plate with
+     a single pea and a fork)*
+  7. Plant-based and gluten-free diets — Including vegetarian and vegan
+     diets, and gluten-free for diagnosed coeliac disease *(wheat stalk
+     with leaf)*
+  8. Tube feeding and blended diets — Working with your child’s medical
+     team *(feeding bag and tube)*
+
+  Aoife iterated on the icons from reference pictures; each was drawn
+  fresh (not copied). She disliked white in them — no cream fills.
 
   Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
   one orphaned on the last row — suggest merging or a 3 × 3 layout.
@@ -142,7 +155,14 @@ in `css/styles.css` — use them, don't add raw hex values.
 - **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts,
   even though her canvas does. Their CDN sends visitor IPs to Google, which
   EU courts ruled a GDPR issue; a test enforces this.
-- **Boxes — flat**: no cards, shadows, blobs, waves or illustrations.
+- **Support-area icons** (Aoife's choice, 2026-10-22): the one place with
+  illustrations. Simple inline-SVG line drawings in `.help-icon` tiles —
+  `--mustard-light` tile, `--brown-deep` 2.2px rounded strokes, `--mustard`
+  accent fills (`.acc`), no white/cream. Decorative (`aria-hidden`); the
+  title below carries the meaning. The "MILK" label is SVG text inside the
+  HTML, so the French page must change it to "LAIT".
+- **Boxes — flat** elsewhere: no cards, shadows, blobs, waves or
+  illustrations.
   Outline pills (`.pill`, 1px sienna) for nav and contact links; filled pill
   buttons (`.btn-primary` mustard, `.btn-sienna` on mustard backgrounds);
   a circle photo in the hero; square-cornered 4:5 photo blocks; hairline

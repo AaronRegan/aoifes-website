@@ -10,6 +10,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Support areas get simple line icons in brown and mustard (spoon,
+  measuring tape, iron "Fe", milk bottle, waving stomach, plate, wheat,
+  feeding tube) and a subheading each; "Selective eating and ARFID" is now
+  "Restrictive eating".
 - "How I can help" now lists Aoife's eight support areas as smaller square
   image tiles (4 across, 2 per row on phones), each with a title and an
   optional italic subheading. Images to follow.
