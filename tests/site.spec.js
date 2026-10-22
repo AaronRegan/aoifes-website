@@ -47,16 +47,17 @@ test('every planned section is present', async ({ page }) => {
   }
 });
 
-test('support areas: eight tiles, each with an image slot and a heading', async ({ page }) => {
+test('support areas: eight tiles, each with a decorative icon, heading and subheading', async ({ page }) => {
   await page.goto('/');
 
   const items = page.locator('#help .help-item');
   await expect(items).toHaveCount(8);
   for (const item of await items.all()) {
-    await expect(item.locator('.img-slot')).toHaveCount(1);
+    await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
     await expect(item.locator('h3')).not.toBeEmpty();
+    await expect(item.locator('.help-sub')).not.toBeEmpty();
   }
-  await expect(page.locator('#help')).toContainText('Selective eating and ARFID');
+  await expect(page.locator('#help')).toContainText('Restrictive eating');
 });
 
 test('every in-page link points at an element that exists', async ({ page }) => {
