@@ -132,7 +132,7 @@ only when Aaron releases, and the pre-launch block still applies):
   - HCPC registered (first, and abbreviated — her choice)
   - Member of the British Dietetic Association (BDA)
   - BSc Nutrition and Dietetics, Glasgow Caledonian University
-  - BDA-certified postgraduate modules in Paediatric Nutrition and
+  - BDA-certified postgraduate module in Paediatric Nutrition and
     Dietetics
 
   She's UK-registered (HCPC/BDA) — relevant for the launch checklist's

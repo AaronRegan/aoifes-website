@@ -16,7 +16,7 @@ it automatically (see `.github/workflows/release.yml`).
 ### Changed
 
 - Real credentials from Aoife in the About section: BSc (Glasgow
-  Caledonian University), BDA-certified paediatric postgraduate modules,
+  Caledonian University), BDA-certified paediatric postgraduate module,
   HCPC registration, BDA membership.
 - Documented the batch-and-preview way of working with Aoife (no change
   to the site itself).
