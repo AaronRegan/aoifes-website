@@ -20,8 +20,9 @@ it automatically (see `.github/workflows/release.yml`).
 - Real credentials from Aoife in the About section: BSc (Glasgow
   Caledonian University), BDA-certified paediatric postgraduate module,
   HCPC registration, BDA membership.
-- Documented the batch-and-preview way of working with Aoife (no change
-  to the site itself).
+- Documented the batch-and-preview way of working with Aoife, and scoping
+  each branch by its goal so merges bundle logically (no change to the
+  site itself).
 - Support areas get simple line icons in brown and mustard (spoon,
   measuring tape, iron "Fe", milk bottle, waving stomach, plate, wheat,
   feeding tube) and a subheading each; "Selective eating and ARFID" is now
