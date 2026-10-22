@@ -418,7 +418,8 @@ a:hover { color: var(--brown-deep); }
   .about-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 4.5rem; }
 }
 
-.about-copy h2 { margin-bottom: 1rem; }
+.about-copy h2 { margin-bottom: 0.25rem; }
+.about-pronounce { margin-bottom: 1.25rem; }
 .credentials-title { margin: 2rem 0 0.75rem; }
 
 .credentials {
