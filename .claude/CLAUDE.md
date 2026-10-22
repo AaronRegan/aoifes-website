@@ -25,7 +25,11 @@ experience. Keep the development side out of her way:
 - **Do all the development yourself**, start to finish, following the
   feature flow below.
 - **Batch her changes, and show each one live** (her request, 2026-10-22):
-  - One branch per working session (e.g. `content/<date>-batch`).
+  - One branch per goal, not per session (see "Scope each branch by its
+    goal first" below), e.g. `content/about-section`. When she moves on
+    to a different part of the site, ask in plain words whether to send
+    what's done first ("Shall I send the About changes before we start
+    on Services?"), then start a new branch for the new goal.
   - Keep the `static-site` preview running in the browser panel beside
     the chat (`preview_start`, don't stop it at the end of a turn). After
     each change, reload it and scroll to the changed spot so she sees it
@@ -211,11 +215,20 @@ in `css/styles.css` — use them, don't add raw hex values.
 - Branch protection is enabled on `main` (PR required, no direct pushes,
   including for repo admins — no bypass).
 
-**Feature flow**: branch off `dev` (`feature/*`, `chore/*`) → PR into `dev`
-→ Claude merges once CI is green. Each feature adds a line under
-`## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR after
-each feature** — features batch up on `dev` until the user asks for a
-release.
+**Scope each branch by its goal first** (Aaron, 2026-10-22). Before
+creating a branch, work out what the set of changes is trying to achieve
+and name the branch after that goal, not a date or "batch" (e.g.
+`content/about-section`, `feature/contact-form`, `chore/release-workflow`).
+Bundle changes that serve the same goal; when a request doesn't fit the
+current branch's goal, finish/send that branch first or start a separate
+one (ask if unsure). Each merge into `dev` should be one coherent unit
+with a PR description that states the goal.
+
+**Feature flow**: branch off `dev` (`feature/*`, `content/*`, `chore/*`) →
+PR into `dev` → Claude merges once CI is green. Each feature adds a line
+under `## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR
+after each feature** — features batch up on `dev` until the user asks for
+a release.
 
 **Release flow** (only when the user asks to cut/ship a release):
 1. On a `release/vX.Y.Z` branch off `dev`, turn `## [Unreleased]` into
