@@ -10,6 +10,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Documented the batch-and-preview way of working with Aoife (no change
+  to the site itself).
 - Support areas get simple line icons in brown and mustard (spoon,
   measuring tape, iron "Fe", milk bottle, waving stomach, plate, wheat,
   feeding tube) and a subheading each; "Selective eating and ARFID" is now

@@ -23,10 +23,19 @@ experience. Keep the development side out of her way:
   one option and say why in a sentence. Never leave her a blank question
   she'd need expertise to answer.
 - **Do all the development yourself**, start to finish, following the
-  feature flow below: make the change, run lint and tests, get it onto
-  `dev` (open the PR and merge it into `dev` once CI is green). Then tell
-  her what changed and send her to the preview to look:
-  `aoifes-website-git-dev-aaronregan.vercel.app`.
+  feature flow below.
+- **Batch her changes, and show each one live** (her request, 2026-10-22):
+  - One branch per working session (e.g. `content/<date>-batch`).
+  - Keep the `static-site` preview running in the browser panel beside
+    the chat (`preview_start`, don't stop it at the end of a turn). After
+    each change, reload it and scroll to the changed spot so she sees it
+    straight away. Commit as you go, with a changelog line per change.
+  - Only when she says "send it" (or before the session ends — ask her
+    first): run lint and tests, open one PR into `dev`, merge once CI is
+    green. Then tell her it's on the preview:
+    `aoifes-website-git-dev-aaronregan.vercel.app`.
+  - The panel copy is local to this computer; the preview link only
+    changes when a batch is sent.
 - **Never take anything to production for her.** No `dev` → `main` PRs, no
   releases, no tags. When she's happy with something, tell her Aaron will
   put it live, and list what's waiting on `dev` in plain words.
