@@ -17,6 +17,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 - Hero headline from Aoife: "Evidence-based nutrition guidance to help
   children and adults thrive."
+- Hero italic line now "Personalised, practical support for every
+  family", so "evidence-based" isn't repeated from the headline.
 - About me copy from Aoife, with "pronounced “Eefa”" under the heading,
   replacing the two placeholder paragraphs.
 - Real credentials from Aoife in the About section: BSc (Glasgow

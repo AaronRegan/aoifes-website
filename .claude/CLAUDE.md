@@ -103,8 +103,9 @@ only when Aaron releases, and the pre-launch block still applies):
 - Hero headline (2026-10-28, replacing the 2026-10-21 one): "Evidence-based
   nutrition guidance to help children and adults thrive." It names adults
   alongside children — her wording.
-- Hero italic line under the headline (2026-10-21): "Personalised and
-  evidence-based support".
+- Hero italic line under the headline (2026-10-28): "Personalised,
+  practical support for every family" (changed so "evidence-based" isn't
+  repeated from the new headline).
 - "How I can help" support areas (2026-10-21, subheadings and icons
   2026-10-22), in this order, each a square icon tile + title + italic
   subheading:
