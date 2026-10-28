@@ -107,9 +107,10 @@ only when Aaron releases, and the pre-launch block still applies):
 - Hero italic line under the headline (2026-10-28): "Personalised,
   practical support for every family" (changed so "evidence-based" isn't
   repeated from the new headline).
-- Hero intro paragraph (2026-10-28), her wording: "I’m an HCPC-registered
-  dietitian with over six years’ NHS experience. I specialise in infant
-  and baby nutrition, but can offer support through all stages of life."
+- Hero intro paragraph (2026-10-28), her wording lightly polished at her
+  request: "I’m an HCPC-registered dietitian with over six years’ NHS
+  experience. I specialise in infant and child nutrition, and offer
+  support through all stages of life."
 - "How I can help" support areas (2026-10-21, subheadings and icons
   2026-10-22), in this order, each a square icon tile + title + italic
   subheading:
