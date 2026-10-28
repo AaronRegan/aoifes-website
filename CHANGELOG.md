@@ -15,6 +15,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Removed
 
+- The testimonials ("Kind words") section and its mustard band, at
+  Aoife's request.
 - The "You're in the right place if…" placeholder section (Aoife's
   request); the page now goes straight from the hero to "How I can help".
 
