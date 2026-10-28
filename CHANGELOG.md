@@ -8,6 +8,11 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Added
+
+- Aoife's real phone number in the Contact section, in international
+  format ([number removed]), replacing the dummy number.
+
 ### Removed
 
 - The "You're in the right place if…" placeholder section (Aoife's
