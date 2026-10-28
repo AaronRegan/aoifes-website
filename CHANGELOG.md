@@ -15,6 +15,13 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Hero headline from Aoife: "Evidence-based nutrition guidance from
+  infancy to adulthood."
+- Hero italic line now "Personalised, practical support for every
+  family", so "evidence-based" isn't repeated from the headline.
+- Hero intro paragraph from Aoife (HCPC registration, NHS experience,
+  infant specialism with support through all stages of life), replacing
+  the placeholder.
 - About me copy from Aoife, with "pronounced “Eefa”" under the heading,
   replacing the two placeholder paragraphs.
 - Real credentials from Aoife in the About section: BSc (Glasgow
