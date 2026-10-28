@@ -6,7 +6,6 @@ const SECTION_IDS = [
   'about',
   'services',
   'how-it-works',
-  'testimonials',
   'contact',
 ];
 
