@@ -10,8 +10,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
-- Aoife's real phone number in the Contact section (07909 346937),
-  replacing the dummy number.
+- Aoife's real phone number in the Contact section, in international
+  format (+44 7909 346937), replacing the dummy number.
 
 ### Removed
 

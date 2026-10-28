@@ -95,8 +95,9 @@ photos, or copy that hints at them. Keep all text as obvious placeholders
 until the user supplies real content. Placeholder contact uses
 `hello@example.com` (reserved domain) until her real email is supplied.
 
-Contact phone (2026-10-28, from Aoife): **07909 346937** — shown as
-`07909&nbsp;346937`, linked as `tel:+447909346937` (UK mobile).
+Contact phone (2026-10-28, from Aoife): shown in international format
+at her request, **+44 7909 346937** (`+44&nbsp;7909&nbsp;346937`), linked
+as `tel:+447909346937` (UK mobile).
 
 **Real content supplied by Aoife so far** (use as-is; it reaches the public
 only when Aaron releases, and the pre-launch block still applies):
