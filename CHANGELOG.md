@@ -10,8 +10,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
-- Aoife's real phone number in the Contact section ([number removed]),
-  replacing the dummy number.
+- Aoife's real phone number in the Contact section, in international
+  format ([number removed]), replacing the dummy number.
 
 ### Removed
 
