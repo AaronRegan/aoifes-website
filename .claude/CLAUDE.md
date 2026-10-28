@@ -100,8 +100,9 @@ only when Aaron releases, and the pre-launch block still applies):
 - Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
   Dietitian" — header brand name + italic tagline, slim bar, footer, page
   `<title>`.
-- Hero headline (2026-10-21): "Helping families feel informed and
-  confident about nutrition, from first foods to family meals."
+- Hero headline (2026-10-28, replacing the 2026-10-21 one): "Evidence-based
+  nutrition guidance to help children and adults thrive." It names adults
+  alongside children — her wording.
 - Hero italic line under the headline (2026-10-21): "Personalised and
   evidence-based support".
 - "How I can help" support areas (2026-10-21, subheadings and icons
