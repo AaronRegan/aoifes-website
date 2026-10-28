@@ -158,6 +158,10 @@ only when Aaron releases, and the pre-launch block still applies):
   She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
   structured data and "find a dietitian" directory listings.
 
+- Testimonials section removed (2026-10-28, her request). The mustard
+  band went with it; mustard now only appears in the header, slim bar,
+  footer, buttons and icon tiles. Ask before bringing testimonials back.
+
 **Positioning** (chosen by Aoife, 2026-10-21): **children first,
 family-wide.** She specialises in paediatrics and also supports adults,
 but presented as part of supporting the family — not as an equal second
@@ -179,8 +183,8 @@ scroll-reveal flow are ours (her canvas copy — "Paediatric Dietitian",
 topic names — is not used, per the content policy). Tokens live in `:root`
 in `css/styles.css` — use them, don't add raw hex values.
 
-- **Palette**: `--cream` page bg, `--mustard` header/footer/testimonial
-  band and primary buttons, `--mustard-light` image placeholders and button
+- **Palette**: `--cream` page bg, `--mustard` header/footer and primary
+  buttons, `--mustard-light` image placeholders and button
   hover, `--sienna` headings, links, outlines, `--brown-deep` text on
   mustard, `--text` body text, `--line` hairline dividers.
 - **Contrast rules** (WCAG AA — checked, don't regress):
@@ -190,7 +194,8 @@ in `css/styles.css` — use them, don't add raw hex values.
 - **Type**: Montserrat (everything; light 300 for headings and the brand
   name, uppercase with 0.18em tracking for the brand) and Cormorant
   Garamond italic as the accent (tagline, one line under the hero headline,
-  the contact line, testimonial names).
+  the contact line, the About pronunciation line, support-area
+  subheadings).
 - **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts,
   even though her canvas does. Their CDN sends visitor IPs to Google, which
   EU courts ruled a GDPR issue; a test enforces this.
