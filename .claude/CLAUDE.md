@@ -93,7 +93,10 @@ Aoife is a paediatric dietitian, but **nothing real about her goes on the
 public site yet** — no specialism, credentials, real contact details,
 photos, or copy that hints at them. Keep all text as obvious placeholders
 until the user supplies real content. Placeholder contact uses
-`hello@example.com` (reserved domain) and a dummy phone number.
+`hello@example.com` (reserved domain) until her real email is supplied.
+
+Contact phone (2026-10-28, from Aoife): **[number removed]** — shown as
+`[number removed]`, linked as `tel:[number removed]` (UK mobile).
 
 **Real content supplied by Aoife so far** (use as-is; it reaches the public
 only when Aaron releases, and the pre-launch block still applies):
