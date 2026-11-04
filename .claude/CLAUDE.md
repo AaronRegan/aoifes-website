@@ -4,6 +4,15 @@ Single-page, scroll-driven profile site for Aoife: who she is, the services
 she offers, and how to contact her. The design system is set (below); all
 copy is still placeholder.
 
+**This is the dietitian site only.** Aoife's yoga site is a separate
+project (decided 2026-11-04): repo `AaronRegan/yoga-with-aoife-website`,
+local `~/Development/yoga-with-aoife-website`, its own Vercel project,
+CLAUDE.md, changelog and releases. Yoga content, design or tooling
+changes never go in this repo — if a request is about yoga, point to that
+project instead. The two sites will get separate domains and be
+cross-linked later only via an "Also by Aoife" footer link and JSON-LD
+`sameAs` at launch.
+
 ## Who you're working with
 
 **By default it's Aaron**, a software engineer who owns the repo. Work as

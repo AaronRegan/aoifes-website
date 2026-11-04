@@ -23,6 +23,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Documented that Aoife's yoga site is a separate project and repo (no
+  change to the site itself).
 - Plant-based and gluten-free subheading: "gluten-free for coeliac
   disease" ("diagnosed" removed).
 - Contact section: a card offering a free 15-minute consultation call
