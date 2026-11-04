@@ -26,6 +26,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- "Book your free call" now opens an email with the subject "Free
+  15-minute consultation call" (to the placeholder address for now)
+  instead of ringing Aoife's phone.
 - Documented that Aoife's yoga site is a separate project and repo (no
   change to the site itself).
 - Plant-based and gluten-free subheading: "gluten-free for coeliac
