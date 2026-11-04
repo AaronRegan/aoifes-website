@@ -163,6 +163,13 @@ only when Aaron releases, and the pre-launch block still applies):
   alt "Aoife O’Neill, smiling, sitting on a sofa". Shown in the hero
   circle with a `--mustard-light` ring (`.img-slot--photo`). A ~760px
   version would look sharper on high-density screens if she has one.
+- Contact consultation offer (2026-11-04, from her "Preview: hero photo"
+  artifact): a `.consult-card` with "Book a free 15-minute consultation
+  call", a short description, and a "Book your free call" button, then
+  "Or contact me directly" above the email/phone pills. **The button
+  currently dials her phone** (`tel:`) because there's no booking tool
+  yet — her artifact linked to a non-existent `#book`. Choosing a booking
+  link (Calendly, Cal.com, etc.) is Aaron's call; swap the href then.
 - Testimonials section removed (2026-10-28, her request). The mustard
   band went with it; mustard now only appears in the header, slim bar,
   footer, buttons and icon tiles. Ask before bringing testimonials back.
@@ -211,7 +218,9 @@ in `css/styles.css` — use them, don't add raw hex values.
   title below carries the meaning. The "MILK" label is SVG text inside the
   HTML, so the French page must change it to "LAIT".
 - **Boxes — flat** elsewhere: no cards, shadows, blobs, waves or
-  illustrations.
+  illustrations. One exception, from her design: the contact
+  `.consult-card` (`--mustard-light`, 24px radius) for the free
+  consultation offer.
   Outline pills (`.pill`, 1px sienna) for nav and contact links; filled pill
   buttons (`.btn-primary` mustard, `.btn-sienna` on mustard backgrounds);
   a circle photo in the hero; square-cornered 4:5 photo blocks; hairline
