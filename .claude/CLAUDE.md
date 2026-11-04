@@ -158,6 +158,11 @@ only when Aaron releases, and the pre-launch block still applies):
   She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
   structured data and "find a dietitian" directory listings.
 
+- Hero photo (2026-11-04, from her "Preview: hero photo" artifact):
+  `assets/images/aoife-hero.jpg`, 510×510 JPEG (~39 KB, no EXIF/GPS),
+  alt "Aoife O’Neill, smiling, sitting on a sofa". Shown in the hero
+  circle with a `--mustard-light` ring (`.img-slot--photo`). A ~760px
+  version would look sharper on high-density screens if she has one.
 - Testimonials section removed (2026-10-28, her request). The mustard
   band went with it; mustard now only appears in the header, slim bar,
   footer, buttons and icon tiles. Ask before bringing testimonials back.
@@ -216,7 +221,10 @@ in `css/styles.css` — use them, don't add raw hex values.
   pill nav row beneath. A slim fixed `.sticky-bar` (name + "Get in touch")
   slides in once the pill nav scrolls out of view (`main.js`), and is
   `visibility: hidden` until then so it's out of the tab order.
-- **Images**: `.img-slot` placeholder blocks until real photos exist.
+- **Images**: real photos live in `assets/images/` and sit in their slot
+  with `.img-slot--photo` (a ring of the slot colour, image cropped with
+  `object-fit: cover`). Check new photos for EXIF/GPS before committing.
+  The About portrait is still an `.img-slot` placeholder.
 - **Grids**: 3- and 4-item grids use explicit breakpoints (not `auto-fit`)
   so an item is never orphaned on its own row.
 - For new visual directions beyond this system, ask first.

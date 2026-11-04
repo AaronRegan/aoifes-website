@@ -10,6 +10,7 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Aoife's photo in the hero circle, with a light-mustard ring around it.
 - Aoife's real phone number in the Contact section, in international
   format ([number removed]), replacing the dummy number.
 
