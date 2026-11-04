@@ -132,8 +132,8 @@ only when Aaron releases, and the pre-launch block still applies):
   6. Restrictive eating — Including food aversions and ARFID *(plate with
      a single pea and a fork)*
   7. Plant-based and gluten-free diets — Including vegetarian and vegan
-     diets, and gluten-free for diagnosed coeliac disease *(wheat stalk
-     with leaf)*
+     diets, and gluten-free for coeliac disease *(wheat stalk with leaf;
+     "diagnosed" deliberately removed 2026-11-04 — don't add it back)*
   8. Tube feeding and blended diets — Working with your child’s medical
      team *(feeding bag and tube)*
 
