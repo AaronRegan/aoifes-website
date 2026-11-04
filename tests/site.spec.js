@@ -68,6 +68,15 @@ test('hero photo loads and has alt text', async ({ page }) => {
     .toBeGreaterThan(0);
 });
 
+test('contact: free consultation card with a working call button', async ({ page }) => {
+  await page.goto('/');
+
+  const card = page.locator('#contact .consult-card');
+  await expect(card.locator('h3')).toHaveText(/free 15-minute consultation/i);
+  await expect(card.getByRole('link', { name: 'Book your free call' }))
+    .toHaveAttribute('href', /^(tel:|mailto:|https:)/);
+});
+
 test('every in-page link points at an element that exists', async ({ page }) => {
   await page.goto('/');
 

@@ -494,15 +494,51 @@ a:hover { color: var(--brown-deep); }
   text-align: center;
 }
 
-.contact .accent { margin: 0.25rem 0 0.75rem; }
-.contact-intro { max-width: 36ch; margin-inline: auto; }
+.contact .accent { margin: 0.25rem 0 0; }
+
+/* The one card on the page (Aoife's design): the free consultation offer. */
+.consult-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.25rem;
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem) clamp(1.25rem, 1rem + 3vw, 3.5rem);
+  border-radius: 24px;
+  background: var(--mustard-light);
+}
+
+.consult-card h3 { font-size: var(--step-2); font-weight: 300; }
+.consult-card p { max-width: 34rem; }
+.consult-card .btn { margin-top: 0.5rem; }
+
+.consult-icon svg {
+  width: 64px;
+  height: 64px;
+  fill: none;
+  stroke: var(--brown-deep);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.consult-icon .acc { fill: var(--mustard); }
+.consult-icon .thin { stroke-width: 1.8; }
+
+.contact-or {
+  margin-top: 2.5rem;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sienna);
+}
 
 .contact-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   list-style: none;
 }
 

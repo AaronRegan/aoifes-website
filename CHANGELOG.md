@@ -23,6 +23,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Contact section: a card offering a free 15-minute consultation call
+  (button rings Aoife's phone until a booking link is chosen), then
+  "Or contact me directly" above the email and phone; the placeholder
+  line is gone.
 - Hero headline from Aoife: "Evidence-based nutrition guidance from
   infancy to adulthood."
 - Hero italic line now "Personalised, practical support for every
