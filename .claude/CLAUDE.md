@@ -176,9 +176,11 @@ only when Aaron releases, and the pre-launch block still applies):
   artifact): a `.consult-card` with "Book a free 15-minute consultation
   call", a short description, and a "Book your free call" button, then
   "Or contact me directly" above the email/phone pills. **The button
-  currently dials her phone** (`tel:`) because there's no booking tool
-  yet — her artifact linked to a non-existent `#book`. Choosing a booking
-  link (Calendly, Cal.com, etc.) is Aaron's call; swap the href then.
+  opens an email** with the subject "Free 15-minute consultation call"
+  (`mailto:…?subject=…`, Aaron's choice 2026-11-04), addressed to the
+  placeholder `hello@example.com` until her real email is supplied —
+  update the address in both the button and the email pill then. A
+  booking tool (Calendly, Cal.com…) may replace it later; Aaron's call.
 - LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/
   — a monochrome "in" icon link in the footer (`.social-link`, brown on
   mustard, 44px target, `aria-label` "Aoife O’Neill on LinkedIn"). Use
