@@ -77,6 +77,21 @@ test('contact: free consultation card with a working call button', async ({ page
     .toHaveAttribute('href', /^(tel:|mailto:|https:)/);
 });
 
+test('tab icon (pear) files are linked and served', async ({ page, request }) => {
+  await page.goto('/');
+
+  const hrefs = await page.$$eval(
+    'link[rel="icon"], link[rel="apple-touch-icon"]',
+    (links) => links.map((l) => l.getAttribute('href'))
+  );
+  expect(hrefs).toEqual(
+    expect.arrayContaining(['assets/favicon.svg', 'assets/favicon-32.png', 'assets/apple-touch-icon.png'])
+  );
+  for (const href of hrefs) {
+    expect((await request.get(`/${href}`)).status(), href).toBe(200);
+  }
+});
+
 test('every in-page link points at an element that exists', async ({ page }) => {
   await page.goto('/');
 

@@ -239,6 +239,13 @@ in `css/styles.css` — use them, don't add raw hex values.
   pill nav row beneath. A slim fixed `.sticky-bar` (name + "Get in touch")
   slides in once the pill nav scrolls out of view (`main.js`), and is
   `visibility: hidden` until then so it's out of the tab order.
+- **Tab icon (favicon)**: the header's pear on a rounded mustard square
+  (`--mustard-light` body, `--brown-deep` outline and leaf, bolder strokes
+  so it reads at 16–32px). `assets/favicon.svg` is the source; the
+  `favicon-32.png` and 180px `apple-touch-icon.png` (square corners —
+  iOS rounds them) are rendered from it with Playwright. If the pear or
+  colours change, update the SVG and re-render both PNGs. Hex values live
+  in the SVG because a favicon can't read CSS tokens.
 - **Images**: real photos live in `assets/images/` and sit in their slot
   with `.img-slot--photo` (a ring of the slot colour, image cropped with
   `object-fit: cover`). Check new photos for EXIF/GPS before committing.
