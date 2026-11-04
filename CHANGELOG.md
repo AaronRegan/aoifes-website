@@ -23,6 +23,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Plant-based and gluten-free subheading: "gluten-free for coeliac
+  disease" ("diagnosed" removed).
 - Contact section: a card offering a free 15-minute consultation call
   (button rings Aoife's phone until a booking link is chosen), then
   "Or contact me directly" above the email and phone; the placeholder
