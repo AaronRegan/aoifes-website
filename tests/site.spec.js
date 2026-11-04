@@ -92,6 +92,14 @@ test('tab icon (pear) files are linked and served', async ({ page, request }) =>
   }
 });
 
+test('footer links to Aoife on LinkedIn', async ({ page }) => {
+  await page.goto('/');
+
+  const link = page.locator('.site-footer').getByRole('link', { name: /LinkedIn/ });
+  await expect(link).toHaveAttribute('href', /^https:\/\/www\.linkedin\.com\/in\//);
+  await expect(link).toBeVisible();
+});
+
 test('every in-page link points at an element that exists', async ({ page }) => {
   await page.goto('/');
 
