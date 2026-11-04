@@ -27,6 +27,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Documented showing each change in the preview panel before merging
+  into `dev` (no change to the site itself).
 - "Book your free call" now opens an email with the subject "Free
   15-minute consultation call" (to the placeholder address for now)
   instead of ringing Aoife's phone.
