@@ -74,7 +74,7 @@ test('contact: free consultation card with a working call button', async ({ page
   const card = page.locator('#contact .consult-card');
   await expect(card.locator('h3')).toHaveText(/free 15-minute consultation/i);
   await expect(card.getByRole('link', { name: 'Book your free call' }))
-    .toHaveAttribute('href', /^(tel:|mailto:|https:)/);
+    .toHaveAttribute('href', /^mailto:[^?]+\?subject=Free%2015-minute%20consultation%20call$/);
 });
 
 test('tab icon (pear) files are linked and served', async ({ page, request }) => {
