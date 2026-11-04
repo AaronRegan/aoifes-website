@@ -10,6 +10,7 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- LinkedIn icon link in the footer, to Aoife's LinkedIn profile.
 - Browser tab icon: the pear from the header on a mustard square (SVG,
   plus 32px PNG and an iPhone home-screen icon).
 - Aoife's photo in the hero circle, with a light-mustard ring around it.
