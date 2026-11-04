@@ -179,6 +179,10 @@ only when Aaron releases, and the pre-launch block still applies):
   currently dials her phone** (`tel:`) because there's no booking tool
   yet — her artifact linked to a non-existent `#book`. Choosing a booking
   link (Calendly, Cal.com, etc.) is Aaron's call; swap the href then.
+- LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/
+  — a monochrome "in" icon link in the footer (`.social-link`, brown on
+  mustard, 44px target, `aria-label` "Aoife O’Neill on LinkedIn"). Use
+  this URL in JSON-LD `sameAs` at launch.
 - Testimonials section removed (2026-10-28, her request). The mustard
   band went with it; mustard now only appears in the header, slim bar,
   footer, buttons and icon tiles. Ask before bringing testimonials back.
