@@ -104,9 +104,11 @@ photos, or copy that hints at them. Keep all text as obvious placeholders
 until the user supplies real content. Placeholder contact uses
 `hello@example.com` (reserved domain) until her real email is supplied.
 
-Contact phone (2026-10-28, from Aoife): shown in international format
-at her request, **+44 7909 346937** (`+44&nbsp;7909&nbsp;346937`), linked
-as `tel:+447909346937` (UK mobile).
+**No phone number on the site** (Aaron, 2026-11-05). Contact and
+appointment booking are by email only. Her number was removed from the
+site, docs and git history; never add a phone number back, in the page,
+docs, changelog, commit messages or PR descriptions. A test enforces
+that the page has no `tel:` links.
 
 **Real content supplied by Aoife so far** (use as-is; it reaches the public
 only when Aaron releases, and the pre-launch block still applies):
@@ -175,7 +177,7 @@ only when Aaron releases, and the pre-launch block still applies):
 - Contact consultation offer (2026-11-04, from her "Preview: hero photo"
   artifact): a `.consult-card` with "Book a free 15-minute consultation
   call", a short description, and a "Book your free call" button, then
-  "Or contact me directly" above the email/phone pills. **The button
+  "Or contact me directly" above the email pill. **The button
   opens an email** with the subject "Free 15-minute consultation call"
   (`mailto:…?subject=…`, Aaron's choice 2026-11-04), addressed to the
   placeholder `hello@example.com` until her real email is supplied —

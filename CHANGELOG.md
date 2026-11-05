@@ -15,11 +15,11 @@ it automatically (see `.github/workflows/release.yml`).
 - Browser tab icon: the pear from the header on a mustard square (SVG,
   plus 32px PNG and an iPhone home-screen icon).
 - Aoife's photo in the hero circle, with a light-mustard ring around it.
-- Aoife's real phone number in the Contact section, in international
-  format (+44 7909 346937), replacing the dummy number.
 
 ### Removed
 
+- Phone number from the Contact section: contact and booking are by
+  email only.
 - The testimonials ("Kind words") section and its mustard band, at
   Aoife's request.
 - The "You're in the right place if…" placeholder section (Aoife's
@@ -30,16 +30,14 @@ it automatically (see `.github/workflows/release.yml`).
 - Documented showing each change in the preview panel before merging
   into `dev` (no change to the site itself).
 - "Book your free call" now opens an email with the subject "Free
-  15-minute consultation call" (to the placeholder address for now)
-  instead of ringing Aoife's phone.
+  15-minute consultation call" (to the placeholder address for now).
 - Documented that Aoife's yoga site is a separate project and repo (no
   change to the site itself).
 - Plant-based and gluten-free subheading: "gluten-free for coeliac
   disease" ("diagnosed" removed).
 - Contact section: a card offering a free 15-minute consultation call
-  (button rings Aoife's phone until a booking link is chosen), then
-  "Or contact me directly" above the email and phone; the placeholder
-  line is gone.
+  (button opens an email), then "Or contact me directly" above the
+  email link; the placeholder line is gone.
 - Hero headline from Aoife: "Evidence-based nutrition guidance from
   infancy to adulthood."
 - Hero italic line now "Personalised, practical support for every
