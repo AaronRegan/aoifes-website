@@ -27,6 +27,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- CI: the test job now times out after 15 minutes instead of GitHub's
+  6-hour default, so a stalled browser download fails fast.
 - Documented showing each change in the preview panel before merging
   into `dev` (no change to the site itself).
 - "Book your free call" now opens an email with the subject "Free
