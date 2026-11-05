@@ -100,6 +100,14 @@ test('footer links to Aoife on LinkedIn', async ({ page }) => {
   await expect(link).toBeVisible();
 });
 
+test('no phone number on the page: contact is email only', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('a[href^="tel:"]')).toHaveCount(0);
+  const text = await page.locator('body').innerText();
+  expect(text).not.toMatch(/(\+44|\b0)\s?7\d{3}\s?\d{6}/);
+});
+
 test('every in-page link points at an element that exists', async ({ page }) => {
   await page.goto('/');
 

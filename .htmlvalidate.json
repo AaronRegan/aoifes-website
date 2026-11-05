@@ -1,6 +1,3 @@
 {
-  "extends": ["html-validate:recommended"],
-  "rules": {
-    "tel-non-breaking": ["error", { "ignoreClasses": ["btn"] }]
-  }
+  "extends": ["html-validate:recommended"]
 }
