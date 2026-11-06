@@ -554,6 +554,53 @@ a:hover { color: var(--brown-deep); }
   stroke-linejoin: round;
 }
 
+/* Read by screen readers, not shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Registration and membership logos, above the footer. Official files,
+   shown unaltered (HCPC forbids recolouring or redrawing its logo), with
+   clear space around each. */
+.credentials-band {
+  padding-block: var(--space-l);
+  border-top: 1px solid var(--line);
+}
+
+.credential-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem 3rem;
+  list-style: none;
+}
+
+.credential-logos img {
+  display: block;
+  width: auto;
+  height: 80px;
+}
+
+/* Temporary: stands in for a logo file not supplied yet. */
+.credential-placeholder {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 80px;
+  padding: 0.5rem;
+  border: 1px dashed var(--sienna);
+  color: var(--sienna);
+  font-size: var(--step--1);
+  text-align: center;
+}
+
 /* Footer */
 .site-footer {
   padding-block: 2.5rem;
