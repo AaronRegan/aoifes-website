@@ -194,8 +194,10 @@ only when Aaron releases, and the pre-launch block still applies):
   bda.uk.com/memberlogo, renewed yearly), never the organisations'
   corporate logos. Show them unaltered: no recolouring or redrawing (HCPC
   forbids it), with clear space around each. The BDA member logo **must
-  link to bda.uk.com**. `assets/images/hcpc-registered.png` is in; BDA and
-  Trust a Dietitian are dashed placeholders until supplied.
+  link to bda.uk.com**. `hcpc-registered.png` and `trust-a-dietitian.png` (background made
+  transparent, colour unchanged) are in `assets/images/`; BDA is a
+  dashed placeholder until the member logo is supplied (the file sent
+  2026-11-06 was the corporate logo, not the member one).
 - Testimonials section removed (2026-10-28, her request). The mustard
   band went with it; mustard now only appears in the header, slim bar,
   footer, buttons and icon tiles. Ask before bringing testimonials back.

@@ -108,16 +108,17 @@ test('no phone number on the page: contact is email only', async ({ page }) => {
   expect(text).not.toMatch(/(\+44|\b0)\s?7\d{3}\s?\d{6}/);
 });
 
-test('registration and membership logos: HCPC first, loaded with alt text', async ({ page }) => {
+test('registration and membership logos: HCPC first, Trust a Dietitian last, loaded with alt text', async ({ page }) => {
   await page.goto('/');
 
   const logos = page.locator('.credentials-band .credential-logos > li');
   await expect(logos.first().locator('img')).toHaveAttribute('alt', 'HCPC registered');
-  const hcpc = page.locator('.credentials-band img[alt="HCPC registered"]');
-  await hcpc.scrollIntoViewIfNeeded();
-  await expect
-    .poll(() => hcpc.evaluate((img) => img.complete && img.naturalWidth))
-    .toBeGreaterThan(0);
+  await expect(logos.last().locator('img')).toHaveAttribute('alt', 'Trust a Dietitian');
+  const imgs = page.locator('.credentials-band img');
+  await imgs.first().scrollIntoViewIfNeeded();
+  for (const img of await imgs.all()) {
+    await expect.poll(() => img.evaluate((el) => el.complete && el.naturalWidth)).toBeGreaterThan(0);
+  }
 });
 
 test('every in-page link points at an element that exists', async ({ page }) => {
