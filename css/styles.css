@@ -324,6 +324,9 @@ a:hover { color: var(--brown-deep); }
   object-fit: cover;
 }
 
+/* Portrait photos keep the square corners of their slot. */
+.img-slot--portrait.img-slot--photo img { border-radius: 0; }
+
 /* Hero */
 .hero { padding-block: var(--space-xl); }
 

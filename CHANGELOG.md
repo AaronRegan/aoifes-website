@@ -10,6 +10,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Aoife's photo in the About section (square-cornered portrait with a
+  light-mustard ring), replacing the placeholder.
 - LinkedIn icon link in the footer, to Aoife's LinkedIn profile (letters
   centred in the square so it doesn't look tight on the right).
 - Browser tab icon: the pear from the header on a mustard square (SVG,
