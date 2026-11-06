@@ -11,8 +11,8 @@ it automatically (see `.github/workflows/release.yml`).
 ### Added
 
 - Registration and membership logos above the footer: the official
-  "HCPC registered" logo first, then a space for the BDA member logo
-  until that file is supplied, then Trust a Dietitian.
+  "HCPC registered", BDA Full Member 2026 (links to the BDA website, as
+  the BDA requires) and Trust a Dietitian.
 - LinkedIn icon link in the footer, to Aoife's LinkedIn profile (letters
   centred in the square so it doesn't look tight on the right).
 - Browser tab icon: the pear from the header on a mustard square (SVG,

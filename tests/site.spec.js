@@ -108,6 +108,14 @@ test('no phone number on the page: contact is email only', async ({ page }) => {
   expect(text).not.toMatch(/(\+44|\b0)\s?7\d{3}\s?\d{6}/);
 });
 
+test('registration and membership logos: HCPC, BDA (linked to the BDA), Trust a Dietitian', async ({ page }) => {
+  await page.goto('/');
+
+  const logos = page.locator('.credentials-band .credential-logos > li');
+  await expect(logos).toHaveCount(3);
+  await expect(logos.nth(1).getByRole('link', { name: /BDA/ })).toHaveAttribute('href', /^https:\/\/www\.bda\.uk\.com/);
+});
+
 test('registration and membership logos: HCPC first, Trust a Dietitian last, loaded with alt text', async ({ page }) => {
   await page.goto('/');
 
