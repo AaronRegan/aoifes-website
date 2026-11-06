@@ -260,7 +260,7 @@ in `css/styles.css` — use them, don't add raw hex values.
   The About portrait is `assets/images/aoife-about.jpg` (2026-11-06,
   800×1000, cropped 4:5, no EXIF/GPS; alt "Aoife O’Neill, smiling,
   wearing blue scrubs"), head-and-shoulders crop, square corners, and a wider ring than the hero
-  (`clamp(18px, 7%, 32px)`, Aaron 2026-11-06).
+  (`clamp(32px, 13%, 64px)`, Aaron 2026-11-06).
 - **Grids**: 3- and 4-item grids use explicit breakpoints (not `auto-fit`)
   so an item is never orphaned on its own row.
 - For new visual directions beyond this system, ask first.
