@@ -187,6 +187,18 @@ only when Aaron releases, and the pre-launch block still applies):
   — a monochrome "in" icon link in the footer (`.social-link`, brown on
   mustard, 44px target, `aria-label` "Aoife O’Neill on LinkedIn"). Use
   this URL in JSON-LD `sameAs` at launch.
+- Registration and membership logos (2026-11-06, Aaron): a cream
+  `.credentials-band` strip above the footer, in this order: HCPC
+  registered, BDA member, Trust a Dietitian. Use **only the official
+  member/registrant files** (HCPC's "request logo" download; BDA's
+  bda.uk.com/memberlogo, renewed yearly), never the organisations'
+  corporate logos. Show them unaltered: no recolouring or redrawing (HCPC
+  forbids it), with clear space around each. The BDA member logo **must
+  link to bda.uk.com**. `hcpc-registered.png` and `trust-a-dietitian.png` (background made
+  transparent, colour unchanged) are in `assets/images/`, with
+  `bda-full-member-2026.png` (official file, resized only). **Swap the BDA
+  file each year** when the BDA issues the new member logo, and update its
+  alt text (year).
 - Testimonials section removed (2026-10-28, her request). The mustard
   band went with it; mustard now only appears in the header, slim bar,
   footer, buttons and icon tiles. Ask before bringing testimonials back.

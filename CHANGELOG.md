@@ -10,6 +10,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Registration and membership logos above the footer: the official
+  "HCPC registered", BDA Full Member 2026 (links to the BDA website, as
+  the BDA requires) and Trust a Dietitian.
 - Aoife's photo in the About section (head-and-shoulders crop, square
   corners, wide light-mustard border), replacing the placeholder.
 - LinkedIn icon link in the footer, to Aoife's LinkedIn profile (letters
