@@ -68,6 +68,17 @@ test('hero photo loads and has alt text', async ({ page }) => {
     .toBeGreaterThan(0);
 });
 
+test('about portrait photo loads and has alt text', async ({ page }) => {
+  await page.goto('/');
+
+  const photo = page.locator('#about .img-slot--photo img');
+  await expect(photo).toHaveAttribute('alt', /\S/);
+  await photo.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => photo.evaluate((img) => img.complete && img.naturalWidth))
+    .toBeGreaterThan(0);
+});
+
 test('contact: free consultation card with a working call button', async ({ page }) => {
   await page.goto('/');
 
