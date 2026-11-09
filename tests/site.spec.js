@@ -79,22 +79,20 @@ test('about portrait photo loads and has alt text', async ({ page }) => {
     .toBeGreaterThan(0);
 });
 
-test('contact: free consultation card with a working call button', async ({ page }) => {
+test('contact: free consultation card books through Cal.com', async ({ page }) => {
   await page.goto('/');
 
   const card = page.locator('#contact .consult-card');
   await expect(card.locator('h3')).toHaveText(/free 15-minute consultation/i);
   await expect(card.getByRole('link', { name: 'Book your free call' }))
-    .toHaveAttribute('href', /^mailto:[^?]+\?subject=Free%2015-minute%20consultation%20call$/);
+    .toHaveAttribute('href', 'https://cal.com/aoifeoneill/free-15-minute-consultation-call');
 });
 
-test('contact: the call button and email link both go to Aoife’s email', async ({ page }) => {
+test('contact: the email link goes to Aoife’s email', async ({ page }) => {
   await page.goto('/');
 
-  const email = 'aoife.oneill.practice@gmail.com';
-  await expect(page.locator('#contact').getByRole('link', { name: 'Book your free call' }))
-    .toHaveAttribute('href', `mailto:${email}?subject=Free%2015-minute%20consultation%20call`);
-  await expect(page.locator('#contact .contact-list a')).toHaveAttribute('href', `mailto:${email}`);
+  await expect(page.locator('#contact .contact-list a'))
+    .toHaveAttribute('href', 'mailto:aoife.oneill.practice@gmail.com');
   await expect(page.locator('a[href*="example.com"]')).toHaveCount(0);
 });
 

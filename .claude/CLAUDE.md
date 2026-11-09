@@ -178,14 +178,15 @@ only when Aaron releases, and the pre-launch block still applies):
 - Contact consultation offer (2026-11-04, from her "Preview: hero photo"
   artifact): a `.consult-card` with "Book a free 15-minute consultation
   call", a short description, and a "Book your free call" button, then
-  "Or contact me directly" above the email pill. **The button
-  opens an email** with the subject "Free 15-minute consultation call"
-  (`mailto:…?subject=…`, Aaron's choice 2026-11-04). A
-  booking tool (Calendly, Cal.com…) may replace it later; Aaron's call.
+  "Or contact me directly" above the email pill. **The button links to
+  her Cal.com booking page** (Aaron, 2026-11-09):
+  https://cal.com/aoifeoneill/free-15-minute-consultation-call — a plain
+  link, no embed or Cal.com script on the page. The plan is that bookings need her
+  approval ("Requires confirmation" in Cal.com). (Before 2026-11-09 it
+  opened an email.)
 - Email (2026-11-09, from her "Design Copy" canvas):
-  **aoife.oneill.practice@gmail.com**, on both the "Book your free call"
-  button and the contact email pill. If it changes (e.g. to a custom
-  domain address), update both, and the test.
+  **aoife.oneill.practice@gmail.com**, on the contact email pill. If it
+  changes (e.g. to a custom domain address), update it and the test.
 - Services / "How it works" (2026-11-09, from her "Design Copy" canvas):
   the Services section is just the three steps, each with a duration and
   price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·

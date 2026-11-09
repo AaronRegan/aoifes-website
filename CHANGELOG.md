@@ -15,9 +15,10 @@ it automatically (see `.github/workflows/release.yml`).
   consultation, £60 follow-up if required), from her design copy. The
   three placeholder service cards are gone, and so is the separate
   "How it works" button in the menu (it's now the Services section).
+- "Book your free call" now opens Aoife's Cal.com booking page for the
+  free 15-minute consultation call, instead of starting an email.
 - Aoife's email address (aoife.oneill.practice@gmail.com) on the
-  "Book your free call" button and the contact email link, replacing
-  the placeholder address.
+  contact email link, replacing the placeholder address.
 - Registration and membership logos above the footer: the official
   "HCPC registered", BDA Full Member 2026 (links to the BDA website, as
   the BDA requires) and Trust a Dietitian.
