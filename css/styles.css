@@ -450,7 +450,7 @@ a:hover { color: var(--brown-deep); }
   background: var(--mustard);
 }
 
-/* Services — "How it works" steps, each with its duration and price */
+/* How it works — the three steps, each with its duration and price */
 .service-meta {
   font-size: var(--step--1);
   font-weight: 500;

@@ -4,7 +4,6 @@ const SECTION_IDS = [
   'hero',
   'help',
   'about',
-  'services',
   'how-it-works',
   'contact',
 ];
@@ -96,10 +95,10 @@ test('contact: the email link goes to Aoife’s email', async ({ page }) => {
   await expect(page.locator('a[href*="example.com"]')).toHaveCount(0);
 });
 
-test('services: three steps, each with a title, duration and price', async ({ page }) => {
+test('how it works: three steps, each with a title, duration and price', async ({ page }) => {
   await page.goto('/');
 
-  const steps = page.locator('#services .steps > li');
+  const steps = page.locator('#how-it-works .steps > li');
   await expect(steps).toHaveCount(3);
   await expect(steps.locator('h3')).toHaveText(['Discovery call', 'Initial consultation', 'Follow-up consultation']);
   await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£120/, /£60/]);
