@@ -187,8 +187,9 @@ only when Aaron releases, and the pre-launch block still applies):
 - Email (2026-11-09, from her "Design Copy" canvas):
   **aoife.oneill.practice@gmail.com**, on the contact email pill. If it
   changes (e.g. to a custom domain address), update it and the test.
-- Services / "How it works" (2026-11-09, from her "Design Copy" canvas):
-  the Services section is just the three steps, each with a duration and
+- "How it works" (2026-11-09, from her "Design Copy" canvas; section
+  `#how-it-works`, no "Services" label or nav button, Aaron 2026-11-09):
+  just the three steps, each with a duration and
   price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·
   Free; 2. Initial consultation — 60-minute video call · £120; 3.
   Follow-up consultation — 45-minute video call · £60 · if required. The

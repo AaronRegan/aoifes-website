@@ -41,6 +41,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- The "Services" menu button is now "How it works", the hero's "See
+  services" button is now "See how it works", and the small "Services"
+  label above the "How it works" heading is gone.
 - CI: the test job now times out after 15 minutes instead of GitHub's
   6-hour default, so a stalled browser download fails fast.
 - Documented showing each change in the preview panel before merging
