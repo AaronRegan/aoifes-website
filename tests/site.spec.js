@@ -88,6 +88,25 @@ test('contact: free consultation card with a working call button', async ({ page
     .toHaveAttribute('href', /^mailto:[^?]+\?subject=Free%2015-minute%20consultation%20call$/);
 });
 
+test('contact: the call button and email link both go to Aoife’s email', async ({ page }) => {
+  await page.goto('/');
+
+  const email = 'aoife.oneill.practice@gmail.com';
+  await expect(page.locator('#contact').getByRole('link', { name: 'Book your free call' }))
+    .toHaveAttribute('href', `mailto:${email}?subject=Free%2015-minute%20consultation%20call`);
+  await expect(page.locator('#contact .contact-list a')).toHaveAttribute('href', `mailto:${email}`);
+  await expect(page.locator('a[href*="example.com"]')).toHaveCount(0);
+});
+
+test('services: three steps, each with a title, duration and price', async ({ page }) => {
+  await page.goto('/');
+
+  const steps = page.locator('#services .steps > li');
+  await expect(steps).toHaveCount(3);
+  await expect(steps.locator('h3')).toHaveText(['Discovery call', 'Initial consultation', 'Follow-up consultation']);
+  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£120/, /£60/]);
+});
+
 test('tab icon (pear) files are linked and served', async ({ page, request }) => {
   await page.goto('/');
 

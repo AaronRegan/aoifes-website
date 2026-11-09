@@ -10,6 +10,14 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Services: "How it works" now lists Aoife's three steps with their
+  durations and prices (free 15-minute discovery call, £120 initial
+  consultation, £60 follow-up if required), from her design copy. The
+  three placeholder service cards are gone, and so is the separate
+  "How it works" button in the menu (it's now the Services section).
+- Aoife's email address (aoife.oneill.practice@gmail.com) on the
+  "Book your free call" button and the contact email link, replacing
+  the placeholder address.
 - Registration and membership logos above the footer: the official
   "HCPC registered", BDA Full Member 2026 (links to the BDA website, as
   the BDA requires) and Trust a Dietitian.
