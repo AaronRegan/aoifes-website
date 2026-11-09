@@ -101,8 +101,9 @@ Under `prefers-reduced-motion` everything is shown immediately.
 Aoife is a paediatric dietitian, but **nothing real about her goes on the
 public site yet** — no specialism, credentials, real contact details,
 photos, or copy that hints at them. Keep all text as obvious placeholders
-until the user supplies real content. Placeholder contact uses
-`hello@example.com` (reserved domain) until her real email is supplied.
+until the user supplies real content. Her real email is now supplied
+(below); use `hello@example.com` (reserved domain) for any other
+placeholder contact.
 
 **No phone number on the site** (Aaron, 2026-11-05). Contact and
 appointment booking are by email only. Her number was removed from the
@@ -177,12 +178,21 @@ only when Aaron releases, and the pre-launch block still applies):
 - Contact consultation offer (2026-11-04, from her "Preview: hero photo"
   artifact): a `.consult-card` with "Book a free 15-minute consultation
   call", a short description, and a "Book your free call" button, then
-  "Or contact me directly" above the email pill. **The button
-  opens an email** with the subject "Free 15-minute consultation call"
-  (`mailto:…?subject=…`, Aaron's choice 2026-11-04), addressed to the
-  placeholder `hello@example.com` until her real email is supplied —
-  update the address in both the button and the email pill then. A
-  booking tool (Calendly, Cal.com…) may replace it later; Aaron's call.
+  "Or contact me directly" above the email pill. **The button links to
+  her Cal.com booking page** (Aaron, 2026-11-09):
+  https://cal.com/aoifeoneill/free-15-minute-consultation-call — a plain
+  link, no embed or Cal.com script on the page. The plan is that bookings need her
+  approval ("Requires confirmation" in Cal.com). (Before 2026-11-09 it
+  opened an email.)
+- Email (2026-11-09, from her "Design Copy" canvas):
+  **aoife.oneill.practice@gmail.com**, on the contact email pill. If it
+  changes (e.g. to a custom domain address), update it and the test.
+- Services / "How it works" (2026-11-09, from her "Design Copy" canvas):
+  the Services section is just the three steps, each with a duration and
+  price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·
+  Free; 2. Initial consultation — 60-minute video call · £120; 3.
+  Follow-up consultation — 45-minute video call · £60 · if required. The
+  old placeholder service cards were removed.
 - LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/
   — a monochrome "in" icon link in the footer (`.social-link`, brown on
   mustard, 44px target, `aria-label` "Aoife O’Neill on LinkedIn"). Use
@@ -253,8 +263,8 @@ in `css/styles.css` — use them, don't add raw hex values.
   Outline pills (`.pill`, 1px sienna) for nav and contact links; filled pill
   buttons (`.btn-primary` mustard, `.btn-sienna` on mustard backgrounds);
   a circle photo in the hero; square-cornered 4:5 photo blocks; hairline
-  `--line` dividers between consecutive cream sections; services marked by
-  a 1px sienna top rule.
+  `--line` dividers between consecutive cream sections; services shown as
+  three numbered steps (sienna outline circles).
 - **Header**: tall mustard header (pear mark, brand name, tagline) with the
   pill nav row beneath. A slim fixed `.sticky-bar` (name + "Get in touch")
   slides in once the pill nav scrolls out of view (`main.js`), and is

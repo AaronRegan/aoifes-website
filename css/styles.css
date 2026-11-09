@@ -354,7 +354,6 @@ a:hover { color: var(--brown-deep); }
 
 /* Explicit column counts so 3- and 4-item grids never orphan an item. */
 .help-grid,
-.service-grid,
 .steps {
   display: grid;
   gap: 2rem;
@@ -367,7 +366,6 @@ a:hover { color: var(--brown-deep); }
 @media (min-width: 860px) {
   .help-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem 2rem; }
 
-  .service-grid,
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -452,28 +450,13 @@ a:hover { color: var(--brown-deep); }
   background: var(--mustard);
 }
 
-/* Services */
-.service-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--sienna);
-}
-
-.service-item p + p { margin-top: 0; }
-
+/* Services — "How it works" steps, each with its duration and price */
 .service-meta {
   font-size: var(--step--1);
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--sienna);
 }
-
-.service-item .text-link { margin-top: auto; padding-top: 0.5rem; }
-
-.steps-wrap { margin-top: var(--space-xl); }
-.steps-title { margin-bottom: var(--space-l); text-align: center; font-size: var(--step-2); font-weight: 300; }
 
 .steps li { text-align: center; }
 
@@ -490,7 +473,8 @@ a:hover { color: var(--brown-deep); }
   color: var(--sienna);
 }
 
-.steps h4 { margin-bottom: 0.35rem; }
+.steps h3 { margin-bottom: 0.25rem; }
+.steps .service-meta { margin-bottom: 0.6rem; }
 
 /* Contact */
 .contact {
