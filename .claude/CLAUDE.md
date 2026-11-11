@@ -123,10 +123,11 @@ only when Aaron releases, and the pre-launch block still applies):
 - Hero italic line under the headline (2026-10-28): "Personalised,
   practical support for every family" (changed so "evidence-based" isn't
   repeated from the new headline).
-- Hero intro paragraph (2026-10-28), her wording lightly polished at her
-  request: "I’m an HCPC-registered dietitian with over six years’ NHS
-  experience. I specialise in infant and child nutrition, and offer
-  support through all stages of life."
+- Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
+  her Swiss Red Cross recognition, Aaron's choice): "I’m a dietitian
+  recognised by the Swiss Red Cross and registered with the HCPC in the
+  UK, with over six years’ NHS experience. I specialise in infant and
+  child nutrition, and offer support through all stages of life."
 - "How I can help" support areas (2026-10-21, subheadings and icons
   2026-10-22), in this order, each a square icon tile + title + italic
   subheading:
@@ -174,14 +175,21 @@ only when Aaron releases, and the pre-launch block still applies):
   practical, personalised, evidence-based feeding and nutrition advice
   for parents; parents feeling listened to and heard.
 - Credentials (2026-10-22), About section list:
-  - HCPC registered (first, and abbreviated — her choice)
+  - Recognised by the Swiss Red Cross (SRC) (added first 2026-11-11 —
+    she'll practise in Switzerland, so it leads. Text only: the Red Cross
+    emblem is legally protected, so no SRC logo in the logo strip)
+  - HCPC registered (abbreviated — her choice)
   - Member of the British Dietetic Association (BDA)
   - BSc Nutrition and Dietetics, Glasgow Caledonian University
   - BDA-certified postgraduate module in Paediatric Nutrition and
     Dietetics
 
-  She's UK-registered (HCPC/BDA) — relevant for the launch checklist's
-  structured data and "find a dietitian" directory listings.
+  She's UK-registered (HCPC/BDA) and her qualification is recognised in
+  Switzerland by the Swiss Red Cross (2026-11-11), where she'll practise —
+  relevant for the launch checklist's structured data and directory
+  listings. Still to settle with Aaron later: prices in CHF rather than £,
+  Swiss health-insurance reimbursement (cantonal licence, ZSR number), and
+  Switzerland/canton as her service area.
 
 - Hero photo (2026-11-04, from her "Preview: hero photo" artifact):
   `assets/images/aoife-hero.jpg`, 510×510 JPEG (~39 KB, no EXIF/GPS),
