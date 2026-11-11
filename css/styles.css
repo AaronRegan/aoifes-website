@@ -418,18 +418,12 @@ a:hover { color: var(--brown-deep); }
 .help-grid[hidden] { display: none; }
 .no-js .help-grid[hidden] { display: grid; margin-top: var(--space-l); }
 
-/* The tiles flip on their vertical axis, one after another (main.js sets --flip-delay). */
-.help-grid { perspective: 1200px; }
-
-.help-grid .help-item {
-  transition:
-    opacity 0.7s ease var(--reveal-delay, 0ms),
-    transform 0.7s ease var(--reveal-delay, 0ms),
-    rotate 0.3s ease-out var(--flip-delay, 0ms);
-}
-
-.help-grid.is-flipping-out .help-item { rotate: y 90deg; transition-timing-function: ease, ease, ease-in; }
-.help-grid.is-flipping-in .help-item { rotate: y -90deg; transition: none; }
+/* The tiles flip on their vertical axis, one after another (main.js, Web
+   Animations). The wrapper's height glides between the 8- and 4-tile lists
+   instead of jumping, and is kept out of scroll anchoring so the page
+   doesn't shift under the reader. */
+.help-panels { overflow-anchor: none; }
+.help-item { backface-visibility: hidden; }
 
 /* Adult tiles: the same drawings on a soft peach tile instead of mustard. */
 .help-grid--adults .help-icon { background: var(--peach-light); }
