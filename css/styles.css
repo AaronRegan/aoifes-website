@@ -24,6 +24,8 @@
   --brown-deep: #5A2812;
   --text: #4A2414;
   --line: #EBD3AE;
+  --peach: #E3916A;
+  --peach-light: #F4CDB2;
 
   --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-accent: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -369,6 +371,70 @@ a:hover { color: var(--brown-deep); }
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+/* How I can help — Children / Adults switch. The thumb slides behind the
+   chosen label; its colour matches that audience's tiles. */
+.audience-switch { display: flex; justify-content: center; margin-bottom: var(--space-l); }
+
+.audience-toggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border: 1px solid var(--sienna);
+  border-radius: var(--radius-pill);
+}
+
+.audience-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 4px auto 4px 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--radius-pill);
+  background: var(--mustard);
+  transition: translate 0.35s ease, background-color 0.35s ease;
+}
+
+.audience-toggle[data-active="adults"]::before { translate: 100% 0; background: var(--peach); }
+
+.audience-toggle button {
+  position: relative;
+  min-height: 44px;
+  padding: 0 1.75rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  font: inherit;
+  font-size: var(--step--1);
+  color: var(--sienna);
+  cursor: pointer;
+  transition: color 0.35s ease;
+}
+
+.audience-toggle button[aria-pressed="true"] { color: var(--brown-deep); font-weight: 500; }
+.audience-toggle button:focus-visible { outline: 2px solid var(--sienna); outline-offset: 2px; }
+
+/* Without JS there's no switch: show both lists. */
+.no-js .audience-switch { display: none; }
+.help-grid[hidden] { display: none; }
+.no-js .help-grid[hidden] { display: grid; margin-top: var(--space-l); }
+
+/* The tiles flip on their vertical axis, one after another (main.js sets --flip-delay). */
+.help-grid { perspective: 1200px; }
+
+.help-grid .help-item {
+  transition:
+    opacity 0.7s ease var(--reveal-delay, 0ms),
+    transform 0.7s ease var(--reveal-delay, 0ms),
+    rotate 0.3s ease-out var(--flip-delay, 0ms);
+}
+
+.help-grid.is-flipping-out .help-item { rotate: y 90deg; transition-timing-function: ease, ease, ease-in; }
+.help-grid.is-flipping-in .help-item { rotate: y -90deg; transition: none; }
+
+/* Adult tiles: the same drawings on a soft peach tile instead of mustard. */
+.help-grid--adults .help-icon { background: var(--peach-light); }
+.help-grid--adults .help-icon .acc { fill: var(--peach); }
+
 /* How I can help — line icons drawn for Aoife (2026-10-22): brown lines, mustard touches. */
 .help-icon {
   display: grid;
@@ -653,4 +719,6 @@ a:hover { color: var(--brown-deep); }
   }
 
   .sticky-bar { transition: none; }
+  .audience-toggle::before,
+  .audience-toggle button { transition: none; }
 }
