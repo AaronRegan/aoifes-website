@@ -38,54 +38,101 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 // How I can help: the Children / Adults switch flips the tiles over to the
-// other audience's list (instant swap under reduced motion).
+// other audience's list, while the wrapper's height glides to the new list's
+// height (instant swap under reduced motion).
 const audienceToggle = document.querySelector('[data-audience-toggle]');
 if (audienceToggle) {
-  const FLIP_MS = 300;
-  const STAGGER_MS = 50;
-  const panels = document.querySelectorAll('[data-audience-panel]');
+  const FLIP_MS = 320;
+  const STAGGER_MS = 45;
+  const wrapper = document.querySelector('[data-audience-panels]');
+  const panels = [...wrapper.querySelectorAll('[data-audience-panel]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let pendingFlip;
+  let run = 0;
 
-  panels.forEach((panel) => {
-    panel.querySelectorAll('.help-item').forEach((item, i) => {
-      item.style.setProperty('--flip-delay', `${i * STAGGER_MS}ms`);
+  const flip = (panel, fromDeg, toDeg, easing, fill) =>
+    Promise.all(
+      [...panel.querySelectorAll('.help-item')].map((item, i) =>
+        item.animate(
+          [
+            { transform: `perspective(900px) rotateY(${fromDeg}deg)` },
+            { transform: `perspective(900px) rotateY(${toDeg}deg)` },
+          ],
+          { duration: FLIP_MS, delay: i * STAGGER_MS, easing, fill }
+        ).finished
+      )
+    );
+
+  // Draw the hidden list once, invisibly, when the page is idle, so the
+  // first switch doesn't stall while the browser lays out and paints it.
+  const prewarm = () => {
+    panels.filter((panel) => panel.hidden).forEach((panel) => {
+      panel.classList.add('is-prewarming');
+      panel.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (panel.classList.contains('is-prewarming')) {
+          panel.hidden = true;
+          panel.classList.remove('is-prewarming');
+        }
+      }));
     });
-  });
+  };
+  if ('requestIdleCallback' in window) requestIdleCallback(prewarm, { timeout: 2000 });
+  else setTimeout(prewarm, 1000);
 
-  const flipTime = (panel) => FLIP_MS + (panel.children.length - 1) * STAGGER_MS;
+  const stopAll = () => {
+    wrapper.getAnimations({ subtree: true }).forEach((a) => a.cancel());
+    wrapper.style.height = '';
+  };
 
-  audienceToggle.addEventListener('click', (event) => {
+  audienceToggle.addEventListener('click', async (event) => {
     const button = event.target.closest('button[data-audience]');
     if (!button || button.getAttribute('aria-pressed') === 'true') return;
 
     const next = button.dataset.audience;
-    const to = document.querySelector(`[data-audience-panel="${next}"]`);
-    // The list on screen now — it may be mid-flip if the visitor clicks quickly.
-    const from = [...panels].find((panel) => !panel.hidden);
+    const to = panels.find((panel) => panel.dataset.audiencePanel === next);
+    // The list on screen now; a quick second click interrupts the flip.
+    const from = panels.find((panel) => !panel.hidden && !panel.classList.contains('is-prewarming'));
 
     audienceToggle.dataset.active = next;
     audienceToggle.querySelectorAll('button').forEach((b) => {
       b.setAttribute('aria-pressed', String(b === button));
     });
 
-    clearTimeout(pendingFlip);
+    const thisRun = ++run;
+    stopAll();
+    panels.forEach((panel) => {
+      if (panel.classList.contains('is-prewarming')) {
+        panel.classList.remove('is-prewarming');
+        panel.hidden = true;
+      }
+    });
     if (reduceMotion || from === to) {
-      panels.forEach((panel) => {
-        panel.hidden = panel !== to;
-        panel.classList.remove('is-flipping-out', 'is-flipping-in');
-      });
+      panels.forEach((panel) => { panel.hidden = panel !== to; });
       return;
     }
 
-    from.classList.add('is-flipping-out');
-    pendingFlip = setTimeout(() => {
+    try {
+      const startHeight = wrapper.offsetHeight;
+      wrapper.style.height = `${startHeight}px`;
+      await flip(from, 0, 90, 'cubic-bezier(0.55, 0, 1, 0.45)', 'forwards');
+      if (thisRun !== run) return;
+
       from.hidden = true;
-      from.classList.remove('is-flipping-out');
-      to.classList.add('is-flipping-in');
       to.hidden = false;
-      void to.offsetWidth; // apply the edge-on start before flipping back in
-      to.classList.remove('is-flipping-in');
-    }, flipTime(from));
+      wrapper.style.height = '';
+      const endHeight = wrapper.offsetHeight;
+      wrapper.style.height = `${startHeight}px`;
+
+      const grow = wrapper.animate(
+        [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+        { duration: 350, easing: 'ease-in-out' }
+      );
+      const flipIn = flip(to, -90, 0, 'cubic-bezier(0, 0.55, 0.45, 1)', 'backwards');
+      from.getAnimations({ subtree: true }).forEach((a) => a.cancel());
+      wrapper.style.height = '';
+      await Promise.all([grow.finished, flipIn]);
+    } catch {
+      // Cancelled by a newer click; that click has taken over.
+    }
   });
 }
