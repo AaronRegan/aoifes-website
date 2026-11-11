@@ -47,7 +47,7 @@ test('every planned section is present', async ({ page }) => {
 test('support areas: eight tiles, each with a decorative icon, heading and subheading', async ({ page }) => {
   await page.goto('/');
 
-  const items = page.locator('#help .help-item');
+  const items = page.locator('#help [data-audience-panel="children"] .help-item');
   await expect(items).toHaveCount(8);
   for (const item of await items.all()) {
     await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
@@ -55,6 +55,34 @@ test('support areas: eight tiles, each with a decorative icon, heading and subhe
     await expect(item.locator('.help-sub')).not.toBeEmpty();
   }
   await expect(page.locator('#help')).toContainText('Restrictive eating');
+});
+
+test('support areas: the Children / Adults switch flips to the adult tiles and back', async ({ page }) => {
+  await page.goto('/');
+
+  const children = page.locator('[data-audience-panel="children"]');
+  const adults = page.locator('[data-audience-panel="adults"]');
+  const childrenButton = page.getByRole('button', { name: 'Children' });
+  const adultsButton = page.getByRole('button', { name: 'Adults' });
+
+  await expect(childrenButton).toHaveAttribute('aria-pressed', 'true');
+  await expect(children).toBeVisible();
+  await expect(adults).toBeHidden();
+
+  await adultsButton.click();
+  await expect(adultsButton).toHaveAttribute('aria-pressed', 'true');
+  await expect(childrenButton).toHaveAttribute('aria-pressed', 'false');
+  await expect(adults).toBeVisible();
+  await expect(children).toBeHidden();
+  await expect(adults.locator('.help-item')).toHaveCount(4);
+  for (const item of await adults.locator('.help-item').all()) {
+    await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(item.locator('h3')).not.toBeEmpty();
+  }
+
+  await childrenButton.click();
+  await expect(children).toBeVisible();
+  await expect(adults).toBeHidden();
 });
 
 test('hero photo loads and has alt text', async ({ page }) => {

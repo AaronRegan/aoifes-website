@@ -155,6 +155,19 @@ only when Aaron releases, and the pre-launch block still applies):
   Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
   one orphaned on the last row — suggest merging or a 3 × 3 layout.
 
+  **Children / Adults switch** (Aaron, 2026-11-11): a sliding pill switch
+  (`.audience-toggle`, buttons with `aria-pressed`) above the tiles swaps
+  between two lists (`data-audience-panel="children"|"adults"`); the tiles
+  flip on their vertical axis one after another (`main.js`; instant under
+  reduced motion; without JS both lists show and the switch is hidden).
+  Adult tiles use `--peach-light` tiles with `--peach` accents (the
+  switch's thumb turns peach too). The **four adult areas are
+  placeholders** (pregnancy and breastfeeding, gut health, food allergies
+  and intolerances, healthy eating for the family), subheadings saying
+  "Placeholder", until Aoife confirms which adult services she offers —
+  keep it to 4 (one row; 2 × 2 on phones), or 8. Keep them family-linked,
+  per the positioning below.
+
 - About me (2026-10-22): heading "Hi, I'm Aoife", italic line
   "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
   years in the NHS with children and adults across specialities;
@@ -238,7 +251,9 @@ in `css/styles.css` — use them, don't add raw hex values.
 - **Palette**: `--cream` page bg, `--mustard` header/footer and primary
   buttons, `--mustard-light` image placeholders and button
   hover, `--sienna` headings, links, outlines, `--brown-deep` text on
-  mustard, `--text` body text, `--line` hairline dividers.
+  mustard, `--text` body text, `--line` hairline dividers, `--peach` /
+  `--peach-light` for the adult support tiles only (brown-deep on peach
+  is 5:1).
 - **Contrast rules** (WCAG AA — checked, don't regress):
   - On mustard, text is always `--brown-deep` (5.6:1). Cream on mustard
     (2:1) and sienna on mustard (4.2:1) both fail.

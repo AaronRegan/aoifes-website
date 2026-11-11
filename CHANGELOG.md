@@ -10,6 +10,12 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- "How I can help": a Children / Adults switch above the tiles. Choosing
+  one flips the tiles over, one after another, to that list; the adult
+  tiles are a soft peach instead of mustard. Four placeholder adult
+  areas (pregnancy and breastfeeding, gut health, food allergies and
+  intolerances, healthy eating for the family) for Aoife to confirm or
+  replace.
 - Services: "How it works" now lists Aoife's three steps with their
   durations and prices (free 15-minute discovery call, £120 initial
   consultation, £60 follow-up if required), from her design copy. The
