@@ -19,6 +19,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Swiss Red Cross recognition: the hero intro now opens "I’m a
+  dietitian recognised by the Swiss Red Cross and registered with the
+  HCPC in the UK…", and "Recognised by the Swiss Red Cross (SRC)" is
+  first in the About credentials.
 - "How I can help": a Children / Adults switch above the tiles. Choosing
   one flips the tiles over, one after another, to that list; the adult
   tiles are a soft peach instead of mustard. Four placeholder adult
