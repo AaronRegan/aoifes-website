@@ -158,7 +158,10 @@ only when Aaron releases, and the pre-launch block still applies):
   **Children / Adults switch** (Aaron, 2026-11-11): a sliding pill switch
   (`.audience-toggle`, buttons with `aria-pressed`) above the tiles swaps
   between two lists (`data-audience-panel="children"|"adults"`); the tiles
-  flip on their vertical axis one after another (`main.js`; instant under
+  flip on their vertical axis one after another (`main.js`, Web Animations;
+  the `.help-panels` wrapper's height is animated between lists so the page
+  doesn't jump; the hidden list is pre-drawn invisibly at idle
+  (`.is-prewarming`) to avoid a first-switch stall; instant under
   reduced motion; without JS both lists show and the switch is hidden).
   Adult tiles use `--peach-light` tiles with `--peach` accents (the
   switch's thumb turns peach too). The **four adult areas are
