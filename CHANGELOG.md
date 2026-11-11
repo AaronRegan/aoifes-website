@@ -13,7 +13,9 @@ it automatically (see `.github/workflows/release.yml`).
 - "How I can help" Children / Adults switch: the page no longer jumps
   when the tiles change (the section now glides between the taller
   children's list and the shorter adults' list), and each tile flips
-  with its own perspective so the flip looks even across the row.
+  with its own perspective so the flip looks even across the row. The
+  adult tiles are also drawn in the background when the page loads, so
+  the first switch doesn't stutter.
 
 ### Added
 

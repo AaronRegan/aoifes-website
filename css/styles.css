@@ -422,7 +422,15 @@ a:hover { color: var(--brown-deep); }
    Animations). The wrapper's height glides between the 8- and 4-tile lists
    instead of jumping, and is kept out of scroll anchoring so the page
    doesn't shift under the reader. */
-.help-panels { overflow-anchor: none; }
+.help-panels { position: relative; overflow-anchor: none; }
+
+/* Hidden list drawn once off to the side (invisible, unclickable) so its first appearance is instant. */
+.help-grid.is-prewarming {
+  position: absolute;
+  inset: 0 0 auto;
+  opacity: 0.001;
+  pointer-events: none;
+}
 .help-item { backface-visibility: hidden; }
 
 /* Adult tiles: the same drawings on a soft peach tile instead of mustard. */

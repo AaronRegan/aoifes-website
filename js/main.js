@@ -62,6 +62,23 @@ if (audienceToggle) {
       )
     );
 
+  // Draw the hidden list once, invisibly, when the page is idle, so the
+  // first switch doesn't stall while the browser lays out and paints it.
+  const prewarm = () => {
+    panels.filter((panel) => panel.hidden).forEach((panel) => {
+      panel.classList.add('is-prewarming');
+      panel.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (panel.classList.contains('is-prewarming')) {
+          panel.hidden = true;
+          panel.classList.remove('is-prewarming');
+        }
+      }));
+    });
+  };
+  if ('requestIdleCallback' in window) requestIdleCallback(prewarm, { timeout: 2000 });
+  else setTimeout(prewarm, 1000);
+
   const stopAll = () => {
     wrapper.getAnimations({ subtree: true }).forEach((a) => a.cancel());
     wrapper.style.height = '';
@@ -74,7 +91,7 @@ if (audienceToggle) {
     const next = button.dataset.audience;
     const to = panels.find((panel) => panel.dataset.audiencePanel === next);
     // The list on screen now; a quick second click interrupts the flip.
-    const from = panels.find((panel) => !panel.hidden);
+    const from = panels.find((panel) => !panel.hidden && !panel.classList.contains('is-prewarming'));
 
     audienceToggle.dataset.active = next;
     audienceToggle.querySelectorAll('button').forEach((b) => {
@@ -83,6 +100,12 @@ if (audienceToggle) {
 
     const thisRun = ++run;
     stopAll();
+    panels.forEach((panel) => {
+      if (panel.classList.contains('is-prewarming')) {
+        panel.classList.remove('is-prewarming');
+        panel.hidden = true;
+      }
+    });
     if (reduceMotion || from === to) {
       panels.forEach((panel) => { panel.hidden = panel !== to; });
       return;
