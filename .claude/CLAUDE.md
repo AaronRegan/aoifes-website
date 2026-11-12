@@ -113,9 +113,12 @@ that the page has no `tel:` links.
 
 **Real content supplied by Aoife so far** (use as-is; it reaches the public
 only when Aaron releases, and the pre-launch block still applies):
-- Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
-  Dietitian" — header brand name + italic tagline, slim bar, footer, page
-  `<title>`.
+- Name and title (2026-10-21; title changed 2026-11-12, her choice):
+  **Aoife O’Neill**, "Paediatric and Adult Dietitian" (was "Paediatric
+  and Family Dietitian") — header italic tagline and page `<title>`; the
+  slim bar and footer show the name only.
+- "How I can help" intro line (2026-11-12, her wording): "1:1 video
+  consultations from the comfort of your home".
 - Hero headline (2026-10-28, replacing the 2026-10-21 one; "to" changed
   to "through" 2026-11-12, her request): "Evidence-based nutrition
   guidance from infancy through adulthood." Her wording. "Infancy"
