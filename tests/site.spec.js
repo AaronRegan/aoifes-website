@@ -74,7 +74,13 @@ test('support areas: the Children / Adults switch flips to the adult tiles and b
   await expect(childrenButton).toHaveAttribute('aria-pressed', 'false');
   await expect(adults).toBeVisible();
   await expect(children).toBeHidden();
-  await expect(adults.locator('.help-item')).toHaveCount(4);
+  await expect(adults.locator('.help-item h3')).toHaveText([
+    'Gastrointestinal disorders',
+    'Women’s health',
+    'Vegan and vegetarian diets',
+    'Weight management',
+    'Allergies and intolerances',
+  ]);
   for (const item of await adults.locator('.help-item').all()) {
     await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
     await expect(item.locator('h3')).not.toBeEmpty();

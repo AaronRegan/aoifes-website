@@ -69,6 +69,11 @@ it automatically (see `.github/workflows/release.yml`).
   Aoife's request.
 - "How I can help" intro line: "1:1 video consultations from the comfort
   of your home" (Aoife's wording), replacing the placeholder.
+- "How I can help" Adults: Aoife's five areas replace the four
+  placeholders: gastrointestinal disorders, women's health, vegan and
+  vegetarian diets, weight management, and allergies and intolerances,
+  each with a new drawing. Five sit in one row on computers; on phones
+  the fifth sits centred under the others.
 - The "Services" menu button is now "How it works", the hero's "See
   services" button is now "See how it works", and the small "Services"
   label above the "How it works" heading is gone.

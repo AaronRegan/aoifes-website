@@ -169,12 +169,24 @@ only when Aaron releases, and the pre-launch block still applies):
   (`.is-prewarming`) to avoid a first-switch stall; instant under
   reduced motion; without JS both lists show and the switch is hidden).
   Adult tiles use `--peach-light` tiles with `--peach` accents (the
-  switch's thumb turns peach too). The **four adult areas are
-  placeholders** (pregnancy and breastfeeding, gut health, food allergies
-  and intolerances, healthy eating for the family), subheadings saying
-  "Placeholder", until Aoife confirms which adult services she offers —
-  keep it to 4 (one row; 2 × 2 on phones), or 8. Keep them family-linked,
-  per the positioning below.
+  switch's thumb turns peach too).
+
+  **Adult support areas** (Aoife, 2026-11-12), in this order, title +
+  italic subheading, all five in one row on wide screens (5-column grid);
+  on phones 2 + 2 + the fifth centred. She may add a sixth later (then
+  3 × 2):
+  1. Gastrointestinal disorders — IBS, coeliac disease and functional GI
+     disorders *(large intestine as a peach tube with brown outline)*
+  2. Women’s health — Including nutrition for PMOS, fertility and
+     pregnancy support *(♀ symbol; "PMOS" is her wording, confirmed —
+     don't change it to PCOS)*
+  3. Vegan and vegetarian diets — Making sure your diet gives you
+     everything you need *(leaf; subheading suggested by Claude, she
+     approved)*
+  4. Weight management — Support with weight loss or weight gain
+     *(bathroom scale)*
+  5. Allergies and intolerances — e.g. lactose intolerance and food
+     allergies *(cracked egg; subheading suggested by Claude, approved)*
 
 - About me (2026-10-22): heading "Hi, I'm Aoife", italic line
   "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
@@ -249,8 +261,9 @@ audience. In practice: headline and the "How I can help" areas are about
 children (she kept all eight areas children-focused rather than adding a
 family/adult one; the family side comes through in other copy). Avoid
 long lists of unrelated adult services (weight loss, sports, menopause…),
-which would make her look like a generalist. Don't add specific adult
-services until she confirms which ones she offers.
+which would make her look like a generalist. Adult services are now the
+five she confirmed (2026-11-12, see the Adults list above), shown only
+behind the Children / Adults switch; don't add others without her.
 
 ## Design system
 
