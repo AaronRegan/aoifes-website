@@ -121,9 +121,9 @@ only when Aaron releases, and the pre-launch block still applies):
   guidance from infancy through adulthood." Her wording. "Infancy"
   matters: she sees babies before weaning (e.g. faltering growth, CMPA),
   so avoid copy that starts her work at "first foods"/weaning.
-- Hero italic line under the headline (2026-10-28): "Personalised,
-  practical support for every family" (changed so "evidence-based" isn't
-  repeated from the new headline).
+- Hero italic line under the headline (2026-10-28; shortened 2026-11-12,
+  her request — she dropped "for every family"): "Personalised, practical
+  support". Don't add "family" back to it.
 - Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
   her Swiss Red Cross recognition, Aaron's choice): "I’m a dietitian
   recognised by the Swiss Red Cross and registered with the HCPC in the
