@@ -433,9 +433,23 @@ a:hover { color: var(--brown-deep); }
 }
 .help-item { backface-visibility: hidden; }
 
-/* Adult tiles: the same drawings on a soft peach tile instead of mustard. */
+/* Adult tiles: the same drawing style on a soft peach tile instead of mustard. */
 .help-grid--adults .help-icon { background: var(--peach-light); }
 .help-grid--adults .help-icon .acc { fill: var(--peach); }
+.help-grid--adults .help-icon .hole { fill: var(--peach-light); }
+
+/* Five adult areas: one row on wide screens; on phones the fifth sits centred. */
+@media (max-width: 859.98px) {
+  .help-grid--adults .help-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (min-width: 860px) {
+  .help-grid--adults { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+}
 
 /* How I can help — line icons drawn for Aoife (2026-10-22): brown lines, mustard touches. */
 .help-icon {
@@ -459,6 +473,11 @@ a:hover { color: var(--brown-deep); }
 .help-icon .hole { fill: var(--mustard-light); }
 .help-icon .ink { fill: var(--brown-deep); stroke: none; }
 .help-icon .thin { stroke-width: 1.4; }
+/* A tube drawn as a brown outline with a coloured core (e.g. the intestine). */
+.help-icon .tube { stroke-width: 9; }
+.help-icon .tube-in { stroke-width: 4.6; }
+.help-icon .acc-line { stroke: var(--mustard); }
+.help-grid--adults .help-icon .acc-line { stroke: var(--peach); }
 
 .help-icon .txt {
   fill: var(--brown-deep);
