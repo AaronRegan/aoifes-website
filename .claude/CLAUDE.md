@@ -116,8 +116,9 @@ only when Aaron releases, and the pre-launch block still applies):
 - Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
   Dietitian" — header brand name + italic tagline, slim bar, footer, page
   `<title>`.
-- Hero headline (2026-10-28, replacing the 2026-10-21 one): "Evidence-based
-  nutrition guidance from infancy to adulthood." Her wording. "Infancy"
+- Hero headline (2026-10-28, replacing the 2026-10-21 one; "to" changed
+  to "through" 2026-11-12, her request): "Evidence-based nutrition
+  guidance from infancy through adulthood." Her wording. "Infancy"
   matters: she sees babies before weaning (e.g. faltering growth, CMPA),
   so avoid copy that starts her work at "first foods"/weaning.
 - Hero italic line under the headline (2026-10-28): "Personalised,

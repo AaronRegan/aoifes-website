@@ -60,6 +60,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Hero headline: "from infancy to adulthood" is now "from infancy
+  through adulthood" (Aoife's wording).
 - The "Services" menu button is now "How it works", the hero's "See
   services" button is now "See how it works", and the small "Services"
   label above the "How it works" heading is gone.
