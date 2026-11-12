@@ -113,16 +113,20 @@ that the page has no `tel:` links.
 
 **Real content supplied by Aoife so far** (use as-is; it reaches the public
 only when Aaron releases, and the pre-launch block still applies):
-- Name and title (2026-10-21): **Aoife O’Neill**, "Paediatric and Family
-  Dietitian" — header brand name + italic tagline, slim bar, footer, page
-  `<title>`.
-- Hero headline (2026-10-28, replacing the 2026-10-21 one): "Evidence-based
-  nutrition guidance from infancy to adulthood." Her wording. "Infancy"
+- Name and title (2026-10-21; title changed 2026-11-12, her choice):
+  **Aoife O’Neill**, "Paediatric and Adult Dietitian" (was "Paediatric
+  and Family Dietitian") — header italic tagline and page `<title>`; the
+  slim bar and footer show the name only.
+- "How I can help" intro line (2026-11-12, her wording): "1:1 video
+  consultations from the comfort of your home".
+- Hero headline (2026-10-28, replacing the 2026-10-21 one; "to" changed
+  to "through" 2026-11-12, her request): "Evidence-based nutrition
+  guidance from infancy through adulthood." Her wording. "Infancy"
   matters: she sees babies before weaning (e.g. faltering growth, CMPA),
   so avoid copy that starts her work at "first foods"/weaning.
-- Hero italic line under the headline (2026-10-28): "Personalised,
-  practical support for every family" (changed so "evidence-based" isn't
-  repeated from the new headline).
+- Hero italic line under the headline (2026-10-28; shortened 2026-11-12,
+  her request — she dropped "for every family"): "Personalised, practical
+  support". Don't add "family" back to it.
 - Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
   her Swiss Red Cross recognition, Aaron's choice): "I’m a dietitian
   recognised by the Swiss Red Cross and registered with the HCPC in the
