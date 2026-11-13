@@ -60,6 +60,7 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Adults pea pod icon: tidier stalk (one curved stem with two small leaves).
 - Project notes: launch targets UK clients (English only, prices in £);
   the French page is on hold until her Geneva registration; domain setup
   (aoifeoneill.ch) recorded.
