@@ -473,6 +473,8 @@ a:hover { color: var(--brown-deep); }
 .help-icon .hole { fill: var(--mustard-light); }
 .help-icon .ink { fill: var(--brown-deep); stroke: none; }
 .help-icon .thin { stroke-width: 1.4; }
+/* Shapes drawn inside a scale(1.22) group keep the usual 2.2 line weight. */
+.help-icon .scaled { stroke-width: 1.8; }
 /* A tube drawn as a brown outline with a coloured core (e.g. the intestine). */
 .help-icon .tube { stroke-width: 9; }
 .help-icon .tube-in { stroke-width: 4.6; }

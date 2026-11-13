@@ -181,7 +181,8 @@ only when Aaron releases, and the pre-launch block still applies):
      pregnancy support *(♀ symbol; "PMOS" is her wording, confirmed —
      don't change it to PCOS)*
   3. Vegan and vegetarian diets — Making sure your diet is nutritionally
-     complete *(leaf; subheading reworded 2026-11-13)*
+     complete *(open pea pod with three peas, replaced the leaf
+     2026-11-13; subheading reworded 2026-11-13)*
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
   5. Allergies and intolerances — e.g. lactose intolerance and food
