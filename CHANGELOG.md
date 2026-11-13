@@ -60,6 +60,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- About ("Hi, I'm Aoife"): new copy for both children and adults, in
+  three short paragraphs (six years in the NHS with a focus on
+  paediatrics; feeling listened to; making sense of nutrition advice).
 - Hero headline: "from infancy to adulthood" is now "from infancy
   through adulthood" (Aoife's wording).
 - Hero italic line shortened to "Personalised, practical support"

@@ -188,11 +188,12 @@ only when Aaron releases, and the pre-launch block still applies):
   5. Allergies and intolerances — e.g. lactose intolerance and food
      allergies *(cracked egg; subheading suggested by Claude, approved)*
 
-- About me (2026-10-22): heading "Hi, I'm Aoife", italic line
-  "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
-  years in the NHS with children and adults across specialities;
-  practical, personalised, evidence-based feeding and nutrition advice
-  for parents; parents feeling listened to and heard.
+- About me (2026-10-22; paragraphs replaced 2026-11-13, supplied
+  wording used as-is): heading "Hi, I'm Aoife", italic line "pronounced
+  “Eefa”", then three short paragraphs addressed to adults and parents
+  alike ("Whether it’s for you or your little one…"): six years in the
+  NHS, children and adults, particular focus on paediatrics; feeling
+  listened to and heard; making sense of the nutrition advice out there.
 - Credentials (2026-10-22), About section list:
   - Recognised by the Swiss Red Cross (SRC) (added first 2026-11-11 —
     she'll practise in Switzerland, so it leads. Text only: the Red Cross
