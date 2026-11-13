@@ -60,6 +60,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Hero intro: first sentence reworded to "I’m a HCPC registered
+  dietitian and recognised by the Swiss Red Cross, with over six years’
+  NHS experience."
 - Credentials: "Recognised by the Swiss Red Cross (SRC)" moved to third,
   after HCPC and BDA.
 - How it works: the initial consultation is now £100 (was £120).
