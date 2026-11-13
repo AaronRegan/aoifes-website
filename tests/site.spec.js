@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { test, expect } from '@playwright/test';
 
 const SECTION_IDS = [
@@ -298,4 +300,52 @@ test('slim sticky bar appears only after scrolling past the nav', async ({ page 
 
   await page.evaluate(() => window.scrollTo(0, 0));
   await expect(bar).not.toHaveClass(/is-shown/);
+});
+
+test('hardening: the page runs cleanly under the production security headers', async ({ page }) => {
+  // vercel.json sets the headers on Vercel; the local server doesn't, so
+  // apply them here and fail on any Content-Security-Policy violation (e.g.
+  // an inline script edited without updating its hash in vercel.json).
+  const vercel = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json')));
+  const headers = Object.fromEntries(vercel.headers[0].headers.map((h) => [h.key, h.value]));
+  expect(headers['Content-Security-Policy']).toMatch(/frame-ancestors 'none'/);
+  expect(headers['X-Content-Type-Options']).toBe('nosniff');
+
+  const violations = [];
+  page.on('console', (msg) => {
+    if (/Content Security Policy/i.test(msg.text())) violations.push(msg.text());
+  });
+  await page.route('**/', async (route) => {
+    if (route.request().resourceType() !== 'document') return route.fallback();
+    const response = await route.fetch();
+    await route.fulfill({ response, headers: { ...response.headers(), ...headers } });
+  });
+
+  await page.goto('/');
+  await page.locator('[data-audience="adults"]').click();
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(500);
+  expect(violations).toEqual([]);
+});
+
+test('hardening: project files are excluded from the deployment', async () => {
+  // Without these, the live domain would serve internal notes and tooling.
+  const ignored = fs.readFileSync(path.join(__dirname, '..', '.vercelignore'), 'utf8')
+    .split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+  for (const path of ['.claude', '.github', 'tests', 'CHANGELOG.md', 'README.md',
+    'package.json', 'playwright.config.js', '.htmlvalidate.json']) {
+    expect(ignored).toContain(path);
+  }
+  // The site's own files must never be ignored.
+  for (const path of ['index.html', '404.html', 'css', 'js', 'assets', 'robots.txt', 'sitemap.xml']) {
+    expect(ignored).not.toContain(path);
+  }
+});
+
+test('404 page is branded, not indexed, and links home', async ({ page }) => {
+  await page.goto('/404.html');
+  await expect(page.locator('h1')).toContainText('doesn’t exist');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  await expect(page.locator('main a[href="/"]')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB');
 });
