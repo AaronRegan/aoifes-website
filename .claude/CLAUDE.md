@@ -180,9 +180,8 @@ only when Aaron releases, and the pre-launch block still applies):
   2. Women’s health — Including nutrition for PMOS, fertility and
      pregnancy support *(♀ symbol; "PMOS" is her wording, confirmed —
      don't change it to PCOS)*
-  3. Vegan and vegetarian diets — Making sure your diet gives you
-     everything you need *(leaf; subheading suggested by Claude, she
-     approved)*
+  3. Vegan and vegetarian diets — Making sure your diet is nutritionally
+     complete *(leaf; subheading reworded 2026-11-13)*
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
   5. Allergies and intolerances — e.g. lactose intolerance and food

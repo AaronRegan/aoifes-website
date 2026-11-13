@@ -66,6 +66,8 @@ it automatically (see `.github/workflows/release.yml`).
 - Credentials: "Recognised by the Swiss Red Cross (SRC)" moved to third,
   after HCPC and BDA.
 - How it works: the initial consultation is now £100 (was £120).
+- Adults “Vegan and vegetarian diets” subheading now reads “Making sure
+  your diet is nutritionally complete”.
 - About ("Hi, I'm Aoife"): new copy for both children and adults, in
   three short paragraphs (six years in the NHS with a focus on
   paediatrics; feeling listened to; making sense of nutrition advice).
