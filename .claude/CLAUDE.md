@@ -128,9 +128,9 @@ only when Aaron releases, and the pre-launch block still applies):
   her request — she dropped "for every family"): "Personalised, practical
   support". Don't add "family" back to it.
 - Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
-  her Swiss Red Cross recognition, reworded 2026-11-13 by Aaron): "I’m a
-  HCPC registered dietitian and recognised by the Swiss Red Cross, with
-  over six years’ NHS experience. I specialise in infant and child
+  her Swiss Red Cross recognition, reworded 2026-11-13 by Aaron): "I’m an
+  HCPC-registered dietitian, recognised by the Swiss Red Cross, with over
+  six years’ NHS experience. I specialise in infant and child
   nutrition, and offer support through all stages of life."
 - "How I can help" support areas (2026-10-21, subheadings and icons
   2026-10-22), in this order, each a square icon tile + title + italic
