@@ -60,7 +60,7 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
-- Adults “Vegan and vegetarian diets” icon: an open pea pod instead of a leaf.
+- Adults “Vegan and vegetarian diets” icon: a side-view pea pod with three peas instead of a leaf.
 - Hero intro: first sentence reworded to "I’m an HCPC-registered
   dietitian, recognised by the Swiss Red Cross, with over six years’ NHS
   experience."
