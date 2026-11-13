@@ -65,7 +65,7 @@ it automatically (see `.github/workflows/release.yml`).
 - Adults “Gastrointestinal disorders” icon: a simple winding intestine
   instead of the large-intestine frame.
 - Adults: the last tile is now “Other nutritional concerns — Get in
-  touch to see if I can help you” (was “Allergies and intolerances”), with a broccoli icon instead of the
+  touch to see if I can help you!” (was “Allergies and intolerances”), with a broccoli icon instead of the
   egg.
 - Hero intro: first sentence reworded to "I’m an HCPC-registered
   dietitian, recognised by the Swiss Red Cross, with over six years’ NHS

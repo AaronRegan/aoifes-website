@@ -188,7 +188,7 @@ only when Aaron releases, and the pre-launch block still applies):
      2026-11-13; subheading reworded 2026-11-13)*
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
-  5. Other nutritional concerns — Get in touch to see if I can help you
+  5. Other nutritional concerns — Get in touch to see if I can help you!
      *(simple broccoli, her choice; replaced "Allergies and
      intolerances" and its cracked egg 2026-11-13, her wording)*
 
