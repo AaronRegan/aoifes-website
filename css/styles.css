@@ -478,10 +478,6 @@ a:hover { color: var(--brown-deep); }
 .help-icon .tube-in { stroke-width: 4.6; }
 .help-icon .acc-line { stroke: var(--mustard); }
 .help-grid--adults .help-icon .acc-line { stroke: var(--peach); }
-/* Small intestine: a brown-outlined tube with a light core. */
-.help-icon .si { stroke-width: 5.4; }
-.help-icon .si-in { stroke-width: 1.8; stroke: var(--mustard-light); }
-.help-grid--adults .help-icon .si-in { stroke: var(--peach-light); }
 
 .help-icon .txt {
   fill: var(--brown-deep);
