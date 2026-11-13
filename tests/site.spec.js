@@ -238,19 +238,34 @@ test('no horizontal overflow on a small phone', async ({ page }) => {
 });
 
 // Pre-launch only: delete or invert this test as part of the v1.0.0 launch.
-test('pre-launch: page is noindex and AI crawlers are blocked', async ({ page, request }) => {
+test('launch: indexable, with sitemap, canonical, link previews and structured data', async ({ page, request }) => {
   await page.goto('/');
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  // No noindex any more: search engines and AI crawlers may list the page.
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
 
   const robots = await (await request.get('/robots.txt')).text();
-  const groups = robots.split(/\n\s*\n/);
-  const aiGroup = groups.find((g) => /User-agent: GPTBot/.test(g));
-  const catchAll = groups.find((g) => /User-agent: \*/.test(g));
+  expect(robots).not.toMatch(/^Disallow: \/$/m);
+  expect(robots).toMatch(/^Sitemap: https:\/\/www\.aoifeoneill\.ch\/sitemap\.xml$/m);
 
-  expect(aiGroup).toMatch(/User-agent: ClaudeBot/);
-  expect(aiGroup).toMatch(/^Disallow: \/$/m);
-  // Search engines must still be able to fetch the page to see the noindex.
-  expect(catchAll).not.toMatch(/^Disallow: \/$/m);
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.ok()).toBe(true);
+  expect(await sitemap.text()).toContain('<loc>https://www.aoifeoneill.ch/</loc>');
+
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.aoifeoneill.ch/');
+  await expect(page.locator('meta[name="description"]')).not.toHaveAttribute('content', /coming soon/i);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Aoife O’Neill/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\/www\.aoifeoneill\.ch\/assets\/images\/aoife-hero\.jpg$/);
+  // The preview image must exist at the path the absolute URL points to.
+  expect((await request.get('/assets/images/aoife-hero.jpg')).ok()).toBe(true);
+
+  const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+  const types = ld['@graph'].map((n) => n['@type']);
+  expect(types).toEqual(expect.arrayContaining(['Person', 'ProfessionalService']));
+  const person = ld['@graph'].find((n) => n['@type'] === 'Person');
+  expect(person.name).toBe('Aoife O’Neill');
+  expect(person.sameAs).toContain('https://www.linkedin.com/in/aoife-o-neill-2a18a6262/');
+  // Structured data must not reintroduce a phone number.
+  expect(JSON.stringify(ld)).not.toMatch(/telephone|tel:/i);
 });
 
 test('fonts are self-hosted, never fetched from Google', async ({ page }) => {

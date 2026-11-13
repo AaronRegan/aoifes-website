@@ -3,7 +3,7 @@
 Aoife's profile site — a single-page, scroll-driven site covering who she is,
 the services she offers, and how to get in touch.
 
-Currently a placeholder while design direction is worked out.
+Live at https://www.aoifeoneill.ch (production = `main`).
 
 ## Stack
 

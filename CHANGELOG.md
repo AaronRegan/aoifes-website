@@ -19,6 +19,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Launch readiness: the page can now be listed by search engines and AI
+  assistants (noindex and the AI-crawler block removed), with a sitemap,
+  canonical address on www.aoifeoneill.ch, a real description, link-preview
+  tags and structured data describing Aoife and her consultations.
 - Swiss Red Cross recognition: the hero intro now opens "I’m a
   dietitian recognised by the Swiss Red Cross and registered with the
   HCPC in the UK…", and "Recognised by the Swiss Red Cross (SRC)" is
