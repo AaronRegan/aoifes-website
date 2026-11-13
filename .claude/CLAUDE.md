@@ -209,11 +209,15 @@ only when Aaron releases, and the pre-launch block still applies):
     Dietetics
 
   She's UK-registered (HCPC/BDA) and her qualification is recognised in
-  Switzerland by the Swiss Red Cross (2026-11-11), where she'll practise —
-  relevant for the launch checklist's structured data and directory
-  listings. Still to settle with Aaron later: prices in CHF rather than £,
-  Swiss health-insurance reimbursement (cantonal licence, ZSR number), and
-  Switzerland/canton as her service area.
+  Switzerland by the Swiss Red Cross (2026-11-11), where she'll practise
+  later.
+
+  **Launch audience: UK only** (Aaron, 2026-11-13). She has SRC recognition
+  but no Geneva cantonal registration yet, so at launch the site targets UK
+  clients: online video consultations, prices in £. Structured data and
+  directory listings use the UK / online as the service area. Swiss
+  practice (CHF prices, cantonal licence, ZSR number and health-insurance
+  reimbursement, canton as service area) comes once she's registered.
 
 - Hero photo (2026-11-04, from her "Preview: hero photo" artifact):
   `assets/images/aoife-hero.jpg`, 510×510 JPEG (~39 KB, no EXIF/GPS),
@@ -398,8 +402,14 @@ deployment; tags identify which commit each release was.
 ## Deployment
 
 Static site — deploys to Vercel with zero config (no build command, output
-directory is the repo root). No custom domain yet; using Vercel's default
-subdomain until one is bought.
+directory is the repo root).
+
+**Domain** (bought 2026-11-12): `aoifeoneill.ch`, registered at Infomaniak,
+DNS on Infomaniak's nameservers. `www.aoifeoneill.ch` is the primary domain
+on the Vercel project; `aoifeoneill.ch` redirects (308) to it. Records at
+Infomaniak: `A @ → 76.76.21.21` and `CNAME www → cname.vercel-dns.com.`
+(Infomaniak's MX and SPF records are kept for email there). Production
+(`main`) serves on it, so the pre-launch block below matters.
 
 Cloudflare Pages was dropped (2026-09-26) — Vercel is the sole host now.
 Don't reintroduce it or its config without being asked.
@@ -418,12 +428,17 @@ serves once the feature is enabled in the project dashboard), keeping the
 zero-build-step setup intact. Both routes only resolve on Vercel's own
 infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
-## Languages (French planned)
+## Languages (French planned, on hold)
 
-A French version is planned alongside English. **Don't build it yet** — it
-gets built once the English copy is close to final, and both languages go
-live together at the `v1.0.0` launch. Building it earlier means every
-design/content change is made twice.
+A French version is planned. **On hold** (Aaron, 2026-11-13): the launch
+targets UK clients only (see "Launch audience" above), so `v1.0.0` launches
+in English alone. French gets built once she has her Geneva cantonal
+registration and starts taking Swiss clients. German may follow later
+depending on the canton — use the same pattern as French.
+
+Settled for when it's built (2026-11-13): **Swiss French** (`fr-CH`
+hreflang, Swiss usage where it differs), drafted by Claude and **reviewed
+by Aoife** in the panel before release.
 
 **Decided approach** (agreed 2026-09-27):
 - A separate static page, `fr/index.html`, sharing `css/`, `js/`, and
@@ -449,9 +464,8 @@ design/content change is made twice.
 links, and structure; run the 375px overflow test on both pages; the
 `pre-launch:` noindex applies to `/fr/` too until launch; real French copy
 translated or reviewed by a fluent speaker (health content for parents —
-no raw machine translation). Still to decide with the user: which French
-audience (France vs French-speaking families elsewhere), which sets the
-`hreflang` code and some word choices.
+no raw machine translation). Prices on the French page follow whatever the
+Swiss practice decision is then (likely CHF).
 
 ## Search and AI discoverability
 
@@ -468,9 +482,9 @@ they learn about "Aoife" isn't a Coming Soon page:
 - A `pre-launch:` test enforces both. Lift the block only as part of the
   `v1.0.0` launch, never earlier.
 
-**Launch checklist** (do together with real content, the French page, and
-the custom domain):
-1. Remove the `noindex` meta (both languages); in `robots.txt` remove the AI block and add a
+**Launch checklist** (do together with real content and the custom
+domain; English only — French is on hold, see Languages):
+1. Remove the `noindex` meta; in `robots.txt` remove the AI block and add a
    `Sitemap:` line; delete or invert the `pre-launch:` test.
 2. Add `sitemap.xml`, a canonical URL, a real meta description, and Open
    Graph tags for link previews.

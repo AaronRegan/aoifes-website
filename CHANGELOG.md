@@ -60,6 +60,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Project notes: launch targets UK clients (English only, prices in £);
+  the French page is on hold until her Geneva registration; domain setup
+  (aoifeoneill.ch) recorded.
 - Adults “Vegan and vegetarian diets” icon: a side-view pea pod with three peas instead of a leaf.
 - Adults “Women’s health” icon: a tulip instead of the ♀ symbol.
 - Adults “Gastrointestinal disorders” icon: a simple winding intestine
