@@ -414,6 +414,25 @@ Infomaniak: `A @ → 76.76.21.21` and `CNAME www → cname.vercel-dns.com.`
 (`main`) serves on it. Since the pre-launch block is lifted on `dev`, the
 next release from `dev` is the public launch and must be `v1.0.0`.
 
+**Hardening** (2026-11-13, from the pre-launch review):
+- `.vercelignore` keeps everything except the site itself out of the
+  deployment. Before it, the live domain served `.claude/CLAUDE.md`, the
+  changelog, tests and CI config to anyone. When adding a new non-site file
+  or folder, add it there too; a `hardening:` test checks the key entries.
+- `vercel.json` (config only, still no build step) sets security headers on
+  every response: a strict Content-Security-Policy (everything same-origin;
+  the two inline Vercel analytics snippets allowed by **sha256 hash**),
+  `nosniff`, `X-Frame-Options: DENY`, a referrer policy and a permissions
+  policy. **If you change either inline `<script>` in `index.html`, update
+  its hash in `vercel.json`** — the `hardening:` test applies the headers
+  and fails on any CSP violation. Adding a third-party script, embed or
+  font means widening the CSP on purpose. The CSP also blocks Vercel's
+  preview toolbar (vercel.live) on previews; that's accepted.
+- It also 301-redirects the public `*.vercel.app` production aliases to
+  `https://www.aoifeoneill.ch` so there's one public copy.
+- `404.html` is a branded "page not found" page (noindex, link home);
+  Vercel serves it for unknown paths. It uses root-relative asset paths.
+
 Cloudflare Pages was dropped (2026-09-26) — Vercel is the sole host now.
 Don't reintroduce it or its config without being asked.
 
@@ -513,6 +532,26 @@ Longer term: a single page is one entry point. Separate pages or short
 articles on specific topics would help her appear for topic questions,
 not just searches for her name — a change to the one-page design, so ask
 first.
+
+## Future development notes (from the pre-launch review, 2026-11-13)
+
+- **Privacy notice:** not added (Aaron's call, 2026-11-13) because the site
+  itself collects nothing — enquiries go by email and bookings via Cal.com,
+  which only take contact details. Revisit if the site ever adds a form,
+  takes health details online, or adds cookies/tracking beyond Vercel's
+  cookieless analytics. Aoife should check whether she needs to pay the
+  ICO data protection fee for her practice records.
+- **Yearly:** swap the BDA member logo (and its alt text year); bump
+  `sitemap.xml` `lastmod` after meaningful content changes.
+- **Link previews:** a 1200×630 image from Aoife would give the large
+  preview card (currently the 510px square hero photo).
+- **Parked until Swiss practice starts:** French (fr-CH) / German pages,
+  CHF prices, ZSR and insurance, canton as service area.
+- **Parked content:** saying she works online with UK clients, a domain
+  email address, an FAQ section.
+- **Ideas:** topic pages or short articles (ask first — changes the
+  one-page design); a contact form (needs a form service, a privacy notice
+  and a CSP change); testimonials (check HCPC guidance on their use).
 
 ## Changelog policy
 

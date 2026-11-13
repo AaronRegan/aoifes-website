@@ -19,6 +19,10 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Added
 
+- Security hardening: internal project files are no longer published with
+  the site; security headers (including a strict content security policy)
+  on every page; the vercel.app copy redirects to www.aoifeoneill.ch; a
+  branded "page not found" page.
 - Launch readiness: the page can now be listed by search engines and AI
   assistants (noindex and the AI-crawler block removed), with a sitemap,
   canonical address on www.aoifeoneill.ch, a real description, link-preview
@@ -66,6 +70,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Page language set to British English (en-GB); curly apostrophe in
+  "Hi, I’m Aoife".
 - Adults pea pod icon: tidier stalk (one curved stem with two small leaves).
 - Project notes: launch targets UK clients (English only, prices in £);
   the French page is on hold until her Geneva registration; domain setup
