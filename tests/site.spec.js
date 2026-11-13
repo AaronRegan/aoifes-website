@@ -79,7 +79,7 @@ test('support areas: the Children / Adults switch flips to the adult tiles and b
     'Women’s health',
     'Vegan and vegetarian diets',
     'Weight management',
-    'Allergies and intolerances',
+    'Other nutritional concerns',
   ]);
   for (const item of await adults.locator('.help-item').all()) {
     await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);

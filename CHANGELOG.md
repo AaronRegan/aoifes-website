@@ -64,6 +64,8 @@ it automatically (see `.github/workflows/release.yml`).
 - Adults “Women’s health” icon: a tulip instead of the ♀ symbol.
 - Adults “Gastrointestinal disorders” icon: a simple winding intestine
   instead of the large-intestine frame.
+- Adults: the last tile is now “Other nutritional concerns — Get in
+  touch to see if I can help you” (was “Allergies and intolerances”).
 - Hero intro: first sentence reworded to "I’m an HCPC-registered
   dietitian, recognised by the Swiss Red Cross, with over six years’ NHS
   experience."
