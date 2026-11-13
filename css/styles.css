@@ -476,6 +476,8 @@ a:hover { color: var(--brown-deep); }
 /* A tube drawn as a brown outline with a coloured core (e.g. the intestine). */
 .help-icon .tube { stroke-width: 9; }
 .help-icon .tube-in { stroke-width: 4.6; }
+.help-icon .tube.sm { stroke-width: 7; }
+.help-icon .tube-in.sm { stroke-width: 3.2; }
 .help-icon .acc-line { stroke: var(--mustard); }
 .help-grid--adults .help-icon .acc-line { stroke: var(--peach); }
 

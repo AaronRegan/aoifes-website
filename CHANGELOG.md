@@ -62,6 +62,9 @@ it automatically (see `.github/workflows/release.yml`).
 
 - Adults “Vegan and vegetarian diets” icon: a side-view pea pod with three peas instead of a leaf.
 - Adults “Women’s health” icon: a tulip instead of the ♀ symbol.
+- Adults “Gastrointestinal disorders” icon: a fuller digestive tract
+  (food pipe, stomach, small and large intestine) instead of the large
+  intestine alone.
 - Hero intro: first sentence reworded to "I’m an HCPC-registered
   dietitian, recognised by the Swiss Red Cross, with over six years’ NHS
   experience."
