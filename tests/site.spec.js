@@ -91,11 +91,11 @@ test('support areas: the Children / Adults switch flips to the adult tiles and b
   await expect(adults).toBeHidden();
 });
 
-test('Swiss Red Cross recognition: in the hero intro and first in the credentials', async ({ page }) => {
+test('Swiss Red Cross recognition: in the hero intro and third in the credentials', async ({ page }) => {
   await page.goto('/');
 
   await expect(page.locator('#hero .lead')).toContainText('recognised by the Swiss Red Cross');
-  await expect(page.locator('#about .credentials li').first()).toHaveText('Recognised by the Swiss Red Cross (SRC)');
+  await expect(page.locator('#about .credentials li').nth(2)).toHaveText('Recognised by the Swiss Red Cross (SRC)');
 });
 
 test('hero photo loads and has alt text', async ({ page }) => {
@@ -142,7 +142,7 @@ test('how it works: three steps, each with a title, duration and price', async (
   const steps = page.locator('#how-it-works .steps > li');
   await expect(steps).toHaveCount(3);
   await expect(steps.locator('h3')).toHaveText(['Discovery call', 'Initial consultation', 'Follow-up consultation']);
-  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£120/, /£60/]);
+  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£100/, /£60/]);
 });
 
 test('tab icon (pear) files are linked and served', async ({ page, request }) => {

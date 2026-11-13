@@ -60,6 +60,17 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Hero intro: first sentence reworded to "I’m an HCPC-registered
+  dietitian, recognised by the Swiss Red Cross, with over six years’ NHS
+  experience."
+- Credentials: "Recognised by the Swiss Red Cross (SRC)" moved to third,
+  after HCPC and BDA.
+- How it works: the initial consultation is now £100 (was £120).
+- Adults “Vegan and vegetarian diets” subheading now reads “Making sure
+  your diet is nutritionally complete”.
+- About ("Hi, I'm Aoife"): new copy for both children and adults, in
+  three short paragraphs (six years in the NHS with a focus on
+  paediatrics; feeling listened to; making sense of nutrition advice).
 - Hero headline: "from infancy to adulthood" is now "from infancy
   through adulthood" (Aoife's wording).
 - Hero italic line shortened to "Personalised, practical support"

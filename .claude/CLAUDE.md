@@ -128,10 +128,10 @@ only when Aaron releases, and the pre-launch block still applies):
   her request — she dropped "for every family"): "Personalised, practical
   support". Don't add "family" back to it.
 - Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
-  her Swiss Red Cross recognition, Aaron's choice): "I’m a dietitian
-  recognised by the Swiss Red Cross and registered with the HCPC in the
-  UK, with over six years’ NHS experience. I specialise in infant and
-  child nutrition, and offer support through all stages of life."
+  her Swiss Red Cross recognition, reworded 2026-11-13 by Aaron): "I’m an
+  HCPC-registered dietitian, recognised by the Swiss Red Cross, with over
+  six years’ NHS experience. I specialise in infant and child
+  nutrition, and offer support through all stages of life."
 - "How I can help" support areas (2026-10-21, subheadings and icons
   2026-10-22), in this order, each a square icon tile + title + italic
   subheading:
@@ -180,25 +180,25 @@ only when Aaron releases, and the pre-launch block still applies):
   2. Women’s health — Including nutrition for PMOS, fertility and
      pregnancy support *(♀ symbol; "PMOS" is her wording, confirmed —
      don't change it to PCOS)*
-  3. Vegan and vegetarian diets — Making sure your diet gives you
-     everything you need *(leaf; subheading suggested by Claude, she
-     approved)*
+  3. Vegan and vegetarian diets — Making sure your diet is nutritionally
+     complete *(leaf; subheading reworded 2026-11-13)*
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
   5. Allergies and intolerances — e.g. lactose intolerance and food
      allergies *(cracked egg; subheading suggested by Claude, approved)*
 
-- About me (2026-10-22): heading "Hi, I'm Aoife", italic line
-  "pronounced “Eefa”", then two paragraphs (her points, polished): 6+
-  years in the NHS with children and adults across specialities;
-  practical, personalised, evidence-based feeding and nutrition advice
-  for parents; parents feeling listened to and heard.
+- About me (2026-10-22; paragraphs replaced 2026-11-13, supplied
+  wording used as-is): heading "Hi, I'm Aoife", italic line "pronounced
+  “Eefa”", then three short paragraphs addressed to adults and parents
+  alike ("Whether it’s for you or your little one…"): six years in the
+  NHS, children and adults, particular focus on paediatrics; feeling
+  listened to and heard; making sense of the nutrition advice out there.
 - Credentials (2026-10-22), About section list:
-  - Recognised by the Swiss Red Cross (SRC) (added first 2026-11-11 —
-    she'll practise in Switzerland, so it leads. Text only: the Red Cross
-    emblem is legally protected, so no SRC logo in the logo strip)
   - HCPC registered (abbreviated — her choice)
   - Member of the British Dietetic Association (BDA)
+  - Recognised by the Swiss Red Cross (SRC) (added 2026-11-11; moved from
+    first to third 2026-11-13. Text only: the Red Cross emblem is legally
+    protected, so no SRC logo in the logo strip)
   - BSc Nutrition and Dietetics, Glasgow Caledonian University
   - BDA-certified postgraduate module in Paediatric Nutrition and
     Dietetics
@@ -231,7 +231,8 @@ only when Aaron releases, and the pre-launch block still applies):
   `#how-it-works`, no "Services" label or nav button, Aaron 2026-11-09):
   just the three steps, each with a duration and
   price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·
-  Free; 2. Initial consultation — 60-minute video call · £120; 3.
+  Free; 2. Initial consultation — 60-minute video call · £100 (was £120 until
+  2026-11-13); 3.
   Follow-up consultation — 45-minute video call · £60 · if required. The
   old placeholder service cards were removed.
 - LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/
