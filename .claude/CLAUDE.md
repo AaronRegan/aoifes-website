@@ -176,9 +176,8 @@ only when Aaron releases, and the pre-launch block still applies):
   on phones 2 + 2 + the fifth centred. She may add a sixth later (then
   3 × 2):
   1. Gastrointestinal disorders — IBS, coeliac disease and functional GI
-     disorders *(intestines, redrawn 2026-11-13 from her reference: bumpy
-     peach large intestine framing looping small intestine, with appendix
-     and rectum; brown outline)*
+     disorders *(large intestine as a peach tube with brown outline; she tried
+     fuller versions 2026-11-13 and chose to keep this one)*
   2. Women’s health — Including nutrition for PMOS, fertility and
      pregnancy support *(tulip with stem and two leaves, replaced the ♀ symbol
      2026-11-13; "PMOS" is her wording, confirmed —
