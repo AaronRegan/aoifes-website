@@ -39,6 +39,7 @@ since 0.1.1 are in the git history and the merged pull requests.
 
 ### Changed
 
+- CI: the test workflow’s GitHub token is now read-only (least privilege).
 - New design from Aoife’s “Sun” direction: cream, marigold and burnt
   sienna, Montserrat with Cormorant Garamond italic accents, a tall
   marigold header with pill navigation and a slim bar that appears on
