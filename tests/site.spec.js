@@ -91,11 +91,11 @@ test('support areas: the Children / Adults switch flips to the adult tiles and b
   await expect(adults).toBeHidden();
 });
 
-test('Swiss Red Cross recognition: in the hero intro and first in the credentials', async ({ page }) => {
+test('Swiss Red Cross recognition: in the hero intro and third in the credentials', async ({ page }) => {
   await page.goto('/');
 
   await expect(page.locator('#hero .lead')).toContainText('recognised by the Swiss Red Cross');
-  await expect(page.locator('#about .credentials li').first()).toHaveText('Recognised by the Swiss Red Cross (SRC)');
+  await expect(page.locator('#about .credentials li').nth(2)).toHaveText('Recognised by the Swiss Red Cross (SRC)');
 });
 
 test('hero photo loads and has alt text', async ({ page }) => {

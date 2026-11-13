@@ -195,11 +195,11 @@ only when Aaron releases, and the pre-launch block still applies):
   NHS, children and adults, particular focus on paediatrics; feeling
   listened to and heard; making sense of the nutrition advice out there.
 - Credentials (2026-10-22), About section list:
-  - Recognised by the Swiss Red Cross (SRC) (added first 2026-11-11 —
-    she'll practise in Switzerland, so it leads. Text only: the Red Cross
-    emblem is legally protected, so no SRC logo in the logo strip)
   - HCPC registered (abbreviated — her choice)
   - Member of the British Dietetic Association (BDA)
+  - Recognised by the Swiss Red Cross (SRC) (added 2026-11-11; moved from
+    first to third 2026-11-13. Text only: the Red Cross emblem is legally
+    protected, so no SRC logo in the logo strip)
   - BSc Nutrition and Dietetics, Glasgow Caledonian University
   - BDA-certified postgraduate module in Paediatric Nutrition and
     Dietetics
