@@ -60,6 +60,7 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- How it works: the initial consultation is now £100 (was £120).
 - About ("Hi, I'm Aoife"): new copy for both children and adults, in
   three short paragraphs (six years in the NHS with a focus on
   paediatrics; feeling listened to; making sense of nutrition advice).

@@ -232,7 +232,8 @@ only when Aaron releases, and the pre-launch block still applies):
   `#how-it-works`, no "Services" label or nav button, Aaron 2026-11-09):
   just the three steps, each with a duration and
   price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·
-  Free; 2. Initial consultation — 60-minute video call · £120; 3.
+  Free; 2. Initial consultation — 60-minute video call · £100 (was £120 until
+  2026-11-13); 3.
   Follow-up consultation — 45-minute video call · £60 · if required. The
   old placeholder service cards were removed.
 - LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/

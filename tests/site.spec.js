@@ -142,7 +142,7 @@ test('how it works: three steps, each with a title, duration and price', async (
   const steps = page.locator('#how-it-works .steps > li');
   await expect(steps).toHaveCount(3);
   await expect(steps.locator('h3')).toHaveText(['Discovery call', 'Initial consultation', 'Follow-up consultation']);
-  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£120/, /£60/]);
+  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£100/, /£60/]);
 });
 
 test('tab icon (pear) files are linked and served', async ({ page, request }) => {
