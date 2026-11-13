@@ -178,7 +178,7 @@ only when Aaron releases, and the pre-launch block still applies):
   1. Gastrointestinal disorders — IBS, coeliac disease and functional GI
      disorders *(large intestine as a peach tube with brown outline)*
   2. Women’s health — Including nutrition for PMOS, fertility and
-     pregnancy support *(pomegranate with a crown, replaced the ♀ symbol
+     pregnancy support *(five-petal flower with stem and leaf, replaced the ♀ symbol
      2026-11-13; "PMOS" is her wording, confirmed —
      don't change it to PCOS)*
   3. Vegan and vegetarian diets — Making sure your diet is nutritionally
