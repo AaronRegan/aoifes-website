@@ -176,16 +176,21 @@ only when Aaron releases, and the pre-launch block still applies):
   on phones 2 + 2 + the fifth centred. She may add a sixth later (then
   3 × 2):
   1. Gastrointestinal disorders — IBS, coeliac disease and functional GI
-     disorders *(large intestine as a peach tube with brown outline)*
+     disorders *(simple winding intestine, 2026-11-13: one peach tube with brown
+     outline, straight neck then back-and-forth loops; she tried detailed
+     anatomical versions and chose this simpler one)*
   2. Women’s health — Including nutrition for PMOS, fertility and
-     pregnancy support *(♀ symbol; "PMOS" is her wording, confirmed —
+     pregnancy support *(tulip with stem and two leaves, replaced the ♀ symbol
+     2026-11-13; "PMOS" is her wording, confirmed —
      don't change it to PCOS)*
   3. Vegan and vegetarian diets — Making sure your diet is nutritionally
-     complete *(leaf; subheading reworded 2026-11-13)*
+     complete *(side-view pea pod with three peas, replaced the leaf
+     2026-11-13; subheading reworded 2026-11-13)*
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
-  5. Allergies and intolerances — e.g. lactose intolerance and food
-     allergies *(cracked egg; subheading suggested by Claude, approved)*
+  5. Other nutritional concerns — Get in touch to see if I can help you!
+     *(simple broccoli, her choice; replaced "Allergies and
+     intolerances" and its cracked egg 2026-11-13, her wording)*
 
 - About me (2026-10-22; paragraphs replaced 2026-11-13, supplied
   wording used as-is): heading "Hi, I'm Aoife", italic line "pronounced
