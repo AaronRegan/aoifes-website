@@ -189,8 +189,8 @@ only when Aaron releases, and the pre-launch block still applies):
   4. Weight management — Support with weight loss or weight gain
      *(bathroom scale)*
   5. Other nutritional concerns — Get in touch to see if I can help you
-     *(cracked egg for now; replaced "Allergies and intolerances"
-     2026-11-13, her wording)*
+     *(simple broccoli, her choice; replaced "Allergies and
+     intolerances" and its cracked egg 2026-11-13, her wording)*
 
 - About me (2026-10-22; paragraphs replaced 2026-11-13, supplied
   wording used as-is): heading "Hi, I'm Aoife", italic line "pronounced
