@@ -411,7 +411,8 @@ DNS on Infomaniak's nameservers. `www.aoifeoneill.ch` is the primary domain
 on the Vercel project; `aoifeoneill.ch` redirects (308) to it. Records at
 Infomaniak: `A @ → 76.76.21.21` and `CNAME www → cname.vercel-dns.com.`
 (Infomaniak's MX and SPF records are kept for email there). Production
-(`main`) serves on it, so the pre-launch block below matters.
+(`main`) serves on it. Since the pre-launch block is lifted on `dev`, the
+next release from `dev` is the public launch and must be `v1.0.0`.
 
 Cloudflare Pages was dropped (2026-09-26) — Vercel is the sole host now.
 Don't reintroduce it or its config without being asked.
@@ -471,28 +472,30 @@ Swiss practice decision is then (likely CHF).
 
 ## Search and AI discoverability
 
-**Current state: pre-launch block.** While content is placeholder, the site
-is kept out of search engines and AI models on purpose, so the first thing
-they learn about "Aoife" isn't a Coming Soon page:
-- `<meta name="robots" content="noindex, nofollow">` in `index.html` —
-  Google/Bing (and the AI search products that use their indexes) won't
-  list the page.
-- `robots.txt` blocks AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
-  Google-Extended, CCBot, etc.), which don't reliably honour `noindex`.
-  `User-agent: *` stays allowed — search engines must be able to fetch the
-  page to see the `noindex`. Never `Disallow: /` for everyone.
-- A `pre-launch:` test enforces both. Lift the block only as part of the
-  `v1.0.0` launch, never earlier.
+**Current state: launch-ready on `dev`** (2026-11-13). The pre-launch
+block is lifted on `dev` and goes public with the `v1.0.0` release:
+- No `noindex` meta; `robots.txt` allows everyone (AI crawlers included)
+  and points to `sitemap.xml`.
+- `index.html` has a real meta description, canonical
+  `https://www.aoifeoneill.ch/`, Open Graph/Twitter link-preview tags (hero
+  photo as the image) and JSON-LD: a `Person` (credentials, BDA membership,
+  GCU, LinkedIn `sameAs`) plus a `ProfessionalService` (UK as service area,
+  the three consultation prices in GBP). No phone number in it — a test
+  checks.
+- The `launch:` test enforces all of this. Keep the JSON-LD in step with
+  the page: credentials, prices, email and service area appear in both.
+- `sitemap.xml` has one URL; bump its `lastmod` when content changes
+  meaningfully.
 
 **Launch checklist** (do together with real content and the custom
 domain; English only — French is on hold, see Languages):
-1. Remove the `noindex` meta; in `robots.txt` remove the AI block and add a
-   `Sitemap:` line; delete or invert the `pre-launch:` test.
-2. Add `sitemap.xml`, a canonical URL, a real meta description, and Open
-   Graph tags for link previews.
-3. JSON-LD structured data: a `Person` plus a professional service (job
+1. ~~Remove the `noindex` meta; open `robots.txt` with a `Sitemap:` line;
+   invert the `pre-launch:` test.~~ Done 2026-11-13.
+2. ~~Add `sitemap.xml`, a canonical URL, a real meta description, and Open
+   Graph tags for link previews.~~ Done 2026-11-13.
+3. ~~JSON-LD structured data: a `Person` plus a professional service (job
    title, specialism, service area, credentials/registration, `sameAs`
-   links to her profiles).
+   links to her profiles).~~ Done 2026-11-13.
 4. Copy that states plainly who she is, what she does, where (in person /
    online), and her qualifications and registration. Add a plain-language
    FAQ section with real parent questions — LLMs pick up Q&A well.
