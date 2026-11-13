@@ -4,6 +4,71 @@ Single-page, scroll-driven profile site for Aoife: who she is, the services
 she offers, and how to contact her. The design system is set (below); all
 copy is still placeholder.
 
+**This is the dietitian site only.** Aoife's yoga site is a separate
+project (decided 2026-11-04): repo `AaronRegan/yoga-with-aoife-website`,
+local `~/Development/yoga-with-aoife-website`, its own Vercel project,
+CLAUDE.md, changelog and releases. Yoga content, design or tooling
+changes never go in this repo — if a request is about yoga, point to that
+project instead. The two sites will get separate domains and be
+cross-linked later only via an "Also by Aoife" footer link and JSON-LD
+`sameAs` at launch.
+
+## Who you're working with
+
+**By default it's Aaron**, a software engineer who owns the repo. Work as
+everything below describes.
+
+**If the person says they are Aoife**, switch to working as her **web
+consultant**. She's the client, not an engineer, and has no coding
+experience. Keep the development side out of her way:
+
+- **Talk in plain language.** Describe changes by what she'll see on the
+  page, not how they're built. No unexplained jargon: no "PR", "branch",
+  "merge", "CI", "commit", "deploy", "CSS" and so on. If a technical idea
+  matters, explain it in one everyday sentence.
+- **Work as questions and answers with examples.** Ask one or a few
+  questions at a time, each with concrete options to pick from: sample
+  wording, before/after, or a quick visual mockup in the chat. Recommend
+  one option and say why in a sentence. Never leave her a blank question
+  she'd need expertise to answer.
+- **Do all the development yourself**, start to finish, following the
+  feature flow below.
+- **Batch her changes, and show each one live** (her request, 2026-10-22):
+  - One branch per goal, not per session (see "Scope each branch by its
+    goal first" below), e.g. `content/about-section`. When she moves on
+    to a different part of the site, ask in plain words whether to send
+    what's done first ("Shall I send the About changes before we start
+    on Services?"), then start a new branch for the new goal.
+  - Keep the `static-site` preview running in the browser panel beside
+    the chat (`preview_start`, don't stop it at the end of a turn). After
+    each change, reload it and scroll to the changed spot so she sees it
+    straight away. Commit as you go, with a changelog line per change.
+  - Only when she says "send it" (or before the session ends — ask her
+    first): run lint and tests, open one PR into `dev`, merge once CI is
+    green. Then tell her it's on the preview:
+    `aoifes-website-git-dev-aaronregan.vercel.app`.
+  - The panel copy is local to this computer; the preview link only
+    changes when a batch is sent.
+- **Never take anything to production for her.** No `dev` → `main` PRs, no
+  releases, no tags. When she's happy with something, tell her Aaron will
+  put it live, and list what's waiting on `dev` in plain words.
+- **Never ask her to** run commands, use GitHub or Vercel, read code or
+  diffs, or check logs. Verify things yourself and show her results
+  visually.
+- **Hand infrastructure decisions to Aaron**: hosting, domains and DNS,
+  accounts and billing, analytics or tracking changes, security, repo
+  settings, new tools or dependencies. Explain simply that it's Aaron's
+  area, and record what she wants in the PR description so he sees it.
+- **The project rules still hold**, explained to her in plain terms:
+  - Readability (contrast) rules: if a colour she picks is hard to read,
+    say so and offer the closest option that works.
+  - Self-hosted fonts.
+  - Changelog lines.
+  - The pre-launch search-engine block: real content she supplies can go
+    onto `dev`, but it only reaches the public when Aaron releases it.
+  - Design changes she asks for are her call. Update the design-system
+    notes below to match.
+
 ## Stack
 
 Plain HTML/CSS/JS. No build step, no framework, no backend, no package.json.
@@ -36,36 +101,246 @@ Under `prefers-reduced-motion` everything is shown immediately.
 Aoife is a paediatric dietitian, but **nothing real about her goes on the
 public site yet** — no specialism, credentials, real contact details,
 photos, or copy that hints at them. Keep all text as obvious placeholders
-until the user supplies real content. Placeholder contact uses
-`hello@example.com` (reserved domain) and a dummy phone number.
+until the user supplies real content. Her real email is now supplied
+(below); use `hello@example.com` (reserved domain) for any other
+placeholder contact.
+
+**No phone number on the site** (Aaron, 2026-11-05). Contact and
+appointment booking are by email only. Her number was removed from the
+site, docs and git history; never add a phone number back, in the page,
+docs, changelog, commit messages or PR descriptions. A test enforces
+that the page has no `tel:` links.
+
+**Real content supplied by Aoife so far** (use as-is; it reaches the public
+only when Aaron releases, and the pre-launch block still applies):
+- Name and title (2026-10-21; title changed 2026-11-12, her choice):
+  **Aoife O’Neill**, "Paediatric and Adult Dietitian" (was "Paediatric
+  and Family Dietitian") — header italic tagline and page `<title>`; the
+  slim bar and footer show the name only.
+- "How I can help" has no intro line under the heading (Aaron,
+  2026-11-13: removed "1:1 video consultations from the comfort of your
+  home" as it pointed to the wrong place, sitting above the support tiles).
+- Hero headline (2026-10-28, replacing the 2026-10-21 one; "to" changed
+  to "through" 2026-11-12, her request): "Evidence-based nutrition
+  guidance from infancy through adulthood." Her wording. "Infancy"
+  matters: she sees babies before weaning (e.g. faltering growth, CMPA),
+  so avoid copy that starts her work at "first foods"/weaning.
+- Hero italic line under the headline (2026-10-28; shortened 2026-11-12,
+  her request — she dropped "for every family"): "Personalised, practical
+  support". Don't add "family" back to it.
+- Hero intro paragraph (2026-10-28; first sentence changed 2026-11-11 for
+  her Swiss Red Cross recognition, reworded 2026-11-13 by Aaron): "I’m an
+  HCPC-registered dietitian, recognised by the Swiss Red Cross, with over
+  six years’ NHS experience. I specialise in infant and child
+  nutrition, and offer support through all stages of life."
+- "How I can help" support areas (2026-10-21, subheadings and icons
+  2026-10-22), in this order, each a square icon tile + title + italic
+  subheading:
+  1. Weaning support — For preterm and term infants *(side-view baby spoon
+     with food)*
+  2. Growth concerns — e.g. faltering growth *(rolled sewing measuring
+     tape)*
+  3. Nutritional deficiencies — e.g. iron deficiency, diagnosed or
+     suspected *("Fe" periodic-table tile)*
+  4. Allergies — e.g. suspected cow’s milk protein allergy *(milk bottle
+     labelled "MILK")*
+  5. Gastrointestinal symptoms — e.g. reflux, constipation and diarrhoea
+     *(cute waving stomach with a face, arms and legs — the one playful
+     icon, her choice)*
+  6. Restrictive eating — Including food aversions and ARFID *(plate with
+     a single pea and a fork)*
+  7. Plant-based and gluten-free diets — Including vegetarian and vegan
+     diets, and gluten-free for coeliac disease *(wheat stalk with leaf;
+     "diagnosed" deliberately removed 2026-11-04 — don't add it back)*
+  8. Tube feeding and blended diets — Working with your child’s medical
+     team *(feeding bag and tube)*
+
+  Aoife iterated on the icons from reference pictures; each was drawn
+  fresh (not copied). She disliked white in them — no cream fills.
+
+  Eight fits the 4 × 2 grid (two per row on phones). A ninth would leave
+  one orphaned on the last row — suggest merging or a 3 × 3 layout.
+
+  **Children / Adults switch** (Aaron, 2026-11-11): a sliding pill switch
+  (`.audience-toggle`, buttons with `aria-pressed`) above the tiles swaps
+  between two lists (`data-audience-panel="children"|"adults"`); the tiles
+  flip on their vertical axis one after another (`main.js`, Web Animations;
+  the `.help-panels` wrapper's height is animated between lists so the page
+  doesn't jump; the hidden list is pre-drawn invisibly at idle
+  (`.is-prewarming`) to avoid a first-switch stall; instant under
+  reduced motion; without JS both lists show and the switch is hidden).
+  Adult tiles use `--peach-light` tiles with `--peach` accents (the
+  switch's thumb turns peach too).
+
+  **Adult support areas** (Aoife, 2026-11-12), in this order, title +
+  italic subheading, all five in one row on wide screens (5-column grid);
+  on phones 2 + 2 + the fifth centred. She may add a sixth later (then
+  3 × 2):
+  1. Gastrointestinal disorders — IBS, coeliac disease and functional GI
+     disorders *(simple winding intestine, 2026-11-13: one peach tube with brown
+     outline, straight neck then back-and-forth loops; she tried detailed
+     anatomical versions and chose this simpler one)*
+  2. Women’s health — Including nutrition for PMOS, fertility and
+     pregnancy support *(tulip with stem and two leaves, replaced the ♀ symbol
+     2026-11-13; "PMOS" is her wording, confirmed —
+     don't change it to PCOS)*
+  3. Vegan and vegetarian diets — Making sure your diet is nutritionally
+     complete *(side-view pea pod with three peas and a curved stalk
+     with two small leaves, replaced the leaf
+     2026-11-13; subheading reworded 2026-11-13)*
+  4. Weight management — Support with weight loss or weight gain
+     *(bathroom scale)*
+  5. Other nutritional concerns — Get in touch to see if I can help you!
+     *(simple broccoli, her choice; replaced "Allergies and
+     intolerances" and its cracked egg 2026-11-13, her wording)*
+
+- About me (2026-10-22; paragraphs replaced 2026-11-13, supplied
+  wording used as-is): heading "Hi, I'm Aoife", italic line "pronounced
+  “Eefa”", then three short paragraphs addressed to adults and parents
+  alike ("Whether it’s for you or your little one…"): six years in the
+  NHS, children and adults, particular focus on paediatrics; feeling
+  listened to and heard; making sense of the nutrition advice out there.
+- Credentials (2026-10-22), About section list:
+  - HCPC registered (abbreviated — her choice)
+  - Member of the British Dietetic Association (BDA)
+  - Recognised by the Swiss Red Cross (SRC) (added 2026-11-11; moved from
+    first to third 2026-11-13. Text only: the Red Cross emblem is legally
+    protected, so no SRC logo in the logo strip)
+  - BSc Nutrition and Dietetics, Glasgow Caledonian University
+  - BDA-certified postgraduate module in Paediatric Nutrition and
+    Dietetics
+
+  She's UK-registered (HCPC/BDA) and her qualification is recognised in
+  Switzerland by the Swiss Red Cross (2026-11-11), where she'll practise
+  later.
+
+  **Launch audience: UK only** (Aaron, 2026-11-13). She has SRC recognition
+  but no Geneva cantonal registration yet, so at launch the site targets UK
+  clients: online video consultations, prices in £. Structured data and
+  directory listings use the UK / online as the service area. Swiss
+  practice (CHF prices, cantonal licence, ZSR number and health-insurance
+  reimbursement, canton as service area) comes once she's registered.
+
+- Hero photo (2026-11-04, from her "Preview: hero photo" artifact):
+  `assets/images/aoife-hero.jpg`, 510×510 JPEG (~39 KB, no EXIF/GPS),
+  alt "Aoife O’Neill, smiling, sitting on a sofa". Shown in the hero
+  circle with a `--mustard-light` ring (`.img-slot--photo`). A ~760px
+  version would look sharper on high-density screens if she has one.
+- Contact consultation offer (2026-11-04, from her "Preview: hero photo"
+  artifact): a `.consult-card` with "Book a free 15-minute consultation
+  call", a short description, and a "Book your free call" button, then
+  "Or contact me directly" above the email pill. **The button links to
+  her Cal.com booking page** (Aaron, 2026-11-09):
+  https://cal.com/aoifeoneill/free-15-minute-consultation-call — a plain
+  link, no embed or Cal.com script on the page. The plan is that bookings need her
+  approval ("Requires confirmation" in Cal.com). (Before 2026-11-09 it
+  opened an email.)
+- Email (2026-11-09, from her "Design Copy" canvas):
+  **aoife.oneill.practice@gmail.com**, on the contact email pill. If it
+  changes (e.g. to a custom domain address), update it and the test.
+- "How it works" (2026-11-09, from her "Design Copy" canvas; section
+  `#how-it-works`, no "Services" label or nav button, Aaron 2026-11-09):
+  just the three steps, each with a duration and
+  price line (`.service-meta`): 1. Discovery call — 15-minute phone call ·
+  Free; 2. Initial consultation — 60-minute video call · £100 (was £120 until
+  2026-11-13); 3.
+  Follow-up consultation — 45-minute video call · £60 · if required. The
+  old placeholder service cards were removed.
+- LinkedIn (2026-11-04): https://www.linkedin.com/in/aoife-o-neill-2a18a6262/
+  — a monochrome "in" icon link in the footer (`.social-link`, brown on
+  mustard, 44px target, `aria-label` "Aoife O’Neill on LinkedIn"). Use
+  this URL in JSON-LD `sameAs` at launch.
+- Registration and membership logos (2026-11-06, Aaron): a cream
+  `.credentials-band` strip above the footer, in this order: HCPC
+  registered, BDA member, Trust a Dietitian. Use **only the official
+  member/registrant files** (HCPC's "request logo" download; BDA's
+  bda.uk.com/memberlogo, renewed yearly), never the organisations'
+  corporate logos. Show them unaltered: no recolouring or redrawing (HCPC
+  forbids it), with clear space around each. The BDA member logo **must
+  link to bda.uk.com**. `hcpc-registered.png` and `trust-a-dietitian.png` (background made
+  transparent, colour unchanged) are in `assets/images/`, with
+  `bda-full-member-2026.png` (official file, resized only). **Swap the BDA
+  file each year** when the BDA issues the new member logo, and update its
+  alt text (year).
+- Testimonials section removed (2026-10-28, her request). The mustard
+  band went with it; mustard now only appears in the header, slim bar,
+  footer, buttons and icon tiles. Ask before bringing testimonials back.
+
+**Positioning** (chosen by Aoife, 2026-10-21): **children first,
+family-wide.** She specialises in paediatrics and also supports adults,
+but presented as part of supporting the family — not as an equal second
+audience. In practice: headline and the "How I can help" areas are about
+children (she kept all eight areas children-focused rather than adding a
+family/adult one; the family side comes through in other copy). Avoid
+long lists of unrelated adult services (weight loss, sports, menopause…),
+which would make her look like a generalist. Adult services are now the
+five she confirmed (2026-11-12, see the Adults list above), shown only
+behind the Children / Adults switch; don't add others without her.
 
 ## Design system
 
-Chosen with the user on 2026-09-26 from two references (nourishmentninja.co.uk,
-akindietitian.com). Tokens live in `:root` in `css/styles.css` — use them,
-don't add raw hex values.
+**Source of truth: Aoife's design canvas**, "Paediatric Dietitian Homepage"
+(https://claude.ai/artifact/RpXhG9qdSQyHPAVg9EoLmR), variant **E · Sun**
+(`project/Sun.dc.html`: cream + marigold + burnt sienna), adopted
+2026-10-20. It replaced the earlier sage/burnt-orange system. Colours,
+fonts and box styles come from her design; the section order and
+scroll-reveal flow are ours (her canvas copy — "Paediatric Dietitian",
+topic names — is not used, per the content policy). Tokens live in `:root`
+in `css/styles.css` — use them, don't add raw hex values.
 
-- **Palette** (sage with burnt-orange accent): `--cream` page bg,
-  `--cream-deep`/`--paper` cards, `--sage-light` bands and blobs, `--sage`
-  image placeholders, `--green-deep` headings, `--text-body` body text,
-  `--orange` decoration, `--orange-deep` buttons/links.
+- **Palette**: `--cream` page bg, `--mustard` header/footer and primary
+  buttons, `--mustard-light` image placeholders and button
+  hover, `--sienna` headings, links, outlines, `--brown-deep` text on
+  mustard, `--text` body text, `--line` hairline dividers, `--peach` /
+  `--peach-light` for the adult support tiles only (brown-deep on peach
+  is 5:1).
 - **Contrast rules** (WCAG AA — checked, don't regress):
-  - Filled buttons: cream on `--orange-deep`. Cream on `--orange` fails.
-  - Text on sage bands: `--green-deep`. `--text-body` on sage fails.
-  - `--orange` text only at ≥24px and only on cream. On sage, use
-    `--orange-deep`.
-- **Type**: Fraunces (headings), DM Sans (body), Caveat (handwritten
-  accent — max one or two uses on the whole page; currently hero + contact).
-- **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts.
-  Their CDN sends visitor IPs to Google, which EU courts ruled a GDPR issue;
-  a test enforces this.
-- **Decoration**: soft organic blobs (SVG behind image slots, or
-  `--radius-blob` shapes), curved wave dividers into/out of sage bands
-  (`.wave` / `.wave--flip`), simple line illustrations (inline SVG,
-  `.illo`, orange `.illo-accent` stroke). Keep it restrained.
-- **Images**: `.img-slot` placeholder blocks until real photos exist.
+  - On mustard, text is always `--brown-deep` (5.6:1). Cream on mustard
+    (2:1) and sienna on mustard (4.2:1) both fail.
+  - Sienna on cream and cream on sienna are fine (8.4:1).
+- **Type**: Montserrat (everything; light 300 for headings and the brand
+  name, uppercase with 0.18em tracking for the brand) and Cormorant
+  Garamond italic as the accent (tagline, one line under the hero headline,
+  the contact line, the About pronunciation line, support-area
+  subheadings).
+- **Fonts are self-hosted** from `assets/fonts/` — never link Google Fonts,
+  even though her canvas does. Their CDN sends visitor IPs to Google, which
+  EU courts ruled a GDPR issue; a test enforces this.
+- **Support-area icons** (Aoife's choice, 2026-10-22): the one place with
+  illustrations. Simple inline-SVG line drawings in `.help-icon` tiles —
+  `--mustard-light` tile, `--brown-deep` 2.2px rounded strokes, `--mustard`
+  accent fills (`.acc`), no white/cream. Decorative (`aria-hidden`); the
+  title below carries the meaning. The "MILK" label is SVG text inside the
+  HTML, so the French page must change it to "LAIT".
+- **Boxes — flat** elsewhere: no cards, shadows, blobs, waves or
+  illustrations. One exception, from her design: the contact
+  `.consult-card` (`--mustard-light`, 24px radius) for the free
+  consultation offer.
+  Outline pills (`.pill`, 1px sienna) for nav and contact links; filled pill
+  buttons (`.btn-primary` mustard, `.btn-sienna` on mustard backgrounds);
+  a circle photo in the hero; square-cornered 4:5 photo blocks; hairline
+  `--line` dividers between consecutive cream sections; services shown as
+  three numbered steps (sienna outline circles).
+- **Header**: tall mustard header (pear mark, brand name, tagline) with the
+  pill nav row beneath. A slim fixed `.sticky-bar` (name + "Get in touch")
+  slides in once the pill nav scrolls out of view (`main.js`), and is
+  `visibility: hidden` until then so it's out of the tab order.
+- **Tab icon (favicon)**: the header's pear on a rounded mustard square
+  (`--mustard-light` body, `--brown-deep` outline and leaf, bolder strokes
+  so it reads at 16–32px). `assets/favicon.svg` is the source; the
+  `favicon-32.png` and 180px `apple-touch-icon.png` (square corners —
+  iOS rounds them) are rendered from it with Playwright. If the pear or
+  colours change, update the SVG and re-render both PNGs. Hex values live
+  in the SVG because a favicon can't read CSS tokens.
+- **Images**: real photos live in `assets/images/` and sit in their slot
+  with `.img-slot--photo` (a ring of the slot colour, image cropped with
+  `object-fit: cover`). Check new photos for EXIF/GPS before committing.
+  The About portrait is `assets/images/aoife-about.jpg` (2026-11-06,
+  800×1000, cropped 4:5, no EXIF/GPS; alt "Aoife O’Neill, smiling,
+  wearing blue scrubs"), head-and-shoulders crop, square corners, and a wider ring than the hero
+  (`clamp(32px, 13%, 64px)`, Aaron 2026-11-06).
 - **Grids**: 3- and 4-item grids use explicit breakpoints (not `auto-fit`)
-  so a card is never orphaned on its own row.
+  so an item is never orphaned on its own row.
 - For new visual directions beyond this system, ask first.
 
 ## Branch strategy and release cycle
@@ -78,11 +353,29 @@ don't add raw hex values.
 - Branch protection is enabled on `main` (PR required, no direct pushes,
   including for repo admins — no bypass).
 
-**Feature flow**: branch off `dev` (`feature/*`, `chore/*`) → PR into `dev`
-→ Claude merges once CI is green. Each feature adds a line under
-`## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR after
-each feature** — features batch up on `dev` until the user asks for a
-release.
+**Scope each branch by its goal first** (Aaron, 2026-10-22). Before
+creating a branch, work out what the set of changes is trying to achieve
+and name the branch after that goal, not a date or "batch" (e.g.
+`content/about-section`, `feature/contact-form`, `chore/release-workflow`).
+Bundle changes that serve the same goal; when a request doesn't fit the
+current branch's goal, finish/send that branch first or start a separate
+one (ask if unsure). Each merge into `dev` should be one coherent unit
+with a PR description that states the goal.
+
+**Feature flow**: branch off `dev` (`feature/*`, `content/*`, `chore/*`) →
+**show the change in the browser panel and wait for the user's OK** →
+PR into `dev` → Claude merges once CI is green. Each feature adds a line
+under `## [Unreleased]` in CHANGELOG.md. **Don't open a `dev` → `main` PR
+after each feature** — features batch up on `dev` until the user asks for
+a release.
+
+**Show before merging** (Aaron, 2026-11-04): never merge into `dev` until
+the user has seen the change. Serve the branch with the `static-site`
+preview in the browser panel, scroll to the changed spot (check phone
+width too when layout changes), say what changed, and wait for an
+explicit OK. Docs-only changes: show the changed text instead. Keep the
+working tree on the branch being reviewed while waiting — the panel
+serves whatever is checked out. In Aoife mode her "send it" is that OK.
 
 **Release flow** (only when the user asks to cut/ship a release):
 1. On a `release/vX.Y.Z` branch off `dev`, turn `## [Unreleased]` into
@@ -111,8 +404,34 @@ deployment; tags identify which commit each release was.
 ## Deployment
 
 Static site — deploys to Vercel with zero config (no build command, output
-directory is the repo root). No custom domain yet; using Vercel's default
-subdomain until one is bought.
+directory is the repo root).
+
+**Domain** (bought 2026-11-12): `aoifeoneill.ch`, registered at Infomaniak,
+DNS on Infomaniak's nameservers. `www.aoifeoneill.ch` is the primary domain
+on the Vercel project; `aoifeoneill.ch` redirects (308) to it. Records at
+Infomaniak: `A @ → 76.76.21.21` and `CNAME www → cname.vercel-dns.com.`
+(Infomaniak's MX and SPF records are kept for email there). Production
+(`main`) serves on it. Since the pre-launch block is lifted on `dev`, the
+next release from `dev` is the public launch and must be `v1.0.0`.
+
+**Hardening** (2026-11-13, from the pre-launch review):
+- `.vercelignore` keeps everything except the site itself out of the
+  deployment. Before it, the live domain served `.claude/CLAUDE.md`, the
+  changelog, tests and CI config to anyone. When adding a new non-site file
+  or folder, add it there too; a `hardening:` test checks the key entries.
+- `vercel.json` (config only, still no build step) sets security headers on
+  every response: a strict Content-Security-Policy (everything same-origin;
+  the two inline Vercel analytics snippets allowed by **sha256 hash**),
+  `nosniff`, `X-Frame-Options: DENY`, a referrer policy and a permissions
+  policy. **If you change either inline `<script>` in `index.html`, update
+  its hash in `vercel.json`** — the `hardening:` test applies the headers
+  and fails on any CSP violation. Adding a third-party script, embed or
+  font means widening the CSP on purpose. The CSP also blocks Vercel's
+  preview toolbar (vercel.live) on previews; that's accepted.
+- It also 301-redirects the public `*.vercel.app` production aliases to
+  `https://www.aoifeoneill.ch` so there's one public copy.
+- `404.html` is a branded "page not found" page (noindex, link home);
+  Vercel serves it for unknown paths. It uses root-relative asset paths.
 
 Cloudflare Pages was dropped (2026-09-26) — Vercel is the sole host now.
 Don't reintroduce it or its config without being asked.
@@ -131,29 +450,71 @@ serves once the feature is enabled in the project dashboard), keeping the
 zero-build-step setup intact. Both routes only resolve on Vercel's own
 infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
+## Languages (French planned, on hold)
+
+A French version is planned. **On hold** (Aaron, 2026-11-13): the launch
+targets UK clients only (see "Launch audience" above), so `v1.0.0` launches
+in English alone. French gets built once she has her Geneva cantonal
+registration and starts taking Swiss clients. German may follow later
+depending on the canton — use the same pattern as French.
+
+Settled for when it's built (2026-11-13): **Swiss French** (`fr-CH`
+hreflang, Swiss usage where it differs), drafted by Claude and **reviewed
+by Aoife** in the panel before release.
+
+**Decided approach** (agreed 2026-09-27):
+- A separate static page, `fr/index.html`, sharing `css/`, `js/`, and
+  `assets/` with the English `index.html` at `/`. `lang="fr"` on its
+  `<html>`.
+- A plain-link "EN / FR" switcher in the header (no JS).
+- `hreflang` alternate links on both pages (`en`, `fr`, `x-default` → `/`).
+- No automatic redirect by browser language.
+- Rejected: a JS translation toggle (the French text wouldn't be in the HTML,
+  and most crawlers — nearly all AI crawlers — don't run JS); a static site
+  generator (breaks the no-build-step setup; revisit only if the site grows
+  to several pages); auto-translate widgets (quality risk for health
+  content, and they send visitor data to third parties).
+
+**Until then, keep the English page French-ready:**
+- All user-facing text lives in the HTML — never inside images, SVGs, or
+  JS strings.
+- Leave room in the header for the switcher.
+- No fixed-width buttons or tight text containers — French typically runs
+  15–20% longer.
+
+**When it's built:** a parity test so both pages keep the same section IDs,
+links, and structure; run the 375px overflow test on both pages; the
+`pre-launch:` noindex applies to `/fr/` too until launch; real French copy
+translated or reviewed by a fluent speaker (health content for parents —
+no raw machine translation). Prices on the French page follow whatever the
+Swiss practice decision is then (likely CHF).
+
 ## Search and AI discoverability
 
-**Current state: pre-launch block.** While content is placeholder, the site
-is kept out of search engines and AI models on purpose, so the first thing
-they learn about "Aoife" isn't a Coming Soon page:
-- `<meta name="robots" content="noindex, nofollow">` in `index.html` —
-  Google/Bing (and the AI search products that use their indexes) won't
-  list the page.
-- `robots.txt` blocks AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
-  Google-Extended, CCBot, etc.), which don't reliably honour `noindex`.
-  `User-agent: *` stays allowed — search engines must be able to fetch the
-  page to see the `noindex`. Never `Disallow: /` for everyone.
-- A `pre-launch:` test enforces both. Lift the block only as part of the
-  `v1.0.0` launch, never earlier.
+**Current state: launch-ready on `dev`** (2026-11-13). The pre-launch
+block is lifted on `dev` and goes public with the `v1.0.0` release:
+- No `noindex` meta; `robots.txt` allows everyone (AI crawlers included)
+  and points to `sitemap.xml`.
+- `index.html` has a real meta description, canonical
+  `https://www.aoifeoneill.ch/`, Open Graph/Twitter link-preview tags (hero
+  photo as the image) and JSON-LD: a `Person` (credentials, BDA membership,
+  GCU, LinkedIn `sameAs`) plus a `ProfessionalService` (UK as service area,
+  the three consultation prices in GBP). No phone number in it — a test
+  checks.
+- The `launch:` test enforces all of this. Keep the JSON-LD in step with
+  the page: credentials, prices, email and service area appear in both.
+- `sitemap.xml` has one URL; bump its `lastmod` when content changes
+  meaningfully.
 
-**Launch checklist** (do together with real content and the custom domain):
-1. Remove the `noindex` meta; in `robots.txt` remove the AI block and add a
-   `Sitemap:` line; delete or invert the `pre-launch:` test.
-2. Add `sitemap.xml`, a canonical URL, a real meta description, and Open
-   Graph tags for link previews.
-3. JSON-LD structured data: a `Person` plus a professional service (job
+**Launch checklist** (do together with real content and the custom
+domain; English only — French is on hold, see Languages):
+1. ~~Remove the `noindex` meta; open `robots.txt` with a `Sitemap:` line;
+   invert the `pre-launch:` test.~~ Done 2026-11-13.
+2. ~~Add `sitemap.xml`, a canonical URL, a real meta description, and Open
+   Graph tags for link previews.~~ Done 2026-11-13.
+3. ~~JSON-LD structured data: a `Person` plus a professional service (job
    title, specialism, service area, credentials/registration, `sameAs`
-   links to her profiles).
+   links to her profiles).~~ Done 2026-11-13.
 4. Copy that states plainly who she is, what she does, where (in person /
    online), and her qualifications and registration. Add a plain-language
    FAQ section with real parent questions — LLMs pick up Q&A well.
@@ -171,6 +532,26 @@ Longer term: a single page is one entry point. Separate pages or short
 articles on specific topics would help her appear for topic questions,
 not just searches for her name — a change to the one-page design, so ask
 first.
+
+## Future development notes (from the pre-launch review, 2026-11-13)
+
+- **Privacy notice:** not added (Aaron's call, 2026-11-13) because the site
+  itself collects nothing — enquiries go by email and bookings via Cal.com,
+  which only take contact details. Revisit if the site ever adds a form,
+  takes health details online, or adds cookies/tracking beyond Vercel's
+  cookieless analytics. Aoife should check whether she needs to pay the
+  ICO data protection fee for her practice records.
+- **Yearly:** swap the BDA member logo (and its alt text year); bump
+  `sitemap.xml` `lastmod` after meaningful content changes.
+- **Link previews:** a 1200×630 image from Aoife would give the large
+  preview card (currently the 510px square hero photo).
+- **Parked until Swiss practice starts:** French (fr-CH) / German pages,
+  CHF prices, ZSR and insurance, canton as service area.
+- **Parked content:** saying she works online with UK clients, a domain
+  email address, an FAQ section.
+- **Ideas:** topic pages or short articles (ask first — changes the
+  one-page design); a contact form (needs a form service, a privacy notice
+  and a CSP change); testimonials (check HCPC guidance on their use).
 
 ## Changelog policy
 

@@ -1,13 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { test, expect } from '@playwright/test';
 
 const SECTION_IDS = [
   'hero',
-  'is-this-you',
   'help',
   'about',
-  'services',
   'how-it-works',
-  'testimonials',
   'contact',
 ];
 
@@ -47,6 +46,159 @@ test('every planned section is present', async ({ page }) => {
   }
 });
 
+test('support areas: eight tiles, each with a decorative icon, heading and subheading', async ({ page }) => {
+  await page.goto('/');
+
+  const items = page.locator('#help [data-audience-panel="children"] .help-item');
+  await expect(items).toHaveCount(8);
+  for (const item of await items.all()) {
+    await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(item.locator('h3')).not.toBeEmpty();
+    await expect(item.locator('.help-sub')).not.toBeEmpty();
+  }
+  await expect(page.locator('#help')).toContainText('Restrictive eating');
+});
+
+test('support areas: the Children / Adults switch flips to the adult tiles and back', async ({ page }) => {
+  await page.goto('/');
+
+  const children = page.locator('[data-audience-panel="children"]');
+  const adults = page.locator('[data-audience-panel="adults"]');
+  const childrenButton = page.getByRole('button', { name: 'Children' });
+  const adultsButton = page.getByRole('button', { name: 'Adults' });
+
+  await expect(childrenButton).toHaveAttribute('aria-pressed', 'true');
+  await expect(children).toBeVisible();
+  await expect(adults).toBeHidden();
+
+  await adultsButton.click();
+  await expect(adultsButton).toHaveAttribute('aria-pressed', 'true');
+  await expect(childrenButton).toHaveAttribute('aria-pressed', 'false');
+  await expect(adults).toBeVisible();
+  await expect(children).toBeHidden();
+  await expect(adults.locator('.help-item h3')).toHaveText([
+    'Gastrointestinal disorders',
+    'Women’s health',
+    'Vegan and vegetarian diets',
+    'Weight management',
+    'Other nutritional concerns',
+  ]);
+  for (const item of await adults.locator('.help-item').all()) {
+    await expect(item.locator('.help-icon svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(item.locator('h3')).not.toBeEmpty();
+  }
+
+  await childrenButton.click();
+  await expect(children).toBeVisible();
+  await expect(adults).toBeHidden();
+});
+
+test('Swiss Red Cross recognition: in the hero intro and third in the credentials', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('#hero .lead')).toContainText('recognised by the Swiss Red Cross');
+  await expect(page.locator('#about .credentials li').nth(2)).toHaveText('Recognised by the Swiss Red Cross (SRC)');
+});
+
+test('hero photo loads and has alt text', async ({ page }) => {
+  await page.goto('/');
+
+  const photo = page.locator('#hero .img-slot--photo img');
+  await expect(photo).toHaveAttribute('alt', /\S/);
+  await expect
+    .poll(() => photo.evaluate((img) => img.complete && img.naturalWidth))
+    .toBeGreaterThan(0);
+});
+
+test('about portrait photo loads and has alt text', async ({ page }) => {
+  await page.goto('/');
+
+  const photo = page.locator('#about .img-slot--photo img');
+  await expect(photo).toHaveAttribute('alt', /\S/);
+  await photo.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => photo.evaluate((img) => img.complete && img.naturalWidth))
+    .toBeGreaterThan(0);
+});
+
+test('contact: free consultation card books through Cal.com', async ({ page }) => {
+  await page.goto('/');
+
+  const card = page.locator('#contact .consult-card');
+  await expect(card.locator('h3')).toHaveText(/free 15-minute consultation/i);
+  await expect(card.getByRole('link', { name: 'Book your free call' }))
+    .toHaveAttribute('href', 'https://cal.com/aoifeoneill/free-15-minute-consultation-call');
+});
+
+test('contact: the email link goes to Aoife’s email', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('#contact .contact-list a'))
+    .toHaveAttribute('href', 'mailto:aoife.oneill.practice@gmail.com');
+  await expect(page.locator('a[href*="example.com"]')).toHaveCount(0);
+});
+
+test('how it works: three steps, each with a title, duration and price', async ({ page }) => {
+  await page.goto('/');
+
+  const steps = page.locator('#how-it-works .steps > li');
+  await expect(steps).toHaveCount(3);
+  await expect(steps.locator('h3')).toHaveText(['Discovery call', 'Initial consultation', 'Follow-up consultation']);
+  await expect(steps.locator('.service-meta')).toHaveText([/Free/, /£100/, /£60/]);
+});
+
+test('tab icon (pear) files are linked and served', async ({ page, request }) => {
+  await page.goto('/');
+
+  const hrefs = await page.$$eval(
+    'link[rel="icon"], link[rel="apple-touch-icon"]',
+    (links) => links.map((l) => l.getAttribute('href'))
+  );
+  expect(hrefs).toEqual(
+    expect.arrayContaining(['assets/favicon.svg', 'assets/favicon-32.png', 'assets/apple-touch-icon.png'])
+  );
+  for (const href of hrefs) {
+    expect((await request.get(`/${href}`)).status(), href).toBe(200);
+  }
+});
+
+test('footer links to Aoife on LinkedIn', async ({ page }) => {
+  await page.goto('/');
+
+  const link = page.locator('.site-footer').getByRole('link', { name: /LinkedIn/ });
+  await expect(link).toHaveAttribute('href', /^https:\/\/www\.linkedin\.com\/in\//);
+  await expect(link).toBeVisible();
+});
+
+test('no phone number on the page: contact is email only', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(page.locator('a[href^="tel:"]')).toHaveCount(0);
+  const text = await page.locator('body').innerText();
+  expect(text).not.toMatch(/(\+44|\b0)\s?7\d{3}\s?\d{6}/);
+});
+
+test('registration and membership logos: HCPC, BDA (linked to the BDA), Trust a Dietitian', async ({ page }) => {
+  await page.goto('/');
+
+  const logos = page.locator('.credentials-band .credential-logos > li');
+  await expect(logos).toHaveCount(3);
+  await expect(logos.nth(1).getByRole('link', { name: /BDA/ })).toHaveAttribute('href', /^https:\/\/www\.bda\.uk\.com/);
+});
+
+test('registration and membership logos: HCPC first, Trust a Dietitian last, loaded with alt text', async ({ page }) => {
+  await page.goto('/');
+
+  const logos = page.locator('.credentials-band .credential-logos > li');
+  await expect(logos.first().locator('img')).toHaveAttribute('alt', 'HCPC registered');
+  await expect(logos.last().locator('img')).toHaveAttribute('alt', 'Trust a Dietitian');
+  const imgs = page.locator('.credentials-band img');
+  await imgs.first().scrollIntoViewIfNeeded();
+  for (const img of await imgs.all()) {
+    await expect.poll(() => img.evaluate((el) => el.complete && el.naturalWidth)).toBeGreaterThan(0);
+  }
+});
+
 test('every in-page link points at an element that exists', async ({ page }) => {
   await page.goto('/');
 
@@ -74,7 +226,7 @@ test('reduced motion shows all content without scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
 
-  await expect(page.locator('#contact .contact-panel')).toHaveCSS('opacity', '1');
+  await expect(page.locator('#contact .contact')).toHaveCSS('opacity', '1');
 });
 
 test('no horizontal overflow on a small phone', async ({ page }) => {
@@ -88,19 +240,34 @@ test('no horizontal overflow on a small phone', async ({ page }) => {
 });
 
 // Pre-launch only: delete or invert this test as part of the v1.0.0 launch.
-test('pre-launch: page is noindex and AI crawlers are blocked', async ({ page, request }) => {
+test('launch: indexable, with sitemap, canonical, link previews and structured data', async ({ page, request }) => {
   await page.goto('/');
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  // No noindex any more: search engines and AI crawlers may list the page.
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
 
   const robots = await (await request.get('/robots.txt')).text();
-  const groups = robots.split(/\n\s*\n/);
-  const aiGroup = groups.find((g) => /User-agent: GPTBot/.test(g));
-  const catchAll = groups.find((g) => /User-agent: \*/.test(g));
+  expect(robots).not.toMatch(/^Disallow: \/$/m);
+  expect(robots).toMatch(/^Sitemap: https:\/\/www\.aoifeoneill\.ch\/sitemap\.xml$/m);
 
-  expect(aiGroup).toMatch(/User-agent: ClaudeBot/);
-  expect(aiGroup).toMatch(/^Disallow: \/$/m);
-  // Search engines must still be able to fetch the page to see the noindex.
-  expect(catchAll).not.toMatch(/^Disallow: \/$/m);
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.ok()).toBe(true);
+  expect(await sitemap.text()).toContain('<loc>https://www.aoifeoneill.ch/</loc>');
+
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.aoifeoneill.ch/');
+  await expect(page.locator('meta[name="description"]')).not.toHaveAttribute('content', /coming soon/i);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Aoife O’Neill/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\/www\.aoifeoneill\.ch\/assets\/images\/aoife-hero\.jpg$/);
+  // The preview image must exist at the path the absolute URL points to.
+  expect((await request.get('/assets/images/aoife-hero.jpg')).ok()).toBe(true);
+
+  const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+  const types = ld['@graph'].map((n) => n['@type']);
+  expect(types).toEqual(expect.arrayContaining(['Person', 'ProfessionalService']));
+  const person = ld['@graph'].find((n) => n['@type'] === 'Person');
+  expect(person.name).toBe('Aoife O’Neill');
+  expect(person.sameAs).toContain('https://www.linkedin.com/in/aoife-o-neill-2a18a6262/');
+  // Structured data must not reintroduce a phone number.
+  expect(JSON.stringify(ld)).not.toMatch(/telephone|tel:/i);
 });
 
 test('fonts are self-hosted, never fetched from Google', async ({ page }) => {
@@ -116,5 +283,69 @@ test('fonts are self-hosted, never fetched from Google', async ({ page }) => {
 
   expect(fontRequests.some((url) => /fonts\.(googleapis|gstatic)\.com/.test(url))).toBe(false);
   expect(fontRequests.some((url) => url.includes('/assets/fonts/'))).toBe(true);
-  expect(await page.evaluate(() => document.fonts.check('500 1em Fraunces'))).toBe(true);
+  expect(await page.evaluate(() => document.fonts.check('300 1em Montserrat'))).toBe(true);
+  expect(await page.evaluate(() => document.fonts.check('italic 400 1em "Cormorant Garamond"'))).toBe(true);
+});
+
+test('slim sticky bar appears only after scrolling past the nav', async ({ page }) => {
+  await page.goto('/');
+
+  const bar = page.locator('[data-sticky-bar]');
+  await expect(bar).not.toHaveClass(/is-shown/);
+  await expect(bar).toBeHidden();
+
+  await page.locator('#about').scrollIntoViewIfNeeded();
+  await expect(bar).toHaveClass(/is-shown/);
+  await expect(bar.getByRole('link', { name: 'Get in touch' })).toBeVisible();
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(bar).not.toHaveClass(/is-shown/);
+});
+
+test('hardening: the page runs cleanly under the production security headers', async ({ page }) => {
+  // vercel.json sets the headers on Vercel; the local server doesn't, so
+  // apply them here and fail on any Content-Security-Policy violation (e.g.
+  // an inline script edited without updating its hash in vercel.json).
+  const vercel = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json')));
+  const headers = Object.fromEntries(vercel.headers[0].headers.map((h) => [h.key, h.value]));
+  expect(headers['Content-Security-Policy']).toMatch(/frame-ancestors 'none'/);
+  expect(headers['X-Content-Type-Options']).toBe('nosniff');
+
+  const violations = [];
+  page.on('console', (msg) => {
+    if (/Content Security Policy/i.test(msg.text())) violations.push(msg.text());
+  });
+  await page.route('**/', async (route) => {
+    if (route.request().resourceType() !== 'document') return route.fallback();
+    const response = await route.fetch();
+    await route.fulfill({ response, headers: { ...response.headers(), ...headers } });
+  });
+
+  await page.goto('/');
+  await page.locator('[data-audience="adults"]').click();
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(500);
+  expect(violations).toEqual([]);
+});
+
+test('hardening: project files are excluded from the deployment', async () => {
+  // Without these, the live domain would serve internal notes and tooling.
+  const ignored = fs.readFileSync(path.join(__dirname, '..', '.vercelignore'), 'utf8')
+    .split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+  for (const path of ['.claude', '.github', 'tests', 'CHANGELOG.md', 'README.md',
+    'package.json', 'playwright.config.js', '.htmlvalidate.json']) {
+    expect(ignored).toContain(path);
+  }
+  // The site's own files must never be ignored.
+  for (const path of ['index.html', '404.html', 'css', 'js', 'assets', 'robots.txt', 'sitemap.xml']) {
+    expect(ignored).not.toContain(path);
+  }
+});
+
+test('404 page is branded, not indexed, and links home', async ({ page }) => {
+  await page.goto('/404.html');
+  await expect(page.locator('h1')).toContainText('doesn’t exist');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  await expect(page.locator('main a[href="/"]')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB');
 });
