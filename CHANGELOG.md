@@ -51,6 +51,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Removed
 
+- "How I can help": the intro line "1:1 video consultations from the
+  comfort of your home" under the heading.
 - Phone number from the Contact section: contact and booking are by
   email only.
 - The testimonials ("Kind words") section and its mustard band, at

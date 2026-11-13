@@ -117,8 +117,9 @@ only when Aaron releases, and the pre-launch block still applies):
   **Aoife O’Neill**, "Paediatric and Adult Dietitian" (was "Paediatric
   and Family Dietitian") — header italic tagline and page `<title>`; the
   slim bar and footer show the name only.
-- "How I can help" intro line (2026-11-12, her wording): "1:1 video
-  consultations from the comfort of your home".
+- "How I can help" has no intro line under the heading (Aaron,
+  2026-11-13: removed "1:1 video consultations from the comfort of your
+  home" as it pointed to the wrong place, sitting above the support tiles).
 - Hero headline (2026-10-28, replacing the 2026-10-21 one; "to" changed
   to "through" 2026-11-12, her request): "Evidence-based nutrition
   guidance from infancy through adulthood." Her wording. "Infancy"
