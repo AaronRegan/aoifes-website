@@ -70,6 +70,8 @@ it automatically (see `.github/workflows/release.yml`).
 
 ### Changed
 
+- Free-call card: wording now fits adults as well as children (“…whether
+  it’s for you or your little one…”).
 - Page language set to British English (en-GB); curly apostrophe in
   "Hi, I’m Aoife".
 - Adults pea pod icon: tidier stalk (one curved stem with two small leaves).
