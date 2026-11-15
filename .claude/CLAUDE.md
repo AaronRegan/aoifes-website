@@ -383,7 +383,11 @@ serves whatever is checked out. In Aoife mode her "send it" is that OK.
    it) → PR into `dev` → merge.
 2. Open a PR `dev` → `main` titled `Release vX.Y.Z`, with the changelog
    section as the body.
-3. The user reviews and merges it. **Claude never merges into `main`.**
+3. The user reviews and merges it with **"Create a merge commit"**, not
+   squash — squashing gives `main` a commit `dev` doesn't have, so the
+   branches drift and the next release PR repeats old changes.
+   **Claude never merges into `main`.** (Feature PRs into `dev` are
+   squash-merged.)
 4. `.github/workflows/release.yml` runs on the push to `main`: it reads the
    newest `## [X.Y.Z]` heading, creates tag `vX.Y.Z` and a GitHub Release
    with that section as notes. It skips (with a warning) if that version
@@ -409,10 +413,13 @@ directory is the repo root).
 **Domain** (bought 2026-11-12): `aoifeoneill.ch`, registered at Infomaniak,
 DNS on Infomaniak's nameservers. `www.aoifeoneill.ch` is the primary domain
 on the Vercel project; `aoifeoneill.ch` redirects (308) to it. Records at
-Infomaniak: `A @ → 76.76.21.21` and `CNAME www → cname.vercel-dns.com.`
-(Infomaniak's MX and SPF records are kept for email there). Production
-(`main`) serves on it. Since the pre-launch block is lifted on `dev`, the
-next release from `dev` is the public launch and must be `v1.0.0`.
+Infomaniak (updated 2026-11-15 to Vercel's current recommendation):
+two `A @` records → `216.198.79.1` and `64.29.17.1`, and
+`CNAME www → 14b32c0c16ff566e.vercel-dns-017.com.` (project-specific).
+The old `76.76.21.21` / `cname.vercel-dns.com.` still work as Vercel's
+fallback. Keep the email records (MX, SPF, `_dmarc`, `autoconfig` /
+`autodiscover`) and the `google-site-verification` TXT (Search Console,
+Domain property) untouched. Live since `v1.0.0` (2026-11-13).
 
 **Hardening** (2026-11-13, from the pre-launch review):
 - `.vercelignore` keeps everything except the site itself out of the
@@ -491,8 +498,8 @@ Swiss practice decision is then (likely CHF).
 
 ## Search and AI discoverability
 
-**Current state: launch-ready on `dev`** (2026-11-13). The pre-launch
-block is lifted on `dev` and goes public with the `v1.0.0` release:
+**Current state: live** (`v1.0.0`, 2026-11-13). The pre-launch block is
+lifted; the site is in Google Search Console (Domain property):
 - No `noindex` meta; `robots.txt` allows everyone (AI crawlers included)
   and points to `sitemap.xml`.
 - `index.html` has a real meta description, canonical
