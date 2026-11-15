@@ -8,6 +8,11 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Changed
+
+- Project notes: new DNS records for Vercel, release PRs use a merge
+  commit, and the site is recorded as live.
+
 ## [1.0.0] — 2026-11-13
 
 Public launch on https://www.aoifeoneill.ch, in English, for UK clients
