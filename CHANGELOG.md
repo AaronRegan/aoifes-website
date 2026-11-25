@@ -8,6 +8,12 @@ it automatically (see `.github/workflows/release.yml`).
 
 ## [Unreleased]
 
+### Added
+
+- French (Swiss French) version of the page at /fr/, with an EN / FR
+  switcher in the header. A draft for Aoife to review: kept out of search
+  results until she approves it.
+
 ### Changed
 
 - Project notes: new DNS records for Vercel, release PRs use a merge

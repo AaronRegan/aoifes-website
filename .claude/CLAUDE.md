@@ -352,6 +352,10 @@ in `css/styles.css` — use them, don't add raw hex values.
   Vercel login). Never the production domain.
 - Branch protection is enabled on `main` (PR required, no direct pushes,
   including for repo admins — no bypass).
+- `dev` has its own ruleset (2026-11-15): deletion and force-pushes
+  blocked, nothing else. GitHub auto-deletes merged feature branches
+  ("Automatically delete head branches"); the `dev` ruleset is what stops
+  it deleting `dev` after a release PR.
 
 **Scope each branch by its goal first** (Aaron, 2026-10-22). Before
 creating a branch, work out what the set of changes is trying to achieve
@@ -457,17 +461,43 @@ serves once the feature is enabled in the project dashboard), keeping the
 zero-build-step setup intact. Both routes only resolve on Vercel's own
 infra, so `tests/site.spec.js` stubs them to avoid 404 noise elsewhere.
 
-## Languages (French planned, on hold)
+## Languages (French draft on `dev`, in review)
 
-A French version is planned. **On hold** (Aaron, 2026-11-13): the launch
-targets UK clients only (see "Launch audience" above), so `v1.0.0` launches
-in English alone. French gets built once she has her Geneva cantonal
-registration and starts taking Swiss clients. German may follow later
-depending on the canton — use the same pattern as French.
+**Status** (Aaron, 2026-11-25): the Swiss French page is built and on `dev`
+for Aoife to review (it was on hold from 2026-11-13). `v1.0.0` launched in
+English alone. German may follow later depending on the canton — use the
+same pattern as French.
 
-Settled for when it's built (2026-11-13): **Swiss French** (`fr-CH`
-hreflang, Swiss usage where it differs), drafted by Claude and **reviewed
-by Aoife** in the panel before release.
+**What's built:** `fr/index.html` (`lang="fr-CH"`, root-relative asset
+paths), an EN / FR switcher (`.lang-switch`, top-right of the header,
+`aria-current` on the active language), "LAIT" on the milk bottle, no
+JSON-LD on the French page (one description of Aoife, on the English page).
+Prices stay in £, like the English page. **While in review it is kept out
+of search results:** `noindex` on `/fr/`, not in `sitemap.xml`, and no
+`hreflang` links yet. Note the switcher is on the English page, so the next
+release from `dev` makes `/fr/` reachable on the live site (still noindex).
+
+**When Aoife approves it:** remove the `noindex`, add `hreflang` alternate
+links to both pages (`en`, `fr-CH`, `x-default` → `/`), add `/fr/` to
+`sitemap.xml`, and update the `French page` tests that check the review
+state.
+
+**Keeping the two pages in step:** every copy or markup change to
+`index.html` must be made in `fr/index.html` too (translated). The
+`French page` parity test fails if sections, tile/step/credential/logo
+counts, in-page links or outside links differ.
+
+**Points flagged for Aoife's review** (2026-11-25): "PMOS" kept as-is
+(confirm the French term she wants); pronunciation line «Ifa» for "Eefa";
+title "Diététicienne pour enfants et adultes" (check this is the title she
+may use in Switzerland with SRC recognition); "Suivi de la croissance" /
+"cassure de la courbe de croissance" for growth concerns; "fondés sur les
+preuves" for evidence-based; gender-neutral rewording of "feel listened
+to and heard". The Cal.com booking page itself is still in English.
+
+Settled (2026-11-13): **Swiss French** (`fr-CH`, Swiss usage where it
+differs; formal "vous"; narrow no-break space before ! ? ; :), drafted by
+Claude and **reviewed by Aoife** in the panel before it goes live.
 
 **Decided approach** (agreed 2026-09-27):
 - A separate static page, `fr/index.html`, sharing `css/`, `js/`, and
@@ -489,12 +519,8 @@ by Aoife** in the panel before release.
 - No fixed-width buttons or tight text containers — French typically runs
   15–20% longer.
 
-**When it's built:** a parity test so both pages keep the same section IDs,
-links, and structure; run the 375px overflow test on both pages; the
-`pre-launch:` noindex applies to `/fr/` too until launch; real French copy
-translated or reviewed by a fluent speaker (health content for parents —
-no raw machine translation). Prices on the French page follow whatever the
-Swiss practice decision is then (likely CHF).
+Prices on the French page follow the Swiss practice decision once she's
+registered (likely CHF); until then they match the English page.
 
 ## Search and AI discoverability
 
