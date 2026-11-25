@@ -220,6 +220,40 @@ a:hover { color: var(--brown-deep); }
 
 .brand:hover { color: var(--brown-deep); }
 
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* EN / FR switcher: plain links, top-right of the header (brown on mustard). */
+.lang-switch {
+  display: flex;
+  gap: 0.25rem;
+  flex: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+}
+
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--brown-deep);
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.lang-switch a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.lang-switch a[aria-current="page"] {
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px var(--brown-deep);
+}
+
 .brand-mark {
   flex: none;
   width: clamp(52px, 40px + 3vw, 76px);

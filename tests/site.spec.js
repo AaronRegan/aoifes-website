@@ -337,7 +337,7 @@ test('hardening: project files are excluded from the deployment', async () => {
     expect(ignored).toContain(path);
   }
   // The site's own files must never be ignored.
-  for (const path of ['index.html', '404.html', 'css', 'js', 'assets', 'robots.txt', 'sitemap.xml']) {
+  for (const path of ['index.html', '404.html', 'fr', 'css', 'js', 'assets', 'robots.txt', 'sitemap.xml']) {
     expect(ignored).not.toContain(path);
   }
 });
@@ -348,4 +348,82 @@ test('404 page is branded, not indexed, and links home', async ({ page }) => {
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
   await expect(page.locator('main a[href="/"]')).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en-GB');
+});
+
+// --- French page (/fr/): Swiss French draft for Aoife's review -------------
+test.describe('French page', () => {
+  test('parity: same sections, tiles, steps, logos and outside links as the English page', async ({ page }) => {
+    const shape = async (url) => {
+      await page.goto(url);
+      return page.evaluate(() => ({
+        sections: [...document.querySelectorAll('main section[id]')].map((s) => s.id),
+        children: document.querySelectorAll('[data-audience-panel="children"] .help-item').length,
+        adults: document.querySelectorAll('[data-audience-panel="adults"] .help-item').length,
+        steps: document.querySelectorAll('.steps > li').length,
+        credentials: document.querySelectorAll('.credentials li').length,
+        logos: document.querySelectorAll('.credential-logos img').length,
+        inPage: [...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')),
+        outside: [...document.querySelectorAll('a[href^="http"], a[href^="mailto:"]')].map((a) => a.href).sort(),
+      }));
+    };
+    expect(await shape('/fr/')).toEqual(await shape('/'));
+  });
+
+  test('is Swiss French, kept out of search results while in review, and links back to English', async ({ page, request }) => {
+    await page.goto('/fr/');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr-CH');
+    await expect(page).toHaveTitle(/Diététicienne/);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.aoifeoneill.ch/fr/');
+    await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
+    // Not advertised to search engines until approved.
+    expect(await (await request.get('/sitemap.xml')).text()).not.toContain('/fr/');
+
+    await expect(page.locator('.lang-switch a[aria-current="page"]')).toHaveText('FR');
+    await page.locator('.lang-switch a', { hasText: 'EN' }).click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.locator('.lang-switch a[aria-current="page"]')).toHaveText('EN');
+    await page.locator('.lang-switch a', { hasText: 'FR' }).click();
+    await expect(page).toHaveURL(/\/fr\/$/);
+  });
+
+  test('no English left on the page, and the milk bottle says LAIT', async ({ page }) => {
+    await page.goto('/fr/');
+    const text = await page.locator('body').innerText();
+    for (const phrase of ['Get in touch', 'How I can help', 'How it works', 'Book your free call',
+      'Children', 'Adults', 'Credentials', 'All rights reserved', 'Discovery call', 'Hi, I']) {
+      expect(text).not.toContain(phrase);
+    }
+    await expect(page.locator('svg text', { hasText: 'LAIT' })).toHaveCount(1);
+    await expect(page.locator('svg text', { hasText: 'MILK' })).toHaveCount(0);
+  });
+
+  test('loads cleanly, the Enfants / Adultes switch works, and nothing overflows on a phone', async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', (err) => errors.push(String(err)));
+    page.on('console', (msg) => { if (msg.type() === 'error') errors.push(msg.text()); });
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/fr/');
+    await page.locator('[data-audience="adults"]').click();
+    await expect(page.locator('[data-audience-panel="adults"]')).toBeVisible();
+    await expect(page.locator('[data-audience-panel="adults"] h3').first()).toHaveText('Troubles gastro-intestinaux');
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+    expect(errors).toEqual([]);
+  });
+
+  test('runs cleanly under the production security headers', async ({ page }) => {
+    const vercel = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json')));
+    const headers = Object.fromEntries(vercel.headers[0].headers.map((h) => [h.key, h.value]));
+    const violations = [];
+    page.on('console', (msg) => { if (/Content Security Policy/i.test(msg.text())) violations.push(msg.text()); });
+    await page.route('**/fr/', async (route) => {
+      const response = await route.fetch();
+      await route.fulfill({ response, headers: { ...response.headers(), ...headers } });
+    });
+    await page.goto('/fr/');
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(500);
+    expect(violations).toEqual([]);
+  });
 });
